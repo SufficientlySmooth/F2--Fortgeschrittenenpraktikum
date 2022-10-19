@@ -1,0 +1,215 @@
+\ProvidesPackage{requiredPackages}
+
+\usepackage{amsmath, lmodern, graphicx, float}
+\usepackage[ngerman]{babel}
+\usepackage{caption}
+\usepackage[frenchlinks=false]{hyperref}\urlstyle{same}
+\usepackage{chngcntr, tocloft}
+\usepackage{csvsimple}
+\usepackage{mathtools}
+\usepackage{listings}
+\usepackage{placeins}
+\usepackage{longtable}
+\usepackage{csvsimple}
+\usepackage{accents}
+\usepackage{cleveref}
+\usepackage{makecell}
+\usepackage{pdfpages}
+\usepackage{afterpage}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{makeidx}
+\usepackage{enumitem}
+\usepackage{colonequals } % for :\iff
+\usepackage{bbm} % for unit matrix
+\usepackage{ stmaryrd }%for lightning
+\renewcommand\theadalign{bc}
+\renewcommand\theadfont{\bfseries}
+\renewcommand\theadgape{\Gape[4pt]}
+\renewcommand\cellgape{\Gape[4pt]}
+
+\lstset{
+numbers=left, 
+numberstyle=\small, 
+numbersep=8pt, 
+frame = single, 
+language=python, 
+framexleftmargin=18pt,
+breaklines=True}
+%setup
+
+
+\numberwithin{equation}{section}
+
+%\floatstyle{boxed}
+
+\newfloat{imEnv}{pht}{nfl}[section]
+\floatname{imEnv}{Abbildung}
+\restylefloat{imEnv}
+
+
+\newfloat{plEnv}{pht}{nfl}[section]
+\floatname{plEnv}{Plot}
+\restylefloat{plEnv}
+
+\newfloat{codEnv}{pht}{nfl}[section]
+\floatname{codEnv}{Programmcode}
+\restylefloat{codEnv}
+
+\captionsetup[plEnv]{labelfont=bf, textfont=normalfont, labelsep=space}
+\captionsetup[imEnv]{labelfont=bf, textfont=normalfont, labelsep=space}
+\captionsetup[codEnv]{labelfont=bf, textfont=normalfont, labelsep=space}
+
+\renewcommand{\cftsubsecfont}{\normalfont\bfseries}%\sffamily}
+\renewcommand{\cftsecfont}{\normalfont\bfseries}%\sffamily}
+\setkomafont{section}{\large\normalfont\bfseries\upshape}
+\setkomafont{subsection}{\large\normalfont\bfseries\upshape}
+\setkomafont{subsubsection}{\large\normalfont\bfseries\upshape}
+\renewcommand{\cfttoctitlefont}{\Large\normalfont\bfseries}
+%\setkomafont{tableofcontents}{\Large\normalfont\bfseries\upshape}
+%\renewcommand{\vec}{\boldsymbol}
+\renewcommand{\vec}{\accentset{\rightharpoonup}}
+%definitions
+
+
+\newcommand{\code}[4]
+{
+\begin{codEnv}[H]
+\lstinputlisting[language=#3,basicstyle=\small]{#4}
+\caption{#2}
+\label{#1}
+\end{codEnv}
+}
+
+%argumente: Labelname, Beschreibung/titel, Breiten-Skalierungsfaktor, Dateiname
+\newcommand{\plot}[4]{
+\begin{plEnv}[H]
+\centerline{ \includegraphics[width=#3\textwidth]{#4}  } 
+\caption{#2}
+\label{#1}
+\end{plEnv}
+}
+
+\newcommand{\plotref}[1]{
+\hyperref[#1]{Plot \getrefnumber{#1}}
+}
+\newcommand{\coderef}[1]{
+\hyperref[#1]{Programmcode \getrefnumber{#1}}
+}
+
+%argumente: Labelname, Beschreibung/titel, Breiten-Skalierungsfaktor, Dateiname
+\newcommand{\image}[4]{
+\begin{imEnv}[H]
+\centerline{ \includegraphics[width=#3\textwidth]{#4}  } 
+\caption{#2} 
+\label{#1}
+\end{imEnv}
+}
+
+\newcommand{\bref}[1]{
+\hyperref[#1]{Abbildung \getrefnumber{#1}}
+}
+
+\newtheoremstyle{note}% <name>
+{3pt}% <Space above>
+{3pt}% <Space below>
+{}% <Body font>
+{}% <Indent amount>
+{\bfseries}% <Theorem head font>
+{:}% <Punctuation after theorem head>
+{.5em}% <Space after theorem headi>
+{}% <Theorem head spec (can be left empty, meaning `normal')>
+
+\newcommand{\dt}{\mathrm{d}t}
+\newcommand{\dx}{\mathrm{d}x}
+\newcommand{\ddx}{\frac{\mathrm{d}}{\dx}}
+\newcommand{\ddt}{\frac{\mathrm{d}}{\mathrm{d}t}}
+\newcommand{\ddtt}{\frac{\mathrm{d}^2}{\mathrm{d}t^2}}
+\newcommand{\pdd}[1]{\frac{\partial}{\partial#1}}
+\newcommand{\pddd}[1]{\frac{\partial^2}{\partial#1^2}}
+\newcommand{\unit}[1]{\ \mathrm{#1}}
+\newcommand{\Grqq}{\grqq\ }
+\newcommand{\Glqq}{\glqq}
+
+\newcommand{\Sum}{\sum\limits}
+\newcommand{\Sup}{\sup\limits}
+\newcommand{\Inf}{\inf\limits}
+\newcommand{\Lim}{\lim\limits}
+\newcommand{\Min}{\min\limits}
+\newcommand{\Max}{\max\limits}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\R}{{\mathbb R}}
+\newcommand{\N}{{\mathbb N}}
+\newcommand{\Z}{{\mathbb Z}}
+\newcommand{\Q}{{\mathbb Q}}
+\newcommand{\F}{{\mathbb F}}
+\newcommand{\C}{{\mathbb C}}
+\newcommand{\K}{{\mathbb K}}
+\newcommand{\underneath}[2]{\underset{\substack{#1}}{#2}}
+\newcommand{\undereq}[1]{\underset{\substack{#1}}{=}}
+\newcommand{\<}{\langle}
+\renewcommand{\>}{\rangle}  
+\newcommand{\liminfty}[1]{\Lim_{#1\rightarrow\infty}}
+\renewcommand{\Re}{\mathrm{Re}}
+\renewcommand{\Im}{\mathrm{Im}}
+\newcommand{\TwoDVector}[2]{\begin{pmatrix}#1\\ #2\end{pmatrix}}
+\newcommand{\ThreeDVector}[3]{\begin{pmatrix}#1\\ #2\\ #3\end{pmatrix}}
+
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+
+\theoremstyle{theorem}
+\newtheorem{hsatz}{Satz}[section]
+\newtheorem{hlemma}{Lemma}[section]
+\newtheorem{hkorollar}{Korollar}[section]
+\newtheorem{hdf}{Definition}[section]
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+
+\theoremstyle{note}
+\newtheorem{hbew}{Beweis}[section]
+\newtheorem{hbsp}{Beispiel}[section]
+\newtheorem{hbem}{Bemerkung}[section]
+\newtheorem{hnot}{Notation}[section]
+
+\newcommand{\thistheoremname}{}
+\newenvironment{bsp}
+  {
+   \begin{hbsp}}
+  {\end{hbsp}}
+\newenvironment{satz}
+  {
+   \begin{hsatz}}
+  {\end{hsatz}}
+\newenvironment{lemma}
+  {
+   \begin{hlemma}}
+  {\end{hlemma}}
+\newenvironment{df}
+  {
+   \begin{hdf}}
+  {\end{hdf}}
+\newenvironment{bew}
+  {
+   \begin{hbew}}
+  {\end{hbew}}
+\newenvironment{kor}
+  {
+   \begin{hkorollar}}
+  {\end{hkorollar}}
+\newenvironment{bem}
+  {
+   \begin{hbem}}
+  {\end{hbem}}
+\newenvironment{notat}
+  {
+   \begin{hnot}}
+  {\end{hnot}}
+    
+\newcommand{\thisindex}[1]{#1\index{#1}}
+
+\newcommand\x{\times}
+\newcommand*{\bord}{\multicolumn{1}{c|}{}}
+  
+  
+  
+  

@@ -1,0 +1,94 @@
+\documentclass[11pt,a4paper,oneside]{scrartcl}
+\usepackage{requiredPackages}
+\usepackage{subfig}
+\interfootnotelinepenalty=10000
+\titlehead{P2}
+\author{Jan-Philipp Christ (Mat.-Nr. 12231979) \\\\\textsc{LMU München}}
+\def\UrlBreaks{\do/\do-\do_}
+\begin{document}
+\includepdf[pages=-]{NMR-B_P3B_Auswertung.pdf}
+%\begin{titlepage}
+%	\centering
+%	{\scshape\LARGE Ludwig-Maximilians-Universität \linebreak München \par}
+%	\vspace{1cm}
+%	{\scshape\Large Fortgeschrittenenpraktikum in \par Experimentalphysik \linebreak P3A\par}
+%	\vspace{1.5cm}
+%	{\huge\bfseries \par RAD-Radioaktivität\\ Durchführungsplan und Protokoll\par}
+%	\vspace{2cm}
+%	{\Large\itshape Horst Fenske und Jan-Philipp Christ \par}
+%	\vfill
+
+%	{\large München, den \today\par}
+%\end{titlepage}
+%\includepdf[pages=-]{RAD_P3B.pdf}
+\begin{titlepage}
+	\centering
+	{\scshape\LARGE Ludwig-Maximilians-Universität \linebreak München \par}
+	\vspace{1cm}
+	{\scshape\Large Fortgeschrittenenpraktikum in \par Experimentalphysik \linebreak P3A\par}
+	\vspace{1.5cm}
+	{\huge\bfseries \par  NMR-B: Gepulste Kernspinresonanz\\Auswertung\par}
+	\vspace{2cm}
+	{\Large\itshape Horst Fenske und Jan-Philipp Christ \par}
+	\vfill
+	{\large München, den \today\par}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+\section{Teilversuch 1: Vorbereiten zum Ein-Puls-Betrieb}
+Keine Auswertung vorgesehen
+\section{Teilversuch 2: Ein-Puls-Betrieb, $\mathbf{T_2^*}$}
+Die Spin-Gitter-Relaxationszeit $T_2^*$ wurde zu 
+$$
+T_2^*=(8.335\pm 0.1)\ \mathrm{ms}
+$$
+bestimmt. Die Unsicherheit wurde anhand des Rauschens und der daraus erwachsenden Schwierigkeit, mit dem Trigger den $\frac{1}{e}$-Wert des ENV-Out Signals (zweiter Ausdruck im Protokoll) exakt einzustellen, geschätzt.
+\section{Teilversuch 3: Zwei-Puls-Betrieb: $\mathbf{\frac{\pi}{2}-\pi}$-Pulsfolge (Spin-Echo)}
+Mit Gleichung (15) aus der Versuchsanleitung folgt:
+$$
+M_{x/y}=M_z^{\mathrm{max}}e^{-\frac{t}{T_2}}\Rightarrow T_2=\frac{t}{\mathrm{ln}\left(\frac{M_z^{\mathrm{max}}}{M_{x/y}}\right)}
+$$
+Nun ist die Magnetisierung proportional zur Spannung, und damit $M_z^{\mathrm{max}}$ proportional zur Spannung des ersten Peaks (dritter Ausdruck im Protokoll), und $M_{x/y}$ proportional zur Höhe des Peaks des Spin-Echos. Die Zeit $t$ ist die Zeit zwischen den beiden Peaks. Diese kann im Folgenden als nahezu fehlerfrei betrachtet werden, da das vorliegende Signal eine $e-$Funktion ist, die mit einer hochfrequenten Schwingung überlagert ist. Damit ist der Zeitfehler bei der Maximumsbestimmung von der Größenordnung einer Periode dieser hochfrequenten Schwingung und damit vernachlässigbar. Die Amplitude der hochfrequenten Schwingung verursacht hingegen eine Unsicherheit beim Bestimmen des maximalen Spannungswertes.\\
+Wir haben also $U_z^{\mathrm{max}}=(2.244\pm0.092)\ \mathrm V$, $U_{x/y}=(1.044\pm0.092)\ \mathrm V$ und $t=44.1\ \mathrm{ms}$ und damit
+$$
+T_2=\frac{t}{\mathrm{ln}\left(\frac{U_z^{\mathrm{max}}}{U_{x/y}}\right)}=55.63\ \mathrm{ms}
+$$
+sowie
+\begin{align*}
+\Delta T_2 =\frac{1}{2}\left(\frac{t}{\mathrm{ln}\left( \frac{U_z^{\mathrm{max}}-\Delta U_z^{\mathrm{max}}}{U_{x/y}+\Delta U_{x/y}}\right)}-\frac{t}{\mathrm{ln}\left( \frac{U_z^{\mathrm{max}}+\Delta U_z^{\mathrm{max}}}{U_{x/y}-\Delta U_{x/y}}\right)}\right) = 9.95\ \mathrm{ms}
+\end{align*}
+Insgesamt kann als Endergebnis festehalten werden:
+$$
+T_2=(56\pm10)\ \mathrm{ms}
+$$
+Für $N\geq 2$ lassen sich weitere Spin-Echos absteigender Maximalspannung beobachten. Ausgehend von Gleichung (15) lässt sich die Vermutung aufstellen, dass die Spannung der Maxima der Spin-Echos und damit die Magnetisierung proportional zu $e^{-\frac{t}{T_2}}$ ist. Die Bestätigung dieser These würde eine weitere Untersuchung (z.B. über das Fitten einer $e-$Funktion an die Maxima) erfordern.
+\section{Teilversuch 4: Zwei-Puls-Betrieb: $\mathbf{\pi -\frac{\pi}{2}}$-Pulsfolge}
+Für die Zeit $\tau$ und die in der Versuchsvorbereitung bestimmte zeitabhängige Magnetisierung gilt gerade:
+$$
+M(\tau)=0\Rightarrow 1=2e^{-\tau/T_1}\Rightarrow \mathrm{ln}2=\frac{\tau}{T_1}\Rightarrow T_1=\frac{\tau}{\mathrm{ln}2}
+$$
+Für die Spin-Spin-Relaxationszeit $T_1$ lässt mit dem Messwert $\tau=(0.0555\pm 0.0025)\ \mathrm s$ also festhalten:
+$$
+T_1=(0.080\pm 0.004)\ \mathrm s
+$$
+Damit ist insbesondere $850\ \mathrm{ms}=P>10\cdot T_1$ gewählt worden, und damit die Bedingung zum Einstellen eines thermischen Gleichgewichts aus der Anleitung erfüllt gewesen.
+\section{Teilversuch 5: 1D-Bildgebung mittels Fouriertransformation}
+\plot{TV5_1}{Ausgleichsgerade Differenzfrequenz-Ort}{1}{TV5_plot1.pdf}
+\plotref{TV5_1} zeigt, dass der angelegte Magnetfeldgradient in $y-$Richtung tatsächlich in guter Näherung linear war, da die Differenzfrequenz linear mit dem Abstand zur Referenzmessung bei $5.4\ \mathrm{cm}$ zunimmt. Extrapoliert man die erhaltene Gerade, stellt man fest, dass für $y=5.4\ \mathrm{cm}$ die Differenzfrequenz nicht verschwindet (stattdessen $\sim 5\ \mathrm{kHz}$), obwohl sie das natürlich selbstredend sollte. Mögliche Fehlereinflüsse sind
+\begin{enumerate}
+\item ein nicht vollkommen exaktes Angleichen der Synthesizerfrequenz 
+\item eine zeitliche Abhängigkeit des Magnetfeldes während der Messdauer Einflüsse durch die Temperatur sind denkbar.
+\end{enumerate}
+
+\plot{TV5_2}{Lagebestimmung Probe 7}{1}{TV5_plot2.pdf}
+Im Fourierspektrum (vgl. Protokoll) können zwei deutlich voneinander getrennt Peaks ausgemacht werden. Nach \plotref{TV5_1} korrespondieren diese zwei Peaks zu zwei Lagen erhöhter Protonendichte. Zudem ist die Höhe der Peaks in etwa gleich, was nahelegt, dass es sich bei den bei den Lagen um dasselbe Material oder zumindest um zwei Materialien mit nahezu gleicher Protonendichte gehandelt hat. Auch die Breite der Peaks ist im Wesentlichen gleich, was nahelegt, dass die Dicke der beiden Lagen identisch ist. \\ Getrennt sind die beiden Lagen durch eine Schicht mit niedriger Protonendichte. Die Mitten der Lagen mit hoher Protonendichte sind um  $\Delta\defeq (3.963-3.558)\ \mathrm{cm} \pm 0.05\ \mathrm{cm}=(0.40\pm 0.05)\ \mathrm{cm}$ voneinander getrennt (siehe \plotref{TV5_2}). 
+\newpage
+\appendix
+\section{Python-Skript zur Auswertung}
+\large\textbf{Code 1 zu Plot TV5:}
+\lstinputlisting{TV5.py}\newpage
+\large\textbf{Code 2 zu Plot TV5:}
+\lstinputlisting{TV5_2.py}\newpage
+
+\end{document}
