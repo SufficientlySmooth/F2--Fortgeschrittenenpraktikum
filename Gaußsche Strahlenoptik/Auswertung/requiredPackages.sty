@@ -157,6 +157,54 @@ breaklines=True}
 
 \DeclarePairedDelimiter\norm{\lVert}{\rVert}
 
+\theoremstyle{theorem}
+\newtheorem{hsatz}{Satz}[section]
+\newtheorem{hlemma}{Lemma}[section]
+\newtheorem{hkorollar}{Korollar}[section]
+\newtheorem{hdf}{Definition}[section]
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+
+\theoremstyle{note}
+\newtheorem{hbew}{Beweis}[section]
+\newtheorem{hbsp}{Beispiel}[section]
+\newtheorem{hbem}{Bemerkung}[section]
+\newtheorem{hnot}{Notation}[section]
+
+\newcommand{\thistheoremname}{}
+\newenvironment{bsp}
+  {
+   \begin{hbsp}}
+  {\end{hbsp}}
+\newenvironment{satz}
+  {
+   \begin{hsatz}}
+  {\end{hsatz}}
+\newenvironment{lemma}
+  {
+   \begin{hlemma}}
+  {\end{hlemma}}
+\newenvironment{df}
+  {
+   \begin{hdf}}
+  {\end{hdf}}
+\newenvironment{bew}
+  {
+   \begin{hbew}}
+  {\end{hbew}}
+\newenvironment{kor}
+  {
+   \begin{hkorollar}}
+  {\end{hkorollar}}
+\newenvironment{bem}
+  {
+   \begin{hbem}}
+  {\end{hbem}}
+\newenvironment{notat}
+  {
+   \begin{hnot}}
+  {\end{hnot}}
+    
 \newcommand{\thisindex}[1]{#1\index{#1}}
 
 \newcommand\x{\times}

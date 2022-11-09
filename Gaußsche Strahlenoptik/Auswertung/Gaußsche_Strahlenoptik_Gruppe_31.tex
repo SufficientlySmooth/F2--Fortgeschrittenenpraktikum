@@ -25,11 +25,48 @@
 \subsection{Untersuchung eines Gaußschen Laserstrahls}
 \subsection{Optischer Resonator}
 \subsubsection{Aufbau des Resonators}
-Damit sich im Fabry-Perot-Resonator aus sphärischen Spiegeln eine stehende Welle bilden kann, soll die Waist des Gauß-Strahls mittig zwischen den beiden Spiegeln liegen. Betrachtet man den halbdurchlässigen Spiegel, durch den der Gaußstrahl in den Resonator einfällt, als dicke Linse, so ergibt sich die folgende Transfermatrix:
+Damit sich im Fabry-Perot-Resonator aus sphärischen Spiegeln eine stehende Welle bilden kann, soll die Waist des Gauß-Strahls mittig zwischen den beiden Spiegeln liegen. Betrachtet man den halbdurchlässigen Spiegel $\mathfrak{S}$, durch den der Gaußstrahl in den Resonator einfällt, als Linse der Dicke $b=6.35\ \mathrm{mm}$ und mit Krümmungsradien $R_1=\infty,R_2=R=50\ \mathrm{mm}$, so kann unter Zuhilfenahme der Brechungsmatrix 
+\begin{align}
+B_R\defeq \begin{pmatrix}
+1 & 0\\
+\frac{n_1-n_2}{R} &1 
+\end{pmatrix} 
+\end{align}
+an einer gekrümmten Ebene zwischen zwei Medien mit Brechungsindizes $n_1$ und $n_2$
+nach \cite[Gl. 9.42c]{demtröder_2} die Transfermatrix von $\mathfrak{S}$ bestimmt werden:
+\begin{align}
+T & \defeq
+\begin{pmatrix}
+A & B\\
+C & D 
+\end{pmatrix} \defeq \begin{pmatrix}
+1 & 0\\
+\frac{1-n}{\infty} &1 
+\end{pmatrix} 
+\cdot
+\begin{pmatrix}
+1 & b\\
+0 & 1
+\end{pmatrix} 
+\cdot
+\begin{pmatrix}
+1 & 0\\
+\frac{n-1}{-R} &1 
+\end{pmatrix} 
+\\ \quad& = \begin{pmatrix}
+\frac{b(1-n)}{R}+1 & b\\
+\frac{1-n}{R} & 1
+\end{pmatrix}
+\end{align}
+Im Resonator geben die Randbedingungen vor, dass $w_0^2=\frac{\lambda}{\pi}\sqrt{\frac{L}{2}\left(R-\frac{L}{2}\right)}$ gilt, wodurch insbesondere $q^\prime\defeq z+iz_R$ festgelegt wird. $z$ ist der halbe Abstand der beiden halbdurchlässigen Spiegel, da mittig zwischen diesen der waist des Strahls liegt. Berücksichtige nun die Linse zur Modenanpassung und deren Abstand $\mathfrak{d}$ zum Resonator.
 \section{Ergebnisse und Diskussion}
 \section{Zusammenfassung}
 \newpage
+
+\bibliography{literatur} 
+\bibliographystyle{ieeetr}
 \appendix
+
 \section{Python-Skripte zur Auswertung}
 %\large\textbf{Code 1 zu Plot TV5:}
 %\lstinputlisting{TV5.py}\newpage
