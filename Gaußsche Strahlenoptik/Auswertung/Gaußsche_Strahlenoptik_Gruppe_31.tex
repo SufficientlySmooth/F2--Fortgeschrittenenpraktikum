@@ -23,29 +23,31 @@
 \section{Zielsetzung}
 Die geometrische Optik liefert nur eine unzureichende Beschreibung von Laserstrahlen, da im Rahmen dieser der Wellencharakter des Lichtes gänzlich vernachlässigt wird. Deutlich wird dies insbesondere bei konvergenten Strahlen, die nach der geometrischen Optik in einen einzelnen Punkt zusammenlaufen würden, obwohl dies durch Beugungseffekte nicht zulässig ist. \\
 Berücksichtigt man nun den Wellencharakter des Lichtes und das typischerweise gauß-förmige Intensitätsprofil eines Laserstrahls, führt dies zur Gaußschen Strahlenoptik. \\
-Im ersten Teil des hier vorgestellten Versuchs soll es um das experimentelle Untersuchen charakteristischer Größen eines solchen Laserstrahls gehen. So wird die Strahltaille (waist) senkrecht zur Ausbreitungsrichtung sowie der Strahlradius als Funktion der zur der Ausbreitungsrichtung parallelen Koordinatenachse untersucht.\\
+Im ersten Teil des hier vorgestellten Versuchs soll es um das experimentelle Untersuchen charakteristischer Größen eines solchen Laserstrahls gehen. So wird die Strahltaille (waist) senkrecht zur Ausbreitungsrichtung sowie der Strahlradius als Funktion der zur der Ausbreitungsrichtung parallelen Koordinate untersucht.\\
 Im zweiten Versuchsteil wird das Verhalten Gaußscher Strahlen in einem aus zwei gekrümmten halbdurchlässigen Spiegel bestehenden Resonators untersucht. Insbesondere wird auf die Transmissionsfunktion als Funktion des Spiegelabstandes eingegangen und beispielhaft die Finesse eines konfokalen Resonators bestimmt. 
 \section{Versuchsdurchführung}
 \subsection{Untersuchung eines Gaußschen Laserstrahls}
 \subsection{Optischer Resonator}
 \subsubsection{Aufbau des Resonators}
-Damit sich im Fabry-Perot-Resonator aus sphärischen Spiegeln eine stehende Welle bilden kann, soll die Waist des Gauß-Strahls mittig zwischen den beiden Spiegeln liegen. Betrachtet man den halbdurchlässigen Spiegel $\mathfrak{S}$, durch den der Gaußstrahl in den Resonator einfällt, als Linse der Dicke $b=6.35\ \mathrm{mm}$ und mit Krümmungsradien $R_1=\infty,R_2=R=50\ \mathrm{mm}$, so kann unter Zuhilfenahme der Brechungsmatrix 
+Damit sich im Fabry-Perot-Resonator aus sphärischen Spiegeln eine stehende Welle bilden kann, soll die Waist des Gauß-Strahls mittig zwischen den beiden Spiegeln liegen. Betrachtet man den halbdurchlässigen Spiegel $\mathfrak{S}$, durch den der Gaußstrahl in den Resonator einfällt, als Linse der Dicke $b=6.35\ \mathrm{mm}$ und mit Krümmungsradien $R_1=\infty,R_2\equiv R=50\ \mathrm{mm}$, so kann unter Zuhilfenahme der Brechungsmatrix 
 \begin{align}
-B_R\defeq \begin{pmatrix}
+B_R\equiv \begin{pmatrix}
 1 & 0\\
-\frac{n_1-n_2}{R} &1 
+\frac{n_1-n_2}{n_2\cdot R} & \frac{n_1}{n_2}
 \end{pmatrix} 
 \end{align}
 an einer gekrümmten Ebene zwischen zwei Medien mit Brechungsindizes $n_1$ und $n_2$
-nach \cite[Gl. 9.42c]{demtröder_2} die Transfermatrix von $\mathfrak{S}$ bestimmt werden:
+nach \cite{dewiki:225621757} die Transfermatrix von $\mathfrak{S}$ bestimmt werden:
 \begin{align}
-T & \defeq
+T & \equiv
 \begin{pmatrix}
 A & B\\
 C & D 
-\end{pmatrix} \defeq \begin{pmatrix}
+\end{pmatrix} 
+\equiv
+\begin{pmatrix}
 1 & 0\\
-\frac{1-n}{\infty} &1 
+\frac{1-n}{n\cdot \infty} & \frac{1}{n}
 \end{pmatrix} 
 \cdot
 \begin{pmatrix}
@@ -55,14 +57,28 @@ C & D
 \cdot
 \begin{pmatrix}
 1 & 0\\
-\frac{n-1}{-R} &1 
+\frac{n-1}{1\cdot(- R)} & \frac{n}{1}
 \end{pmatrix} 
 \\ \quad& = \begin{pmatrix}
-\frac{b(1-n)}{R}+1 & b\\
-\frac{1-n}{R} & 1
+\frac{b(1-n)}{R}+1 & bn\\
+\frac{1-n}{nR} & 1
 \end{pmatrix}
 \end{align}
-Im Resonator geben die Randbedingungen vor, dass $w_0^2=\frac{\lambda}{\pi}\sqrt{\frac{L}{2}\left(R-\frac{L}{2}\right)}$ gilt, wodurch insbesondere $q^\prime\defeq z+iz_R$ festgelegt wird. $z$ ist der halbe Abstand der beiden halbdurchlässigen Spiegel, da mittig zwischen diesen der waist des Strahls liegt. Berücksichtige nun die Linse zur Modenanpassung und deren Abstand $\mathfrak{d}$ zum Resonator.
+Im Resonator geben die Randbedingungen vor, dass $w_0^\prime=\sqrt{\frac{\lambda}{\pi}\sqrt{\frac{L}{2}\left(R-\frac{L}{2}\right)}}$ gilt, wodurch insbesondere $q^\prime\equiv z^\prime+iz_R^\prime$ festgelegt wird. Damit lässt sich auf $q=z+iz_R$ außerhalb des Resonators, also vor dem Einkoppeln des Strahls in den Resonator, schließen:
+\begin{align}
+q^\prime=\frac{Aq+B}{Cq+D}& \iff q = \frac{Dq^\prime-B}{A-Cq^\prime}\\ & \Rightarrow z_R=\Im{q}=\Im{\frac{D\cdot (z^\prime+iz_R^\prime)-B}{A-C\cdot(z^\prime+iz_R^\prime)}}\\ \quad&=\Im{\frac{D\cdot ((z^\prime+iz_R^\prime)-B)(A-C\cdot(z^\prime-iz_R^\prime))}{(A-Cz^\prime)^2+C^2z_R^{^\prime 2}}}\\ \quad&
+=\frac{ADz_R^\prime-BCDz_R^\prime}{(A-Cz^\prime)^2+C^2z_R^{^\prime 2}}
+\end{align}
+Analog folgt 
+\begin{equation}
+z=\frac{ADz^\prime+BCDz^\prime-ABD-CDz^{\prime 2}-CDz_R^{\prime 2}}{(A-Cz^\prime)^2+C^2z_R^{^\prime 2}}
+\end{equation}
+Da beide Spiegel denselben Krümmungsradius haben, müssen resonante Strahlen ihren Waist in der Mitte der beiden Spiegel haben. $z^\prime$ ist also gerade der halbe Abstand $d$ der beiden Spiegel. Die Wellenlänge $\lambda=632.8\ \mathrm{nm}$ ist die Wellenlänge des verwendeten HeNe-Lasers. \\
+Einsetzen liefert zunächst
+\begin{equation}
+w_0^\prime = 
+\end{equation}
+ $z$ ist der halbe Abstand der beiden halbdurchlässigen Spiegel, da mittig zwischen diesen der waist des Strahls liegt. Berücksichtige nun die Linse zur Modenanpassung und deren Abstand $\mathfrak{d}$ zum Resonator.
 \section{Ergebnisse und Diskussion}
 \section{Zusammenfassung}
 \newpage
