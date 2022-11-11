@@ -23,12 +23,13 @@
 \section{Zielsetzung}
 Die geometrische Optik liefert nur eine unzureichende Beschreibung von Laserstrahlen, da im Rahmen dieser der Wellencharakter des Lichtes gänzlich vernachlässigt wird. Deutlich wird dies insbesondere bei konvergenten Strahlen, die nach der geometrischen Optik in einen einzelnen Punkt zusammenlaufen würden, obwohl dies durch Beugungseffekte nicht zulässig ist. \\
 Berücksichtigt man nun den Wellencharakter des Lichtes und das typischerweise gauß-förmige Intensitätsprofil eines Laserstrahls, führt dies zur Gaußschen Strahlenoptik. \\
-Im ersten Teil des hier vorgestellten Versuchs soll es um das experimentelle Untersuchen charakteristischer Größen eines solchen Laserstrahls gehen. So wird die Strahltaille (waist) senkrecht zur Ausbreitungsrichtung sowie der Strahlradius als Funktion der zur der Ausbreitungsrichtung parallelen Koordinate untersucht.\\
+Im ersten Teil des hier vorgestellten Versuchs soll es um das experimentelle Untersuchen charakteristischer Größen eines solchen Laserstrahls gehen. So wird die Strahltaille (waist) senkrecht zur Ausbreitungsrichtung sowie der Strahlradius als Funktion der zur Ausbreitungsrichtung parallelen Koordinate untersucht.\\
 Im zweiten Versuchsteil wird das Verhalten Gaußscher Strahlen in einem aus zwei gekrümmten halbdurchlässigen Spiegel bestehenden Resonators untersucht. Insbesondere wird auf die Transmissionsfunktion als Funktion des Spiegelabstandes eingegangen und beispielhaft die Finesse eines konfokalen Resonators bestimmt. 
 \section{Versuchsdurchführung}
 \subsection{Untersuchung eines Gaußschen Laserstrahls}
+\subsubsection{Präparation eines Laserstrahls mit einem bestimmten Waist}
 \image{Skizze_A1}{Fokussierung eines Gaußstrahls auf bestimmten Waist $w^\prime_0$}{1}{Skizze_Aufgabe_S7.png}
-Vorgegeben sind die Werte $w_0 = 1\ \mathrm{mm}$, $\lambda = 632.8\ \mathrm{nm}$, ${w'}_0 = 5 \mu \mathrm m$, $f_1 = 50\mathrm{mm}$, $f_2 = 100\ \mathrm{mm}$. Um hieraus $d$ zu bestimmen betrachte man die Transfermatrix
+Vorgegeben sind die Werte $w_0 = 1\ \mathrm{mm}$, $\lambda = 632.8\ \mathrm{nm}$, ${w'}_0 = 5 \mu \mathrm m$, $f_1 = 50\mathrm{mm}$, $f_2 = 100\ \mathrm{mm}$. Um hieraus $d$ zu bestimmen, betrachte man die Transfermatrix
 \begin{equation}
 \begin{bmatrix}
     1 & 0 \\
@@ -111,7 +112,7 @@ C & D
 \frac{1-n}{nR} & 1
 \end{bmatrix}
 \end{align}
-Im Resonator geben die Randbedingungen vor, dass $w_0^\prime=\sqrt{\frac{\lambda}{\pi}\sqrt{\frac{L}{2}\left(R-\frac{L}{2}\right)}}$ gilt, wodurch insbesondere $q^\prime\equiv z^\prime+iz_R^\prime$ festgelegt wird. Damit lässt sich auf $q=z+iz_R$ außerhalb des Resonators, also vor dem Einkoppeln des Strahls in den Resonator, schließen:
+Im Resonator geben die Randbedingungen vor, dass $w_0^\prime=\sqrt{\frac{\lambda}{\pi}\sqrt{\frac{d}{2}\left(R-\frac{d}{2}\right)}}$ gilt, wodurch insbesondere $q^\prime\equiv z^\prime+iz_R^\prime$ festgelegt wird. Damit lässt sich auf $q=z+iz_R$ außerhalb des Resonators, also vor dem Einkoppeln des Strahls in den Resonator, schließen:
 \begin{align}
 q^\prime=\frac{Aq+B}{Cq+D}& \iff q = \frac{Dq^\prime-B}{A-Cq^\prime}\\ & \Rightarrow z_R=\Im{q}=\Im{\frac{D\cdot (z^\prime+iz_R^\prime)-B}{A-C\cdot(z^\prime+iz_R^\prime)}}\\ \quad&=\Im{\frac{D\cdot ((z^\prime+iz_R^\prime)-B)(A-C\cdot(z^\prime-iz_R^\prime))}{(A-Cz^\prime)^2+C^2z_R^{^\prime 2}}}\\ \quad&
 =\frac{ADz_R^\prime-BCDz_R^\prime}{(A-Cz^\prime)^2+C^2z_R^{^\prime 2}}
@@ -120,12 +121,20 @@ Analog folgt
 \begin{equation}
 z=\frac{ADz^\prime+BCDz^\prime-ABD-CDz^{\prime 2}-CDz_R^{\prime 2}}{(A-Cz^\prime)^2+C^2z_R^{^\prime 2}}
 \end{equation}
-Da beide Spiegel denselben Krümmungsradius haben, müssen resonante Strahlen ihren Waist in der Mitte der beiden Spiegel haben. $z^\prime$ ist also gerade der halbe Abstand $d$ der beiden Spiegel. Die Wellenlänge $\lambda=632.8\ \mathrm{nm}$ ist die Wellenlänge des verwendeten HeNe-Lasers. \\
+Da beide Spiegel denselben Krümmungsradius haben, müssen resonante Strahlen ihren Waist in der Mitte der beiden Spiegel haben. $z^\prime$ ist also gerade der halbe Abstand $d=45\ \mathrm{mm}$ der beiden Spiegel. Die Wellenlänge $\lambda=632.8\ \mathrm{nm}$ ist die Wellenlänge des verwendeten HeNe-Lasers. \\
 Einsetzen liefert zunächst
 \begin{equation}
-w_0^\prime = 
+w_0^\prime = 70.08\ \mu\mathrm m\Rightarrow z_R^\prime = \frac{\pi w_0^{\prime 2}}{\lambda} = 2.49\ \mathrm{cm}
 \end{equation}
- $z$ ist der halbe Abstand der beiden halbdurchlässigen Spiegel, da mittig zwischen diesen der waist des Strahls liegt. Berücksichtige nun die Linse zur Modenanpassung und deren Abstand $\mathfrak{d}$ zum Resonator.
+ $z^\prime$ ist der negative halbe Abstand der beiden halbdurchlässigen Spiegel, da mittig zwischen diesen der waist des Strahls liegt. \\
+Damit ergibt sich für die Strahlparameter außerhalb des Resonators (d.h. vor dem Einkoppeln des Strahls in den Resonator) durch Einsetzen
+\begin{equation}
+z_R = 3.39\ \mathrm{cm},\ z = -3.27\ \mathrm{cm}
+\end{equation}
+Der Fokus ist also scheinbar um $\Delta z\equiv z-z^\prime = 1.02\ \mathrm{cm}$ verschoben. 
+
+%Berücksichtige nun die Linse zur Modenanpassung und deren Abstand $\mathfrak{d}$ zum Resonator.
+
 \section{Ergebnisse und Diskussion}
 \section{Zusammenfassung}
 \newpage
