@@ -23,6 +23,7 @@
 \usepackage{colonequals } % for :\iff
 \usepackage{bbm} % for unit matrix
 \usepackage{ stmaryrd }%for lightning
+
 \renewcommand\theadalign{bc}
 \renewcommand\theadfont{\bfseries}
 \renewcommand\theadgape{\Gape[4pt]}
@@ -39,20 +40,20 @@ breaklines=True}
 %setup
 
 
-\numberwithin{equation}{section}
+%\numberwithin{equation}{section}
 
 %\floatstyle{boxed}
 
-\newfloat{imEnv}{pht}{nfl}[section]
+\newfloat{imEnv}{pht}{nfl}%[section]
 \floatname{imEnv}{Abbildung}
 \restylefloat{imEnv}
 
 
-\newfloat{plEnv}{pht}{nfl}[section]
+\newfloat{plEnv}{pht}{nfl}%[section]
 \floatname{plEnv}{Plot}
 \restylefloat{plEnv}
 
-\newfloat{codEnv}{pht}{nfl}[section]
+\newfloat{codEnv}{pht}{nfl}%[section]
 \floatname{codEnv}{Programmcode}
 \restylefloat{codEnv}
 
@@ -70,7 +71,6 @@ breaklines=True}
 %\renewcommand{\vec}{\boldsymbol}
 \renewcommand{\vec}{\accentset{\rightharpoonup}}
 %definitions
-
 
 \newcommand{\code}[4]
 {

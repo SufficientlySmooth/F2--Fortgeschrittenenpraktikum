@@ -27,6 +27,53 @@ Im ersten Teil des hier vorgestellten Versuchs soll es um das experimentelle Unt
 Im zweiten Versuchsteil wird das Verhalten Gaußscher Strahlen in einem aus zwei gekrümmten halbdurchlässigen Spiegel bestehenden Resonators untersucht. Insbesondere wird auf die Transmissionsfunktion als Funktion des Spiegelabstandes eingegangen und beispielhaft die Finesse eines konfokalen Resonators bestimmt. 
 \section{Versuchsdurchführung}
 \subsection{Untersuchung eines Gaußschen Laserstrahls}
+\image{Skizze_A1}{Fokussierung eines Gaußstrahls auf bestimmten Waist $w^\prime_0$}{1}{Skizze_Aufgabe_S7.png}
+Vorgegeben sind die Werte $w_0 = 1\ \mathrm{mm}$, $\lambda = 632.8\ \mathrm{nm}$, ${w'}_0 = 5 \mu \mathrm m$, $f_1 = 50\mathrm{mm}$, $f_2 = 100\ \mathrm{mm}$. Um hieraus $d$ zu bestimmen betrachte man die Transfermatrix
+\begin{equation}
+\begin{bmatrix}
+    1 & 0 \\
+    -\frac{1}{f_2} & 1 
+\end{bmatrix}
+\cdot
+ \begin{bmatrix}
+    1 & d \\
+    0 & 1 
+\end{bmatrix}
+\cdot
+ \begin{bmatrix}
+    1 & 0 \\
+    -\frac{1}{f_1} & 1 
+\end{bmatrix}
+\,\,=\,\,
+ \begin{bmatrix}
+   1-\frac{d}{f_1} & d \\
+    \frac{d-f_1-f_2}{f_1 f_2} & 1-\frac{d}{f_2} 
+\end{bmatrix}
+\equiv
+ \begin{bmatrix}
+   A & B \\
+    C & D 
+\end{bmatrix}
+\end{equation}
+Für die Umgebung, in der sich die Gaußstrahlen ausbreiten, sei in guter Näherung ein Brechungsindex von $n=1$ angenommen. Der Wert von $q$ in Abbildung \ref{Skizze_A1} ist dann
+\begin{equation}
+q \,\,=\,\, 0 + i \frac{\pi}{\lambda} w_{0}^2
+\end{equation}
+Gemäß dem 'ABCD'-Gesetz für Gaußstrahlen gilt damit für $q'$ in Abbildung \ref{Skizze_A1}
+\begin{equation}\label{Gl1}
+q' \,\,=\,\, \frac{Aq+B}{Cq+D}
+\end{equation}
+Für $q'$ soll aber auch
+\begin{equation}\label{Gl2}
+q' \,\,=\,\, -f_2 + i \frac{\pi}{\lambda} {w'}_{0}^{2}
+\end{equation}
+gelten. Löst man die Gleichungen \ref{Gl1} und \ref{Gl2} nach $d$ auf, erhält man
+\begin{equation}
+\left( f_1 f_2 \frac{w_0}{{w'}_{0}} \right)^2 \,\,=\,\, \left( f_1 f_2 - d f_1 \right)^2 + \left( d - f_1 - f_2 \right)^2 \cdot \left(\frac{\pi w_{0}^{2}}{\lambda} \right)^2
+\end{equation}
+\begin{equation}
+\Rightarrow \,\,\,\, d \,\,=\,\, 35.15\ \mathrm{cm}
+\end{equation}
 \subsection{Optischer Resonator}
 \subsubsection{Aufbau des Resonators}
 Damit sich im Fabry-Perot-Resonator aus sphärischen Spiegeln eine stehende Welle bilden kann, soll die Waist des Gauß-Strahls mittig zwischen den beiden Spiegeln liegen. Betrachtet man den halbdurchlässigen Spiegel $\mathfrak{S}$, durch den der Gaußstrahl in den Resonator einfällt, als Linse der Dicke $b=6.35\ \mathrm{mm}$ und mit Krümmungsradien $R_1=\infty,R_2\equiv R=50\ \mathrm{mm}$, so kann unter Zuhilfenahme der Brechungsmatrix 
