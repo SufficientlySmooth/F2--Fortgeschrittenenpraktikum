@@ -78,38 +78,38 @@ gelten. Löst man die Gleichungen \ref{Gl1} und \ref{Gl2} nach $d$ auf, erhält 
 \subsubsection{Aufbau des Resonators}
 Damit sich im Fabry-Perot-Resonator aus sphärischen Spiegeln eine stehende Welle bilden kann, soll die Waist des Gauß-Strahls mittig zwischen den beiden Spiegeln liegen. Betrachtet man den halbdurchlässigen Spiegel $\mathfrak{S}$, durch den der Gaußstrahl in den Resonator einfällt, als Linse der Dicke $b=6.35\ \mathrm{mm}$ und mit Krümmungsradien $R_1=\infty,R_2\equiv R=50\ \mathrm{mm}$, so kann unter Zuhilfenahme der Brechungsmatrix 
 \begin{align}
-B_R\equiv \begin{pmatrix}
+B_R\equiv \begin{bmatrix}
 1 & 0\\
 \frac{n_1-n_2}{n_2\cdot R} & \frac{n_1}{n_2}
-\end{pmatrix} 
+\end{bmatrix} 
 \end{align}
 an einer gekrümmten Ebene zwischen zwei Medien mit Brechungsindizes $n_1$ und $n_2$
 nach \cite{dewiki:225621757} die Transfermatrix von $\mathfrak{S}$ bestimmt werden:
 \begin{align}
 T & \equiv
-\begin{pmatrix}
+\begin{bmatrix}
 A & B\\
 C & D 
-\end{pmatrix} 
+\end{bmatrix} 
 \equiv
-\begin{pmatrix}
+\begin{bmatrix}
 1 & 0\\
 \frac{1-n}{n\cdot \infty} & \frac{1}{n}
-\end{pmatrix} 
+\end{bmatrix} 
 \cdot
-\begin{pmatrix}
+\begin{bmatrix}
 1 & b\\
 0 & 1
-\end{pmatrix} 
+\end{bmatrix} 
 \cdot
-\begin{pmatrix}
+\begin{bmatrix}
 1 & 0\\
 \frac{n-1}{1\cdot(- R)} & \frac{n}{1}
-\end{pmatrix} 
-\\ \quad& = \begin{pmatrix}
+\end{bmatrix} 
+\\ \quad& = \begin{bmatrix}
 \frac{b(1-n)}{R}+1 & bn\\
 \frac{1-n}{nR} & 1
-\end{pmatrix}
+\end{bmatrix}
 \end{align}
 Im Resonator geben die Randbedingungen vor, dass $w_0^\prime=\sqrt{\frac{\lambda}{\pi}\sqrt{\frac{L}{2}\left(R-\frac{L}{2}\right)}}$ gilt, wodurch insbesondere $q^\prime\equiv z^\prime+iz_R^\prime$ festgelegt wird. Damit lässt sich auf $q=z+iz_R$ außerhalb des Resonators, also vor dem Einkoppeln des Strahls in den Resonator, schließen:
 \begin{align}
