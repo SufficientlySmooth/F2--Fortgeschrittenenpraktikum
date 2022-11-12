@@ -75,9 +75,15 @@ gelten. Löst man die Gleichungen \ref{Gl1} und \ref{Gl2} nach $d$ auf, erhält 
 \begin{equation}
 \Rightarrow \,\,\,\, d \,\,=\,\, 35.15\ \mathrm{cm}
 \end{equation}
+\subsubsection{Vermessung der Strahltaille}
+Die gemessene Lichtleistung ist 
+\begin{align}
+P(x)&=\int_{-\infty}^\infty \mathrm dy^\prime \int_x^\infty \mathrm dx^\prime I_0\cdot\mathrm{exp}\left(-\frac{2(x^\prime-x_0)^2}{w^2}-\frac{2(y^\prime-y_0)^2}{w^2}\right) \\ \quad& = \sqrt{\frac{\pi}{2}}wI_0\int_x^\infty \mathrm dx^\prime \mathrm{exp}\left(-\frac{2(x^\prime-x_0)^2}{w^2}\right) \undereq{CAS}\hdots \\ \quad& =I_0\sqrt{\frac{\pi}{8}}w\cdot\left(\mathrm{erf}\left(\frac{\sqrt{2}}{w}(x-x_0)\right)+1\right)\\ \quad& \equiv \mathfrak{P}_0\cdot\left(\mathrm{erf}\left(\frac{\sqrt{2}}{w}(x-x_0)\right)+1\right)
+\end{align}
+Entsprechend können die Messdaten durch Anpassung der Parameter $(\mathfrak P_0,w,x_0)\in \R\setminus\{0\}\times\R^+\times\R$ gefittet werden.
 \subsection{Optischer Resonator}
 \subsubsection{Aufbau des Resonators}
-\image{Skizze_A2}{Aufbau zum optischen Resonator (aus \cite{versuchsanleitung})}{1}{Skizze_Aufgabe_S16.png}
+\image{Skizze_A2}{Aufbau zum optischen Resonator (aus \cite{versuchsanleitung}, bearbeitet)}{1}{Skizze_Aufgabe_S16.png}
 Damit sich im Fabry-Perot-Resonator aus sphärischen Spiegeln eine stehende Welle bilden kann, soll die Waist des Gauß-Strahls mittig zwischen den beiden Spiegeln liegen. Betrachtet man den halbdurchlässigen Spiegel $\mathfrak{S}$, durch den der Gaußstrahl in den Resonator einfällt, als Linse der Dicke $b=6.35\ \mathrm{mm}$ und mit Krümmungsradien $R_1=\infty,R_2\equiv R=50\ \mathrm{mm}$, so kann unter Zuhilfenahme der Brechungsmatrix 
 \begin{align}
 B_R\equiv \begin{bmatrix}
