@@ -31,7 +31,7 @@ def plot(PDFname):
     xlabel = r'$\frac{z}{\mathrm{m}}$' 
     ylabel = r'$\frac{w(z)}{\mathrm{m}}$'
     
-    xlim = (min(X),max(X))
+    xlim = (min(X)-1,max(X)+1)
     ylim = (min(Y),max(Y)*1.1)
 
     popt,pcov = curve_fit(Regr,X,Y,sigma=Yerr,p0=(3,4),maxfev=100000)
@@ -53,8 +53,6 @@ def plot(PDFname):
     sigfig = 4
     stdDev_rounded = ['{:g}'.format(float('{:.{p}g}'.format(stdDev[i], p=sigfig))) for i in range(0,len(popt))]
     decimals = [len(str(stdDev_rounded[i].split('.')[-1])) for i in range(0,len(popt))]
-    print(decimals)
-    print(stdDev_rounded)
     cell_text = [[str(round(popt[i],decimals[i])),str(round(stdDev[i],decimals[i]))] for i in range(0,len(popt))]
     
     the_table = the_table = plt.table(cellText=cell_text,

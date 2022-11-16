@@ -13,10 +13,10 @@ z_prime = - d/2
 n = 1.515
 w0_prime = sqrt(lambd/pi*sqrt(d/2*(R-d/2)))
 
-A = b*(1-n)/R+1
-B = b*n
-C = (1-n)/(n*R)
-D = 1
+A = 1
+B = b/n
+C = (n-1)/R
+D = 1+b*(n-1)/(n*R)
 
 zR_prime = pi*w0_prime**2/lambd
 

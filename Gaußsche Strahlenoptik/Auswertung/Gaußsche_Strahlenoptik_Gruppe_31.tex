@@ -23,8 +23,8 @@
 \section{Zielsetzung}
 Die geometrische Optik liefert nur eine unzureichende Beschreibung von Laserstrahlen, da im Rahmen dieser der Wellencharakter des Lichtes gänzlich vernachlässigt wird. Deutlich wird dies insbesondere bei konvergenten Strahlen, die nach der geometrischen Optik in einen einzelnen Punkt zusammenlaufen würden, obwohl dies durch Beugungseffekte nicht zulässig ist. \\
 Berücksichtigt man nun den Wellencharakter des Lichtes und das typischerweise gauß-förmige Intensitätsprofil eines Laserstrahls, führt dies zur Gaußschen Strahlenoptik. \\
-Im ersten Teil des hier vorgestellten Versuchs soll es um das experimentelle Untersuchen charakteristischer Größen eines solchen Laserstrahls gehen. So wird die Strahltaille (waist) senkrecht zur Ausbreitungsrichtung sowie der Strahlradius als Funktion der zur Ausbreitungsrichtung parallelen Koordinate untersucht.\\
-Im zweiten Versuchsteil wird das Verhalten Gaußscher Strahlen in einem aus zwei gekrümmten halbdurchlässigen Spiegel bestehenden Resonators untersucht. Insbesondere wird auf die Transmissionsfunktion als Funktion des Spiegelabstandes eingegangen und beispielhaft die Finesse eines konfokalen Resonators bestimmt. 
+Im ersten Teil des hier vorgestellten Versuchs soll es um das experimentelle Untersuchen charakteristischer Größen eines solchen Laserstrahls gehen. So wird die Strahltaille (Waist) senkrecht zur Ausbreitungsrichtung sowie der Strahlradius als Funktion der zur Ausbreitungsrichtung parallelen Koordinate untersucht.\\
+Im zweiten Versuchsteil wird das Verhalten Gaußscher Strahlen in einem aus zwei gekrümmten halbdurchlässigen Spiegel bestehenden Resonator untersucht. Insbesondere wird auf die Transmissionsfunktion als Funktion des Spiegelabstandes eingegangen und beispielhaft die Finesse eines konfokalen Resonators bestimmt. 
 \section{Versuchsdurchführung}
 \subsection{Untersuchung eines Gaußschen Laserstrahls}
 \subsubsection{Präparation eines Laserstrahls mit einem bestimmten Waist}
@@ -69,18 +69,38 @@ Für $q'$ soll aber auch
 q' \,\,=\,\, -f_2 + i \frac{\pi}{\lambda} {w'}_{0}^{2}
 \end{equation}
 gelten. Löst man die Gleichungen \ref{Gl1} und \ref{Gl2} nach $d$ auf, erhält man
-\begin{equation}
-\left( f_1 f_2 \frac{w_0}{{w'}_{0}} \right)^2 \,\,=\,\, \left( f_1 f_2 - d f_1 \right)^2 + \left( d - f_1 - f_2 \right)^2 \cdot \left(\frac{\pi w_{0}^{2}}{\lambda} \right)^2
-\end{equation}
-\begin{equation}
+\begin{align}
+\left( f_1 f_2 \frac{w_0}{{w'}_{0}} \right)^2 \,\,&=\,\, \left( f_1 f_2 - d f_1 \right)^2 + \left( d - f_1 - f_2 \right)^2 \cdot \left(\frac{\pi w_{0}^{2}}{\lambda} \right)^2\\ \quad&
 \Rightarrow \,\,\,\, d \,\,=\,\, 35.15\ \mathrm{cm}
-\end{equation}
+\end{align}
 \subsubsection{Vermessung der Strahltaille}
 Die gemessene Lichtleistung ist 
 \begin{align}
 P(x)&=\int_{-\infty}^\infty \mathrm dy^\prime \int_x^\infty \mathrm dx^\prime I_0\cdot\mathrm{exp}\left(-\frac{2(x^\prime-x_0)^2}{w^2}-\frac{2(y^\prime-y_0)^2}{w^2}\right) \\ \quad& = \sqrt{\frac{\pi}{2}}wI_0\int_x^\infty \mathrm dx^\prime \mathrm{exp}\left(-\frac{2(x^\prime-x_0)^2}{w^2}\right) \undereq{CAS}\hdots \\ \quad& =I_0\sqrt{\frac{\pi}{8}}w\cdot\left(\mathrm{erf}\left(\frac{\sqrt{2}}{w}(x-x_0)\right)+1\right)\\ \quad& \equiv \mathfrak{P}_0\cdot\left(\mathrm{erf}\left(\frac{\sqrt{2}}{w}(x-x_0)\right)+1\right)
 \end{align}
 Entsprechend können die Messdaten durch Anpassung der Parameter $(\mathfrak P_0,w,x_0)\in \R\setminus\{0\}\times\R^+\times\R$ gefittet werden.
+Es ergibt sich \plotref{erf}
+\plot{erf}{Regression der gemessenen Strahltaille mit einer Fehlerfunktion}{1}{erf.pdf}
+\subsubsection{Abschätzung der Parameter des kollimierten Laserstrahls}
+Um einen groben Schätzwert für den Waistparameter $w_0$ zu erhalten, werden für zwei möglichst weit voneinander entfernte Werte $z_1,z_2$ die Strahldurchmesser $w_1\equiv w(z_1),\ w_2\equiv w(z_2)$ bestimmt. $z_1,z_2$ werden dabei ausgehend vom Faserende gemessen. \\
+Es gilt dann allgemein
+\begin{equation}\label{w(z)}
+w(z)=w_0\sqrt{1+\frac{(z-z_0)^2}{z_R^2}}=\sqrt{w_0^2+\frac{(z-z_0)^2\lambda^2}{\pi^2n^2w_0^2}}
+\end{equation}
+und daraus folgt
+\begin{equation}
+\frac{w_1^2}{w_2^2}=\frac{1+z_1^2/z_R^2}{1+z_2^2/z_R^2}\Rightarrow z_R=\sqrt{\frac{z_1^2-\frac{w_1^2}{w_2^2}z_2^2}{\frac{w_1^2}{w_2^2}-1}}.
+\end{equation}
+Mithilfe des so bestimmten Wertes kann $w_0$ bestimmt werden. 
+\begin{equation}
+w_0=\frac{w_i}{\sqrt{1+\frac{z_i^2}{z_R^2}}},\ i\in\{1,2 \}
+\end{equation}
+\subsubsection{Vermessung des Strahlprofils hinter einer Konvexlinse}
+Nun wurde eine Konvexlinse der Brennweite $f=100\ \mathrm{mm}$ in den Strahl gestellt. Diese führte zu einer deutlich schnelleren Aufweitung des Strahls im Vergleich zu dem Strahl, der den Faserkoppler verlässt. \\
+Für verschiedene $z$ wurde der Strahldurchmesser $w(z)$ bestimmt. Das Vorgehen ist identisch zu dem beim Vermessen der Strahltaille. Mittels Gleichung \ref{w(z)} kann nun eine Anpassung an die gemessenen Werte vorgenommen werden. Die Regressionsfunktion lautet also:
+\begin{equation}\label{w(z)}
+w(z)=w_0\sqrt{1+\frac{(z-z_0)^2}{z_R(w_0)^2}},\ (z_0,w_0)\in \R\times\R^+
+\end{equation}
 \subsection{Optischer Resonator}
 \subsubsection{Aufbau des Resonators}
 \image{Skizze_A2}{Aufbau zum optischen Resonator (aus \cite{versuchsanleitung}, bearbeitet)}{1}{Skizze_Aufgabe_S16.png}
@@ -102,7 +122,7 @@ C & D
 \equiv
 \begin{bmatrix}
 1 & 0\\
-\frac{1-n}{n\cdot \infty} & \frac{1}{n}
+\frac{n-1}{|R|} & \frac{n}{1}
 \end{bmatrix} 
 \cdot
 \begin{bmatrix}
@@ -112,11 +132,11 @@ C & D
 \cdot
 \begin{bmatrix}
 1 & 0\\
-\frac{n-1}{1\cdot(- R)} & \frac{n}{1}
+\frac{1-n}{n\cdot \infty} & \frac{1}{n}
 \end{bmatrix} 
 \\ \quad& = \begin{bmatrix}
-\frac{b(1-n)}{R}+1 & bn\\
-\frac{1-n}{nR} & 1
+1 & \frac{b}{n}\\
+\frac{n-1}{R} & 1+\frac{b(n-1)}{nR}
 \end{bmatrix}
 \end{align}
 Im Resonator geben die Randbedingungen vor, dass $w_0^\prime=\sqrt{\frac{\lambda}{\pi}\sqrt{\frac{d}{2}\left(R-\frac{d}{2}\right)}}$ gilt, wodurch insbesondere $q^\prime\equiv z^\prime+iz_R^\prime$ festgelegt wird. Damit lässt sich auf $q=z+iz_R$ außerhalb des Resonators, also vor dem Einkoppeln des Strahls in den Resonator, schließen:
@@ -136,13 +156,18 @@ w_0^\prime = 70.08\ \mu\mathrm m\Rightarrow z_R^\prime = \frac{\pi w_0^{\prime 2
  $z^\prime$ ist der negative halbe Abstand der beiden halbdurchlässigen Spiegel, da mittig zwischen diesen der waist des Strahls liegt. \\
 Damit ergibt sich für die Strahlparameter außerhalb des Resonators (d.h. vor dem Einkoppeln des Strahls in den Resonator) durch Einsetzen
 \begin{equation}
-z_R = 3.39\ \mathrm{cm},\ z = -3.27\ \mathrm{cm}
+z_R = 1.57\ \mathrm{cm},\ z = -2.59\ \mathrm{cm}
 \end{equation}
-Der Fokus ist also scheinbar um $\Delta z\equiv z-z^\prime = 1.02\ \mathrm{cm}$ verschoben. 
+Der Fokus ist also scheinbar um $\Delta z\equiv z-z^\prime = -3.4\ \mathrm{mm}$ verschoben. 
 
 %Berücksichtige nun die Linse zur Modenanpassung und deren Abstand $\mathfrak{d}$ zum Resonator.
 
 \section{Ergebnisse und Diskussion}
+\subsection{Untersuchung eines Gaußschen Laserstrahls}
+\subsubsection{Vermessung der Strahltaille}
+\subsubsection{Abschätzung der Parameter des kollimierten Laserstrahls}
+\subsubsection{Vermessung des Strahlprofils hinter einer Konvexlinse}
+\subsection{Optischer Resonator}
 \section{Zusammenfassung}
 \newpage
 
