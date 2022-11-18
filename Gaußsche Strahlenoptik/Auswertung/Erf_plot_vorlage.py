@@ -17,7 +17,7 @@ plt.ioff()
 
 def Regr(x,a,b,c):
     """Model of a linear function for fitting and plotting"""
-    return a*(erf(np.sqrt(2)/b*(x-c))+1)
+    return a*(erf(-np.sqrt(2)/b*(x-c))+1)
     
 def plot(PDFname):
     global x,y

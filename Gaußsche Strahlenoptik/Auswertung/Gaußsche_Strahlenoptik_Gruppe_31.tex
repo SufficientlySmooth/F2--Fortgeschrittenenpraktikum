@@ -76,7 +76,7 @@ gelten. Löst man die Gleichungen \ref{Gl1} und \ref{Gl2} nach $d$ auf, erhält 
 \subsubsection{Vermessung der Strahltaille}
 Die gemessene Lichtleistung ist 
 \begin{align}
-P(x)&=\int_{-\infty}^\infty \mathrm dy^\prime \int_x^\infty \mathrm dx^\prime I_0\cdot\mathrm{exp}\left(-\frac{2(x^\prime-x_0)^2}{w^2}-\frac{2(y^\prime-y_0)^2}{w^2}\right) \\ \quad& = \sqrt{\frac{\pi}{2}}wI_0\int_x^\infty \mathrm dx^\prime \mathrm{exp}\left(-\frac{2(x^\prime-x_0)^2}{w^2}\right) \undereq{CAS}\hdots \\ \quad& =I_0\sqrt{\frac{\pi}{8}}w\cdot\left(\mathrm{erf}\left(\frac{\sqrt{2}}{w}(x-x_0)\right)+1\right)\\ \quad& \equiv \mathfrak{P}_0\cdot\left(\mathrm{erf}\left(\frac{\sqrt{2}}{w}(x-x_0)\right)+1\right)
+P(x)&=\int_{-\infty}^\infty \mathrm dy^\prime \int_x^\infty \mathrm dx^\prime I_0\cdot\mathrm{exp}\left(-\frac{2(x^\prime-x_0)^2}{w^2}-\frac{2(y^\prime-y_0)^2}{w^2}\right) \\ \quad& = \sqrt{\frac{\pi}{2}}wI_0\int_x^\infty \mathrm dx^\prime \mathrm{exp}\left(-\frac{2(x^\prime-x_0)^2}{w^2}\right) \undereq{CAS}\hdots \\ \quad& =I_0\sqrt{\frac{\pi}{8}}w\cdot\left(\mathrm{erf}\left(\frac{\sqrt{2}}{w}(x_0-x)\right)+1\right)\\ \quad& \equiv \mathfrak{P}_0\cdot\left(\mathrm{erf}\left(\frac{\sqrt{2}}{w}(x_0-x)\right)+1\right)
 \end{align}
 Entsprechend können die Messdaten durch Anpassung der Parameter $(\mathfrak P_0,w,x_0)\in \R\setminus\{0\}\times\R^+\times\R$ gefittet werden.
 Es ergibt sich \plotref{erf}
@@ -87,14 +87,15 @@ Es gilt dann allgemein
 \begin{equation}\label{w(z)}
 w(z)=w_0\sqrt{1+\frac{(z-z_0)^2}{z_R^2}}=\sqrt{w_0^2+\frac{(z-z_0)^2\lambda^2}{\pi^2n^2w_0^2}}
 \end{equation}
-und daraus folgt
-\begin{equation}
-\frac{w_1^2}{w_2^2}=\frac{1+z_1^2/z_R^2}{1+z_2^2/z_R^2}\Rightarrow z_R=\sqrt{\frac{z_1^2-\frac{w_1^2}{w_2^2}z_2^2}{\frac{w_1^2}{w_2^2}-1}}.
-\end{equation}
-Mithilfe des so bestimmten Wertes kann $w_0$ bestimmt werden. 
-\begin{equation}
-w_0=\frac{w_i}{\sqrt{1+\frac{z_i^2}{z_R^2}}},\ i\in\{1,2 \}
-\end{equation}
+
+%und daraus folgt
+%\begin{equation}
+%\frac{w_1^2}{w_2^2}=\frac{1+z_1^2/z_R^2}{1+z_2^2/z_R^2}\Rightarrow z_R=\sqrt{\frac{z_1^2-\frac{w_1^2}{w_2^2}z_2^2}{\frac{w_1^2}{w_2^2}-1}}.
+%\end{equation}
+%Mithilfe des so bestimmten Wertes kann $w_0$ bestimmt werden. 
+%\begin{equation}
+%w_0=\frac{w_i}{\sqrt{1+\frac{z_i^2}{z_R^2}}},\ i\in\{1,2 \}
+%\end{equation}
 \subsubsection{Vermessung des Strahlprofils hinter einer Konvexlinse}
 Nun wurde eine Konvexlinse der Brennweite $f=100\ \mathrm{mm}$ in den Strahl gestellt. Diese führte zu einer deutlich schnelleren Aufweitung des Strahls im Vergleich zu dem Strahl, der den Faserkoppler verlässt. \\
 Für verschiedene $z$ wurde der Strahldurchmesser $w(z)$ bestimmt. Das Vorgehen ist identisch zu dem beim Vermessen der Strahltaille. Mittels Gleichung \ref{w(z)} kann nun eine Anpassung an die gemessenen Werte vorgenommen werden. Die Regressionsfunktion lautet also:

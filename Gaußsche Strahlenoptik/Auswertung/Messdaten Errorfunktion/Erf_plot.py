@@ -1,0 +1,80 @@
+import os    
+import numpy as np 
+import matplotlib.pyplot as plt 
+from scipy.optimize import curve_fit 
+import matplotlib
+from scipy.special import erf
+from itertools import product, combinations
+
+matplotlib.style.use('JaPh') 
+plt.ioff()
+
+def Regr(x,a,b,c):
+    return a*(erf(-np.sqrt(2)/b*(x-c))+1)
+    
+def plot(FILENAME):
+    PATH = FILENAME+'.csv'
+    
+    X,Xerr,Y,Yerr = np.loadtxt(PATH,delimiter=';',skiprows=1,unpack=True)
+        
+    Yerr = np.sqrt(Y)*.1
+    xlabel = r'$\frac{x}{\mathrm{mm}}$' 
+    ylabel = r'$\frac{U}{\mathrm{V}}$'
+    
+    xlim = (-.5+min(X),max(X)+.5)
+    ylim = (0,max(Y)*1.1)
+
+    popt,pcov = curve_fit(Regr,X,Y,p0=(max(Y)/2,np.mean(X),.5),maxfev=100000)
+    stdDev=np.sqrt(np.diag(pcov))  
+        
+    t1 = np.linspace(xlim[0],xlim[1], 10**4)
+    
+    fig,ax=plt.subplots(1,1,figsize=(10,10/np.sqrt(2))) 
+
+    ax.plot(t1,Regr(t1,*popt), marker = 'None', linestyle = '-',label=r'$U(x)=U_0\cdot\left(\mathrm{erf}\left(\frac{\sqrt{2}}{w}(x_0-x)\right)+1\right)$') 
+    ax.errorbar(X,Y,yerr=Yerr,marker='x',linestyle='None',label='Messwerte gem. \emph{'+PATH+'}')
+    for comb1, comb2 in combinations(product([-1,1],repeat=len(stdDev)),2):
+        p1 = popt+stdDev*comb1
+        p2 = popt+stdDev*comb2
+        if np.abs(np.sum(comb1))==len(stdDev) and np.sum(comb2)==-np.sum(comb1):
+            ax.fill_between(t1,Regr(t1,*p1),Regr(t1,*p2), alpha = .6, label = r'$1\sigma-\text{Fehlerstreifen}$')
+        else: 
+            ax.fill_between(t1,Regr(t1,*p1),Regr(t1,*p2), alpha = .6)
+    
+    sigfig = 4
+    stdDev_rounded = ['{:g}'.format(float('{:.{p}g}'.format(stdDev[i], p=sigfig))) for i in range(0,len(popt))]
+    decimals = [len(str(stdDev_rounded[i].split('.')[-1])) for i in range(0,len(popt))]
+
+    cell_text = [[str(round(popt[i],decimals[i])),str(round(stdDev[i],decimals[i]))] for i in range(0,len(popt))]
+    the_table = the_table = plt.table(cellText=cell_text,
+                      rowLabels=[r'$U_0[\mathrm{V}]$',r'$w[\mathrm mm]$',r'$x_0[\mathrm mm]$'],
+                      #rowColours=colors,
+                      colLabels=['Wert','Unsicherheit'],
+                      loc='bottom',
+                      cellLoc='center',
+                      bbox=[0.25,-0.3,0.5,0.2],
+                      #AXESPAD = 0.1,
+                      edges='closed')
+    #ax.bbox.get_points()
+
+    #-----Formatting------------
+    ax.set_ylim(ylim[0],ylim[1])
+    ax.set_xlabel(xlabel,size=16)
+    ax.set_ylabel(ylabel,size=16)
+    ax.set_xlim(xlim[0],xlim[1])
+    ax.grid(visible=True, which='minor', color="grey", linestyle='-',linewidth=.008, alpha=.2)
+    ax.legend(loc='best',fontsize=15)
+    fig.tight_layout()
+
+    #----Save Figure-----------
+    plt.savefig(FILENAME+".pdf",dpi=1200)
+    plt.savefig(FILENAME+".png",dpi=1200)
+    
+
+if __name__ == "__main__":    
+    path = os.getcwd() + "\\"
+    dirs = os.listdir( path )
+    for item in dirs:
+        if os.path.isfile(path+item) and item[::-1][:3][::-1]=='csv':
+            f, e = os.path.splitext(item)
+            plot(f)
