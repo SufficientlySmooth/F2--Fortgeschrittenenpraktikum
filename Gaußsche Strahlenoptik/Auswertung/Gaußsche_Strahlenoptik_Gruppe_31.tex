@@ -25,7 +25,64 @@ Die geometrische Optik liefert nur eine unzureichende Beschreibung von Laserstra
 Berücksichtigt man nun den Wellencharakter des Lichtes und das typischerweise gauß-förmige Intensitätsprofil eines Laserstrahls, führt dies zur Gaußschen Strahlenoptik. \\
 Im ersten Teil des hier vorgestellten Versuchs soll es um das experimentelle Untersuchen charakteristischer Größen eines solchen Laserstrahls gehen. So wird die Strahltaille (Waist) senkrecht zur Ausbreitungsrichtung sowie der Strahlradius als Funktion der zur Ausbreitungsrichtung parallelen Koordinate untersucht.\\
 Im zweiten Versuchsteil wird das Verhalten Gaußscher Strahlen in einem aus zwei gekrümmten halbdurchlässigen Spiegel bestehenden Resonator untersucht. Insbesondere wird auf die Transmissionsfunktion als Funktion des Spiegelabstandes eingegangen und beispielhaft die Finesse eines konfokalen Resonators bestimmt. 
+\section{Theoretischer Hintergrund}
+\subsection{Gaußstrahlen}
+Die Darstellung in diesem Abschnitt stützt sich, sofern nicht anders angegeben, auf Abschnitt 1 aus \cite{versuchsanleitung}. \\
+Für monochromatische Lichtfelder linearer Polarisation der Form 
+\begin{equation}\label{E_vec}
+\vec E(\vec x,t)=\vec e\cdot E(x,y,z)\cdot e^{i\omega t}
+\end{equation}
+wird die elektromagnetische Wellengleichung in homogenen Medien zu
+\begin{equation}\label{wave_eq}
+\left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2}+k^2\right)E(x,y,z)=0
+\end{equation}
+Breitet sich ein Lichtfeld entlang der z-Richtung aus, so vereinfacht sich die Ortsabhängigkeit der Amplitude in \ref{E_vec} zu 
+\begin{equation}\label{E_ansatz}
+E(x,y,z)=E_0X(x,z)Y(y,z)e^{-ikz}.
+\end{equation}
+Nun sind häufig nur Strahlen von Interesse, die der schon aus der geometrischen Optik bekannten paraxialen Näherung genügen. Dies umfasst Strahlen, die sich nah an der optischen Achse bewegen und mit dieser nur kleine Winkel einschließen. Somit verschwinden für solche Strahlen in guter Näherung die zweiten partiellen Ableitungen nach $z$, da diese, wenn sie nicht $0$ wären, ein \glqq Wegkrümmen\grqq des Strahls von der optischen Achse beschreiben würden.\\
+Einsetzen von \ref{E_ansatz} in \ref{wave_eq} liefert mit $X\equiv X(x,z), Y\equiv Y(y,z)$:
+\begin{align}
+0&=\left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2}\right)E(x,y,z) \\ \quad&
+=\left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+k^2\right)E(x,y,z)+\partial_z\left(-ikE_0XYe^{-ikz}+E_0e^{-ikz}\partial_z(XY)\right) \\ \quad&
+=\left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+k^2\right)E(x,y,z)-k^2E_0XYe^{-ikz}-2ikE_0\partial_z(XY)e^{-ikz}\\ \quad& -ikE_0e^{-ikz}XY+E_0e^{-ikz}\underbrace{\partial_z^2(XY)}_{\approx 0}
+\end{align}
+Man überzeugt sich nun schnell davon, dass für nicht-triviale $X,Y$ gelten muss:
+\begin{equation}
+\left(\frac{\partial^2}{\partial x^2}-2ik\frac{\partial}{\partial z}\right)X(x,z)=\left(\frac{\partial^2}{\partial y^2}-2ik\frac{\partial}{\partial z}\right)y(y,z)=0
+\end{equation}
+Lösungen hiervon sind die Hermite-Gaußschen $\mathrm{TEM}_{m,n}$ Moden. Dabei beschreiben $n,m\in\N$ die Anzahl von Knoten im axialen Intensitätsprofil in $x-$ respektive $y-$Richtung.\\
+Die Stärke der Divergenz dieser Moden wird bestimmt durch den Waist $w_0$, der auch die sogenannte Rayleigh-Länge \begin{equation}\label{rayleigh} z_R=\frac{\pi w_0^2n}{\lambda}\end{equation}festlegt. Der Strahlradius nimmt entlang der Ausbreitungsrichtung die folgende Form an ($z_0$ ist der Ort, an dem die Waist angenommen wird):
+\begin{equation}
+\label{transv_profil}
+w(z)=w_0\sqrt{1+\frac{(z-z_0)^2}{z_R^2}}
+\end{equation}
+Wie sich herausstellt, beschreibt das Wertepaar $(w_0,z_R)$ und damit auch die Größe $q\equiv w_0+iz_R$ einen Gaußstrahl vollständig.\\
+Wird nun ein optisches System durch eine Transfermatrix \begin{equation}
+T\equiv\begin{bmatrix}
+A& B\\
+C & D
+\end{bmatrix}
+\end{equation}
+beschrieben- zur Berechnung von Transfermatrizen für einige konkrete Systeme vergleiche beispielsweise \cite{demtröder_2}- so werden $w_0$ und $z_R$ gemäß dem sogenannten 'ABCD'-Gesetz für Gaußstrahlen transformiert:
+\begin{equation}\label{ABCD-Gesetz}
+q^\prime = \frac{Aq+B}{Cq+D}
+\end{equation}
+\subsection{Optische Resonatoren}
 \section{Versuchsdurchführung}
+\subsection{Bestimmung der Laserleistung und der Hintergrundhelligkeit}
+\subsection{Einkoppeln des Laserstrahls}
+\begin{figure}[H]
+    \centering
+    \subfloat[Single-Mode]{
+        \includegraphics[width=0.28\textwidth]{Bilder/single_mode_fiber.jpg}
+    }
+  \subfloat[Multi-mode]{
+        \includegraphics[width=0.28\textwidth]{Bilder/multi_mode_fiber.jpg}
+    }\\
+   \caption{Transmittierte Moden nach Glasfasern, vergrößert durch $f=50\ \mathrm{mm}$ Linse}
+    \label{FotostreckeGlasfasern}
+\end{figure}
 \subsection{Untersuchung eines Gaußschen Laserstrahls}
 \subsubsection{Präparation eines Laserstrahls mit einem bestimmten Waist}
 \image{Skizze_A1}{Fokussierung eines Gaußstrahls auf bestimmten Waist $w^\prime_0$}{1}{Skizze_Aufgabe_S7.png}
@@ -60,10 +117,7 @@ Für die Umgebung, in der sich die Gaußstrahlen ausbreiten, sei in guter Näher
 \begin{equation}
 q \,\,=\,\, 0 + i \frac{\pi}{\lambda} w_{0}^2
 \end{equation}
-Gemäß dem 'ABCD'-Gesetz für Gaußstrahlen gilt damit für $q'$ in Abbildung \ref{Skizze_A1}
-\begin{equation}\label{Gl1}
-q' \,\,=\,\, \frac{Aq+B}{Cq+D}
-\end{equation}
+Gemäß dem 'ABCD'-Gesetz für Gaußstrahlen gilt damit für $q'$ in Abbildung \ref{Skizze_A1} Gleichung \ref{ABCD-Gesetz}
 Für $q'$ soll aber auch
 \begin{equation}\label{Gl2}
 q' \,\,=\,\, -f_2 + i \frac{\pi}{\lambda} {w'}_{0}^{2}
@@ -80,7 +134,7 @@ P(x)&=\int_{-\infty}^\infty \mathrm dy^\prime \int_x^\infty \mathrm dx^\prime I_
 \end{align}
 Entsprechend können die Messdaten durch Anpassung der Parameter $(\mathfrak P_0,w,x_0)\in \R\setminus\{0\}\times\R^+\times\R$ gefittet werden.
 Es ergibt sich \plotref{erf}
-\plot{erf}{Regression der gemessenen Strahltaille mit einer Fehlerfunktion}{1}{erf.pdf}
+%\plot{erf}{Regression der gemessenen Strahltaille mit einer Fehlerfunktion}{1}{erf.pdf}
 \subsubsection{Abschätzung der Parameter des kollimierten Laserstrahls}
 Um einen groben Schätzwert für den Waistparameter $w_0$ zu erhalten, werden für zwei möglichst weit voneinander entfernte Werte $z_1,z_2$ die Strahldurchmesser $w_1\equiv w(z_1),\ w_2\equiv w(z_2)$ bestimmt. $z_1,z_2$ werden dabei ausgehend vom Faserende gemessen. \\
 Es gilt dann allgemein
@@ -142,7 +196,7 @@ C & D
 \end{align}
 Im Resonator geben die Randbedingungen vor, dass $w_0^\prime=\sqrt{\frac{\lambda}{\pi}\sqrt{\frac{d}{2}\left(R-\frac{d}{2}\right)}}$ gilt, wodurch insbesondere $q^\prime\equiv z^\prime+iz_R^\prime$ festgelegt wird. Damit lässt sich auf $q=z+iz_R$ außerhalb des Resonators, also vor dem Einkoppeln des Strahls in den Resonator, schließen:
 \begin{align}
-q^\prime=\frac{Aq+B}{Cq+D}& \iff q = \frac{Dq^\prime-B}{A-Cq^\prime}\\ & \Rightarrow z_R=\Im{q}=\Im{\frac{D\cdot (z^\prime+iz_R^\prime)-B}{A-C\cdot(z^\prime+iz_R^\prime)}}\\ \quad&=\Im{\frac{D\cdot ((z^\prime+iz_R^\prime)-B)(A-C\cdot(z^\prime-iz_R^\prime))}{(A-Cz^\prime)^2+C^2z_R^{^\prime 2}}}\\ \quad&
+\ref{ABCD-Gesetz}& \iff q = \frac{Dq^\prime-B}{A-Cq^\prime}\\ & \Rightarrow z_R=\Im{q}=\Im{\frac{D\cdot (z^\prime+iz_R^\prime)-B}{A-C\cdot(z^\prime+iz_R^\prime)}}\\ \quad&=\Im{\frac{D\cdot ((z^\prime+iz_R^\prime)-B)(A-C\cdot(z^\prime-iz_R^\prime))}{(A-Cz^\prime)^2+C^2z_R^{^\prime 2}}}\\ \quad&
 =\frac{ADz_R^\prime-BCDz_R^\prime}{(A-Cz^\prime)^2+C^2z_R^{^\prime 2}}
 \end{align}
 Analog folgt 
@@ -160,7 +214,18 @@ Damit ergibt sich für die Strahlparameter außerhalb des Resonators (d.h. vor d
 z_R = 1.57\ \mathrm{cm},\ z = -2.59\ \mathrm{cm}
 \end{equation}
 Der Fokus ist also scheinbar um $\Delta z\equiv z-z^\prime = -3.4\ \mathrm{mm}$ verschoben. 
-
+\subsubsection{Justieren und Bestimmen der Transmissionsfunktion}
+\begin{figure}[H]
+    \centering
+    \subfloat[gestörte Transmissionsfunktion]{
+        \includegraphics[width=0.4\textwidth]{Bilder/Osc_disturbed.jpg}
+    }
+  \subfloat[ungestörte Transmissionsfunktion]{
+        \includegraphics[width=0.4\textwidth]{Bilder/Osc_nice.jpg}
+    }\\
+   \caption{Transmissionsfunktion des konfokalen Resonators}
+    \label{FotostreckeTransmissionsfunktion}
+\end{figure}
 %Berücksichtige nun die Linse zur Modenanpassung und deren Abstand $\mathfrak{d}$ zum Resonator.
 
 \section{Ergebnisse und Diskussion}
@@ -177,9 +242,24 @@ Der Fokus ist also scheinbar um $\Delta z\equiv z-z^\prime = -3.4\ \mathrm{mm}$ 
 \appendix
 
 \section{Python-Skripte zur Auswertung}
+\subsection{Bestimmung des axialen Strahlprofils}
 %\large\textbf{Code 1 zu Plot TV5:}
-%\lstinputlisting{TV5.py}\newpage
+\lstinputlisting{Messdaten Errorfunktion/Erf_plot.py}
+\subsection{Bestimmung des transversalen Strahlprofils ohne Linse}
+\lstinputlisting{Messdaten Errorfunktion/w_z_plot_coll.py}
+\subsection{Bestimmung des transversalen Strahlprofils mit Linse}
+\lstinputlisting{Messdaten Errorfunktion/w_z_plot_div.py}
 %\large\textbf{Code 2 zu Plot TV5:}
 %\lstinputlisting{TV5_2.py}\newpage
+\section{Plots zur Vermessung des Strahldurchmessers}
+\subsection{Ohne Linse (kollimiert)}
+\subsection{Mit Linse (fokussiert)}
+\plot{div_z_75}{axiales Strahlprofil bei $z=75\mathrm{mm}$}{.8}{Messdaten Errorfunktion/Divergent_z_75.pdf}
+\plot{div_z_50}{axiales Strahlprofil bei $z=50\mathrm{mm}$}{.8}{Messdaten Errorfunktion/Divergent_z_50.pdf}
+\plot{div_z_175}{axiales Strahlprofil bei $z=175\mathrm{mm}$}{.8}{Messdaten Errorfunktion/Divergent_z_175.pdf}
+\plot{div_z_250}{axiales Strahlprofil bei $z=250\mathrm{mm}$}{.8}{Messdaten Errorfunktion/Divergent_z_250.pdf}
+\plot{div_z_100}{axiales Strahlprofil bei $z=100\mathrm{mm}$}{.8}{Messdaten Errorfunktion/Divergent_z_100.pdf}
+\plot{div_z_125}{axiales Strahlprofil bei $z=125\mathrm{mm}$}{.8}{Messdaten Errorfunktion/Divergent_z_125.pdf}
+
 
 \end{document}
