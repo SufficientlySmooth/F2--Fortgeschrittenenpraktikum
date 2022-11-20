@@ -15,9 +15,9 @@ from scipy import odr
 matplotlib.style.use('JaPh') 
 plt.ioff()
 
-def Regr(z,w0,z0):
+def Regr(z,w0,z0,M):
     lamb = .0006328
-    zR = np.pi*w0**2/lamb#*1/M**2
+    zR = np.pi*w0**2/lamb*1/M**2
     return w0*np.sqrt(1+(z-z0)**2/zR**2)
 
 def Regr_sp(tup,z):
@@ -27,19 +27,20 @@ def plot(CSVNAME):
     PATH = CSVNAME + '.csv'
 
 
-    p0 = (.1,100)
+    p0 = (.1,100,1)
 
     X, Y, Yerr = np.loadtxt(PATH,delimiter=',')    
-
-    Xerr = np.ones(len(X))*10
-
+      
+    
+    Xerr = np.ones(len(X))*1
+   
     xlabel = r'$\frac{z}{\mathrm{mm}}$' 
     ylabel = r'$\frac{w(z)}{\mathrm{mm}}$'
     
-    xlim = (min(X)-5,max(X)+5)
+    xlim = (-100,400)
     ylim = (min(Y)*0.9-.1,max(Y)*1.1)
 
-    popt,pcov = curve_fit(Regr,X,Y,p0=p0,maxfev=100000,method='lm',sigma=Yerr,absolute_sigma=True)
+    popt,pcov = curve_fit(Regr,X,Y,p0=p0,maxfev=100000)#,sigma=Yerr,absolute_sigma=True)
     stdDev=np.sqrt(np.diag(pcov))  
     
 
@@ -60,8 +61,9 @@ def plot(CSVNAME):
 
     fig,ax=plt.subplots(1,1,figsize=(10,10/np.sqrt(2))) 
   
-    ax.plot(t1,Regr(t1,*popt), marker = 'None', linestyle = '-',label=r'$w(z)=w_0\cdot\sqrt{1+\frac{(z-z_0)^2}{z_R(w_0,\lambda)^2}}$') 
+    ax.plot(t1,Regr(t1,*popt), marker = 'None', linestyle = '-',label=r'$w(z)=w_0\cdot\sqrt{1+\frac{(z-z_0)^2}{z_R(w_0,\lambda,M)^2}}$') 
     ax.errorbar(X,Y,yerr=Yerr,xerr=Xerr,marker='x',linestyle='None',label='Messwerte')
+    
     for comb1, comb2 in combinations(product([-1,1],repeat=len(stdDev)),2):
         p1 = popt+stdDev*comb1
         p2 = popt+stdDev*comb2
@@ -70,13 +72,14 @@ def plot(CSVNAME):
         else: 
             ax.fill_between(t1,Regr(t1,*p1),Regr(t1,*p2), alpha = .6)
     
+    
     sigfig = 4
     stdDev_rounded = ['{:g}'.format(float('{:.{p}g}'.format(stdDev[i], p=sigfig))) for i in range(0,len(popt))]
     decimals = [len(str(stdDev_rounded[i].split('.')[-1])) for i in range(0,len(popt))]
     cell_text = [[str(round(popt[i],decimals[i])),str(round(stdDev[i],decimals[i]))] for i in range(0,len(popt))]
     
     the_table = the_table = plt.table(cellText=cell_text,
-                      rowLabels=[r'$w_0[\mathrm{mm}]$',r'$z_0[\mathrm{mm}]$'],
+                      rowLabels=[r'$w_0[\mathrm{mm}]$',r'$z_0[\mathrm{mm}]$',r'$M$'],
                       colLabels=['Wert','Unsicherheit'],
                       loc='bottom',
                       cellLoc='center',

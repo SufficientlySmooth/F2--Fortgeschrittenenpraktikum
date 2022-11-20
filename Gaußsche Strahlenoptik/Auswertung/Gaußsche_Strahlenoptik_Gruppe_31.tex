@@ -1,6 +1,8 @@
 \documentclass[11pt,a4paper,oneside]{scrartcl}
 \usepackage{requiredPackages}
 \usepackage{subfig}
+\usepackage{cancel}
+\usepackage[labelfont=bf]{caption}
 \interfootnotelinepenalty=10000
 
 \def\UrlBreaks{\do/\do-\do_}
@@ -27,6 +29,7 @@ Im ersten Teil des hier vorgestellten Versuchs soll es um das experimentelle Unt
 Im zweiten Versuchsteil wird das Verhalten Gaußscher Strahlen in einem aus zwei gekrümmten halbdurchlässigen Spiegel bestehenden Resonator untersucht. Insbesondere wird auf die Transmissionsfunktion als Funktion des Spiegelabstandes eingegangen und beispielhaft die Finesse eines konfokalen Resonators bestimmt. 
 \section{Theoretischer Hintergrund}
 \subsection{Gaußstrahlen}
+\subsubsection{Ideale Gaußstrahlen}
 Die Darstellung in diesem Abschnitt stützt sich, sofern nicht anders angegeben, auf Abschnitt 1 aus \cite{versuchsanleitung}. \\
 Für monochromatische Lichtfelder linearer Polarisation der Form 
 \begin{equation}\label{E_vec}
@@ -40,19 +43,19 @@ Breitet sich ein Lichtfeld entlang der z-Richtung aus, so vereinfacht sich die O
 \begin{equation}\label{E_ansatz}
 E(x,y,z)=E_0X(x,z)Y(y,z)e^{-ikz}.
 \end{equation}
-Nun sind häufig nur Strahlen von Interesse, die der schon aus der geometrischen Optik bekannten paraxialen Näherung genügen. Dies umfasst Strahlen, die sich nah an der optischen Achse bewegen und mit dieser nur kleine Winkel einschließen. Somit verschwinden für solche Strahlen in guter Näherung die zweiten partiellen Ableitungen nach $z$, da diese, wenn sie nicht $0$ wären, ein \glqq Wegkrümmen\grqq des Strahls von der optischen Achse beschreiben würden.\\
+Nun sind häufig nur Strahlen von Interesse, die der schon aus der geometrischen Optik bekannten paraxialen Näherung genügen. Dies umfasst Strahlen, die sich nah an der optischen Achse bewegen und mit dieser nur kleine Winkel einschließen. Somit verschwinden für solche Strahlen in guter Näherung die zweiten partiellen Ableitungen nach $z$, da diese, wenn sie nicht $0$ wären, ein \glqq Wegkrümmen\grqq\ des Strahls von der optischen Achse beschreiben würden.\\
 Einsetzen von \ref{E_ansatz} in \ref{wave_eq} liefert mit $X\equiv X(x,z), Y\equiv Y(y,z)$:
 \begin{align}
 0&=\left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\frac{\partial^2}{\partial z^2}\right)E(x,y,z) \\ \quad&
 =\left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+k^2\right)E(x,y,z)+\partial_z\left(-ikE_0XYe^{-ikz}+E_0e^{-ikz}\partial_z(XY)\right) \\ \quad&
-=\left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+k^2\right)E(x,y,z)-k^2E_0XYe^{-ikz}-2ikE_0\partial_z(XY)e^{-ikz}\\ \quad& -ikE_0e^{-ikz}XY+E_0e^{-ikz}\underbrace{\partial_z^2(XY)}_{\approx 0}
+=\left(\frac{\partial^2}{\partial x^2}+\frac{\partial^2}{\partial y^2}+\cancel{k^2}\right)E(x,y,z)-\cancel{k^2E_0XYe^{-ikz}}-2ikE_0\partial_z(XY)e^{-ikz}\\ \quad& -ikE_0e^{-ikz}XY+E_0e^{-ikz}\underbrace{\partial_z^2(XY)}_{\approx 0}
 \end{align}
-Man überzeugt sich nun schnell davon, dass für nicht-triviale $X,Y$ gelten muss:
+Man überzeugt sich nun nach einmaligem Anwenden der Produktregel auf den Term mit $\partial_z$ schnell davon, dass für nicht-triviale $X,Y$ gelten muss:
 \begin{equation}
 \left(\frac{\partial^2}{\partial x^2}-2ik\frac{\partial}{\partial z}\right)X(x,z)=\left(\frac{\partial^2}{\partial y^2}-2ik\frac{\partial}{\partial z}\right)y(y,z)=0
 \end{equation}
 Lösungen hiervon sind die Hermite-Gaußschen $\mathrm{TEM}_{m,n}$ Moden. Dabei beschreiben $n,m\in\N$ die Anzahl von Knoten im axialen Intensitätsprofil in $x-$ respektive $y-$Richtung.\\
-Die Stärke der Divergenz dieser Moden wird bestimmt durch den Waist $w_0$, der auch die sogenannte Rayleigh-Länge \begin{equation}\label{rayleigh} z_R=\frac{\pi w_0^2n}{\lambda}\end{equation}festlegt. Der Strahlradius nimmt entlang der Ausbreitungsrichtung die folgende Form an ($z_0$ ist der Ort, an dem die Waist angenommen wird):
+Die Stärke der Divergenz dieser Moden wird bestimmt durch den Waist $w_0$, der auch die sogenannte Rayleigh-Länge \begin{equation}\label{rayleigh} z_R\equiv \frac{\pi w_0^2n}{\lambda}\end{equation}festlegt. Der Strahlradius nimmt entlang der Ausbreitungsrichtung die folgende Form an ($z_0$ ist der Ort, an dem die Waist angenommen wird):
 \begin{equation}
 \label{transv_profil}
 w(z)=w_0\sqrt{1+\frac{(z-z_0)^2}{z_R^2}}
@@ -68,11 +71,33 @@ beschrieben- zur Berechnung von Transfermatrizen für einige konkrete Systeme ve
 \begin{equation}\label{ABCD-Gesetz}
 q^\prime = \frac{Aq+B}{Cq+D}
 \end{equation}
+\subsubsection{Reale Gaußstrahlen}
+Reale (Laser-)Strahlen lassen sich natürlich nur in einem gewissen Maße als ideale Gaußstrahlen beschreiben. Um dem Verhalten realer Gaußstrahlen Rechnung zu tragen, führt man die dimensionslose Beugungsmaßzahl $M^2$ ein (vgl. \cite{paschotta2016m2}). Es ist für Gaußstrahlen $M^2=1$ und allgemein $M^2\geq 1$. Ein realer Strahl weitet sich gemäß dem Zusammenhang
+\begin{equation}\label{rayleigh_m2}
+z_R=\frac{w_0^2\pi n}{\lambda}\cdot \frac1{M^2}
+\end{equation}
+schneller auf als ein idealer Gaußstrahl. Da nach Gleichung \ref{ABCD-Gesetz} $z_R$ nicht durch ideale optische Elemente wie Linsen verändert wird, ist auch $M$ invariant unter idealen optischen Elementen. Dieser Umstand wird später noch aufgegriffen.
 \subsection{Optische Resonatoren}
+Auch die Darstellung in diesem Abschnitt stützt sich, sofern nicht anders angegeben, auf Abschnitt 1 aus \cite{versuchsanleitung}. \\
+Ein optischer Resonator ist ein Paar aus halbdurchlässigen Spiegeln, in Abhängigkeit von deren Krümmungsradien $R$ und Abstand $L$ zueinander Randbedingungen für die transmittierten Moden festgelegt werden. Es gilt für die Strahltaille:
+\begin{equation}
+w_0^2=\frac{\lambda}{\pi}\sqrt{\frac{L}{2}\left(R-\frac{L}{2}\right)}
+\end{equation}
+Im Versuch wird ein symmetrischer Resonator verwendet, bei dem die Waist in der Mitte der Spigel liegt und die beiden Spiegel dieselben Krümmungsradien haben. Da zudem $L\approx R$ sein soll, spricht man von einer konfokalen oder zumindest nah-konfokalen Anordnung.\\
+Im Wesentlichen ist auch von einem Resonator mit gekrümmten Spiegeln eine derjenigen eines planaren Fabry-Perot-Resonators ähnliche Transmissionsfunktion zu erwarten mit dem Unterschied, dass die Phasendifferenz nach einem Durchlauf i.A. nicht mehr nur von der Geometrie des Resonators, sondern beispielsweise auch von der eingekoppelten Mode abhängt. \\
+Eine charakteristische Größe eines Fabry-Perot-Resonators ist die Finesse $F$ die das Verhältnis aus dem freien Frequenzbereich (Abstand zwischen zwei Resonanzpeaks) und der FWHM-Breite eines Resonanzpeaks beschreibt:
+\begin{equation}
+F\equiv \frac{\Delta \omega_{\mathrm{FSR}}}{\Delta \omega_{\mathrm{FWHM}}}
+\end{equation}
+Andererseits kann man zeigen, dass, wenn die beiden Spiegel die Reflektivitäten $R_1$ und $R_2$ haben, die folgende Beziehung zwischen der Gesamtreflektivität $R\equiv \sqrt{R_1R_2}<1$ und $F$ gilt:
+\begin{equation}
+F= \frac{\pi\sqrt{R}}{1-R}
+\end{equation}
 \section{Versuchsdurchführung}
 \subsection{Bestimmung der Laserleistung und der Hintergrundhelligkeit}
 \subsection{Einkoppeln des Laserstrahls}
 \begin{figure}[H]
+\setcounter{imEnv}{1}
     \centering
     \subfloat[Single-Mode]{
         \includegraphics[width=0.28\textwidth]{Bilder/single_mode_fiber.jpg}
@@ -80,7 +105,7 @@ q^\prime = \frac{Aq+B}{Cq+D}
   \subfloat[Multi-mode]{
         \includegraphics[width=0.28\textwidth]{Bilder/multi_mode_fiber.jpg}
     }\\
-   \caption{Transmittierte Moden nach Glasfasern, vergrößert durch $f=50\ \mathrm{mm}$ Linse}
+   \caption{Transmittierte Moden nach Glasfasern hinter $f=50\ \mathrm{mm}$ Linse}
     \label{FotostreckeGlasfasern}
 \end{figure}
 \subsection{Untersuchung eines Gaußschen Laserstrahls}
@@ -117,16 +142,17 @@ Für die Umgebung, in der sich die Gaußstrahlen ausbreiten, sei in guter Näher
 \begin{equation}
 q \,\,=\,\, 0 + i \frac{\pi}{\lambda} w_{0}^2
 \end{equation}
-Gemäß dem 'ABCD'-Gesetz für Gaußstrahlen gilt damit für $q'$ in Abbildung \ref{Skizze_A1} Gleichung \ref{ABCD-Gesetz}
+Gemäß dem 'ABCD'-Gesetz für Gaußstrahlen gilt damit für $q'$ in Abbildung \ref{Skizze_A1} Gleichung \ref{ABCD-Gesetz}.\\
 Für $q'$ soll aber auch
 \begin{equation}\label{Gl2}
 q' \,\,=\,\, -f_2 + i \frac{\pi}{\lambda} {w'}_{0}^{2}
 \end{equation}
-gelten. Löst man die Gleichungen \ref{Gl1} und \ref{Gl2} nach $d$ auf, erhält man
+gelten. Aus den Gleichungen \ref{ABCD-Gesetz} und \ref{Gl2} nach $d$ auf, erhält man für $d$ die definierende Gleichung
 \begin{align}
 \left( f_1 f_2 \frac{w_0}{{w'}_{0}} \right)^2 \,\,&=\,\, \left( f_1 f_2 - d f_1 \right)^2 + \left( d - f_1 - f_2 \right)^2 \cdot \left(\frac{\pi w_{0}^{2}}{\lambda} \right)^2\\ \quad&
-\Rightarrow \,\,\,\, d \,\,=\,\, 35.15\ \mathrm{cm}
+\Rightarrow \,\,\,\, d \,\,=\,\, 35.14\ \mathrm{cm}
 \end{align}
+Eine analoge Rechnung mit $f_2\leftrightarrow f_1$ liefert den identischen Wert.
 \subsubsection{Vermessung der Strahltaille}
 Die gemessene Lichtleistung ist 
 \begin{align}
@@ -136,11 +162,12 @@ Entsprechend können die Messdaten durch Anpassung der Parameter $(\mathfrak P_0
 Es ergibt sich \plotref{erf}
 %\plot{erf}{Regression der gemessenen Strahltaille mit einer Fehlerfunktion}{1}{erf.pdf}
 \subsubsection{Abschätzung der Parameter des kollimierten Laserstrahls}
-Um einen groben Schätzwert für den Waistparameter $w_0$ zu erhalten, werden für zwei möglichst weit voneinander entfernte Werte $z_1,z_2$ die Strahldurchmesser $w_1\equiv w(z_1),\ w_2\equiv w(z_2)$ bestimmt. $z_1,z_2$ werden dabei ausgehend vom Faserende gemessen. \\
+Um einen groben Schätzwert für den Waistparameter $w_0$ zu erhalten, werden für vier verschiedene $z$ die Strahldurchmesser $w$ bestimmt. $z$ wird dabei ausgehend vom Faserende gemessen. \\
 Es gilt dann allgemein
 \begin{equation}\label{w(z)}
 w(z)=w_0\sqrt{1+\frac{(z-z_0)^2}{z_R^2}}=\sqrt{w_0^2+\frac{(z-z_0)^2\lambda^2}{\pi^2n^2w_0^2}}
 \end{equation}
+gemäß den Gleichungen \ref{rayleigh} und \ref{transv_profil}. 
 
 %und daraus folgt
 %\begin{equation}
@@ -159,7 +186,8 @@ w(z)=w_0\sqrt{1+\frac{(z-z_0)^2}{z_R(w_0)^2}},\ (z_0,w_0)\in \R\times\R^+
 \subsection{Optischer Resonator}
 \subsubsection{Aufbau des Resonators}
 \image{Skizze_A2}{Aufbau zum optischen Resonator (aus \cite{versuchsanleitung}, bearbeitet)}{1}{Skizze_Aufgabe_S16.png}
-Damit sich im Fabry-Perot-Resonator aus sphärischen Spiegeln eine stehende Welle bilden kann, soll die Waist des Gauß-Strahls mittig zwischen den beiden Spiegeln liegen. Betrachtet man den halbdurchlässigen Spiegel $\mathfrak{S}$, durch den der Gaußstrahl in den Resonator einfällt, als Linse der Dicke $b=6.35\ \mathrm{mm}$ und mit Krümmungsradien $R_1=\infty,R_2\equiv R=50\ \mathrm{mm}$, so kann unter Zuhilfenahme der Brechungsmatrix 
+\setcounter{figure}{3}
+Damit sich im symmetrischen nah-konfokalen Resonator aus sphärischen Spiegeln eine stehende Welle bilden kann, soll die Waist des Gauß-Strahls mittig zwischen den beiden Spiegeln liegen. Betrachtet man den halbdurchlässigen Spiegel $\mathfrak{S}$, durch den der Gaußstrahl in den Resonator einfällt, als Linse der Dicke $b=6.35\ \mathrm{mm}$ und mit Krümmungsradien $R_1=\infty,R_2\equiv R=50\ \mathrm{mm}$, so kann unter Zuhilfenahme der Brechungsmatrix 
 \begin{align}
 B_R\equiv \begin{bmatrix}
 1 & 0\\
@@ -213,9 +241,11 @@ Damit ergibt sich für die Strahlparameter außerhalb des Resonators (d.h. vor d
 \begin{equation}
 z_R = 1.57\ \mathrm{cm},\ z = -2.59\ \mathrm{cm}
 \end{equation}
-Der Fokus ist also scheinbar um $\Delta z\equiv z-z^\prime = -3.4\ \mathrm{mm}$ verschoben. 
+Der Fokus ist also scheinbar um $\Delta z\equiv z-z^\prime = -3.4\ \mathrm{mm}$ verschoben. \\
+Dass der Fokus der Linse für Modenanpassung bei der Versuchsdurchführung direkt auf das \emph{geometrische} Zentrum des Resonators gelegt wurde, war also in guter Näherung eine valide Herangehensweise, da die ebenfalls auf einem verschiebbaren Tisch montierte Linse beim Feinjustieren ohnehin noch etwas verschoben werden musste.
 \subsubsection{Justieren und Bestimmen der Transmissionsfunktion}
 \begin{figure}[H]
+
     \centering
     \subfloat[gestörte Transmissionsfunktion]{
         \includegraphics[width=0.4\textwidth]{Bilder/Osc_disturbed.jpg}
@@ -229,11 +259,15 @@ Der Fokus ist also scheinbar um $\Delta z\equiv z-z^\prime = -3.4\ \mathrm{mm}$ 
 %Berücksichtige nun die Linse zur Modenanpassung und deren Abstand $\mathfrak{d}$ zum Resonator.
 
 \section{Ergebnisse und Diskussion}
+\subsection{Bestimmung der Laserleistung und der Hintergrundhelligkeit}
 \subsection{Untersuchung eines Gaußschen Laserstrahls}
 \subsubsection{Vermessung der Strahltaille}
 \subsubsection{Abschätzung der Parameter des kollimierten Laserstrahls}
+\plot{coll_z}{transversales Strahlprofil des kollmierten Strahls}{1}{Messdaten Errorfunktion/w_z_data_coll.pdf}
 \subsubsection{Vermessung des Strahlprofils hinter einer Konvexlinse}
+\plot{div_z}{transversales Strahlprofil hinter $f=100\ \mathrm{mm}$ Linse}{1}{Messdaten Errorfunktion/w_z_data_div.pdf}
 \subsection{Optischer Resonator}
+\subsubsection{Bestimmung der Finesse}
 \section{Zusammenfassung}
 \newpage
 
@@ -253,6 +287,10 @@ Der Fokus ist also scheinbar um $\Delta z\equiv z-z^\prime = -3.4\ \mathrm{mm}$ 
 %\lstinputlisting{TV5_2.py}\newpage
 \section{Plots zur Vermessung des Strahldurchmessers}
 \subsection{Ohne Linse (kollimiert)}
+\plot{coll_z_75}{axiales Strahlprofil bei $z=75\mathrm{mm}$}{.8}{Messdaten Errorfunktion/Collimated_z_75.pdf}
+\plot{coll_z_150}{axiales Strahlprofil bei $z=150\mathrm{mm}$}{.8}{Messdaten Errorfunktion/Collimated_z_150.pdf}
+\plot{coll_z_250}{axiales Strahlprofil bei $z=250\mathrm{mm}$}{.8}{Messdaten Errorfunktion/Collimated_z_250.pdf}
+\plot{coll_z_350}{axiales Strahlprofil bei $z=350\mathrm{mm}$}{.8}{Messdaten Errorfunktion/Collimated_z_350.pdf}
 \subsection{Mit Linse (fokussiert)}
 \plot{div_z_75}{axiales Strahlprofil bei $z=75\mathrm{mm}$}{.8}{Messdaten Errorfunktion/Divergent_z_75.pdf}
 \plot{div_z_50}{axiales Strahlprofil bei $z=50\mathrm{mm}$}{.8}{Messdaten Errorfunktion/Divergent_z_50.pdf}
