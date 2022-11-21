@@ -53,7 +53,7 @@ def plot(FILENAME):
 
     cell_text = [[str(round(popt[i],decimals[i])),str(round(stdDev[i],decimals[i]))] for i in range(0,len(popt))]
     the_table = the_table = plt.table(cellText=cell_text,
-                      rowLabels=[r'$U_0[\mathrm{V}]$',r'$w[\mathrm mm]$',r'$x_0[\mathrm mm]$'],
+                      rowLabels=[r'$U_0[\mathrm{V}]$',r'$w[\mathrm{mm}]$',r'$x_0[\mathrm{mm}]$'],
                       colLabels=['Wert','Unsicherheit'],
                       loc='bottom',
                       cellLoc='center',
