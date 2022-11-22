@@ -77,41 +77,10 @@ Reale (Laser-)Strahlen lassen sich natürlich nur in einem gewissen Maße als id
 z_R=\frac{w_0^2\pi n}{\lambda}\cdot \frac1{M^2}
 \end{equation}
 schneller auf als ein idealer Gaußstrahl. Da nach Gleichung \ref{ABCD-Gesetz} $z_R$ nicht durch ideale optische Elemente wie Linsen verändert wird, ist auch $M$ invariant unter idealen optischen Elementen. Dieser Umstand wird später noch aufgegriffen.
-\subsection{Optische Resonatoren}
-Auch die Darstellung in diesem Abschnitt stützt sich, sofern nicht anders angegeben, auf Abschnitt 1 aus \cite{versuchsanleitung}. \\
-Ein optischer Resonator ist ein Paar aus halbdurchlässigen Spiegeln, in Abhängigkeit von deren Krümmungsradien $R$ und Abstand $L$ zueinander Randbedingungen für die transmittierten Moden festgelegt werden. Es gilt für die Strahltaille:
-\begin{equation}
-w_0^2=\frac{\lambda}{\pi}\sqrt{\frac{L}{2}\left(R-\frac{L}{2}\right)}
-\end{equation}
-Im Versuch wird ein symmetrischer Resonator verwendet, bei dem die Waist in der Mitte der Spigel liegt und die beiden Spiegel dieselben Krümmungsradien haben. Da zudem $L\approx R$ sein soll, spricht man von einer konfokalen oder zumindest nah-konfokalen Anordnung.\\
-Im Wesentlichen ist auch von einem Resonator mit gekrümmten Spiegeln eine derjenigen eines planaren Fabry-Perot-Resonators ähnliche Transmissionsfunktion zu erwarten mit dem Unterschied, dass die Phasendifferenz nach einem Durchlauf i.A. nicht mehr nur von der Geometrie des Resonators, sondern beispielsweise auch von der eingekoppelten Mode abhängt. \\
-Eine charakteristische Größe eines Fabry-Perot-Resonators ist die Finesse $F$ die das Verhältnis aus dem freien Frequenzbereich (Abstand zwischen zwei Resonanzpeaks) und der FWHM-Breite eines Resonanzpeaks beschreibt:
-\begin{equation}
-F\equiv \frac{\Delta \omega_{\mathrm{FSR}}}{\Delta \omega_{\mathrm{FWHM}}}
-\end{equation}
-Andererseits kann man zeigen, dass, wenn die beiden Spiegel die Reflektivitäten $R_1$ und $R_2$ haben, die folgende Beziehung zwischen der Gesamtreflektivität $R\equiv \sqrt{R_1R_2}<1$ und $F$ gilt:
-\begin{equation}
-F= \frac{\pi\sqrt{R}}{1-R}
-\end{equation}
-\section{Versuchsdurchführung}
-\subsection{Bestimmung der Laserleistung und der Hintergrundhelligkeit}
-\subsection{Einkoppeln des Laserstrahls}
-\begin{figure}[H]
-\setcounter{imEnv}{1}
-    \centering
-    \subfloat[Single-Mode]{
-        \includegraphics[width=0.28\textwidth]{Bilder/single_mode_fiber.jpg}
-    }
-  \subfloat[Multi-mode]{
-        \includegraphics[width=0.28\textwidth]{Bilder/multi_mode_fiber.jpg}
-    }\\
-   \caption{Transmittierte Moden nach Glasfasern hinter $f=50\ \mathrm{mm}$ Linse}
-    \label{FotostreckeGlasfasern}
-\end{figure}
-\subsection{Untersuchung eines Gaußschen Laserstrahls}
-\subsubsection{Präparation eines Laserstrahls mit einem bestimmten Waist}
+\subsubsection{Beispiel für Anwendung des 'ABCD'-Gesetzes}
 \image{Skizze_A1}{Fokussierung eines Gaußstrahls auf bestimmten Waist $w^\prime_0$}{1}{Skizze_Aufgabe_S7.png}
-Vorgegeben sind die Werte $w_0 = 1\ \mathrm{mm}$, $\lambda = 632.8\ \mathrm{nm}$, ${w'}_0 = 5 \mu \mathrm m$, $f_1 = 50\mathrm{mm}$, $f_2 = 100\ \mathrm{mm}$. Um hieraus $d$ zu bestimmen, betrachte man die Transfermatrix
+Gegeben zwei Konvexlinsen mit Brennweiten $f_1,f_2$ soll ein Laserstrahl, dessen Waist $w_0$ anfangs in der ersten Linse sei, auf den Waist $w_0^\prime$ präpariert werden. Hierfür soll der Abstand $d$ zwischen den beiden Linsen bestimmt werden.\\
+Gegeben sind die Werte $w_0 = 1\ \mathrm{mm}$, $\lambda = 632.8\ \mathrm{nm}$, ${w'}_0 = 5 \mu \mathrm m$, $f_1 = 50\mathrm{mm}$, $f_2 = 100\ \mathrm{mm}$. Um hieraus $d$ zu bestimmen, betrachte man die Transfermatrix
 \begin{equation}
 \begin{bmatrix}
     1 & 0 \\
@@ -153,6 +122,39 @@ gelten. Aus den Gleichungen \ref{ABCD-Gesetz} und \ref{Gl2} nach $d$ auf, erhäl
 \Rightarrow \,\,\,\, d \,\,=\,\, 35.14\ \mathrm{cm}
 \end{align}
 Eine analoge Rechnung mit $f_2\leftrightarrow f_1$ liefert den identischen Wert.
+\subsection{Optische Resonatoren}
+Auch die Darstellung in diesem Abschnitt stützt sich, sofern nicht anders angegeben, auf Abschnitt 1 aus \cite{versuchsanleitung}. \\
+Ein optischer Resonator ist ein Paar aus halbdurchlässigen Spiegeln, in Abhängigkeit von deren Krümmungsradien $R$ und Abstand $L$ zueinander Randbedingungen für die transmittierten Moden festgelegt werden. Es gilt für die Strahltaille:
+\begin{equation}
+w_0^2=\frac{\lambda}{\pi}\sqrt{\frac{L}{2}\left(R-\frac{L}{2}\right)}
+\end{equation}
+Im Versuch wird ein symmetrischer Resonator verwendet, bei dem die Waist in der Mitte der Spigel liegt und die beiden Spiegel dieselben Krümmungsradien haben. Da zudem $L\approx R$ sein soll, spricht man von einer konfokalen oder zumindest nah-konfokalen Anordnung.\\
+Im Wesentlichen ist auch von einem Resonator mit gekrümmten Spiegeln eine derjenigen eines planaren Fabry-Perot-Resonators ähnliche Transmissionsfunktion zu erwarten mit dem Unterschied, dass die Phasendifferenz nach einem Durchlauf i.A. nicht mehr nur von der Geometrie des Resonators, sondern beispielsweise auch von der eingekoppelten Mode abhängt. \\
+Eine charakteristische Größe eines Fabry-Perot-Resonators ist die Finesse $F$ die das Verhältnis aus dem freien Frequenzbereich (Abstand zwischen zwei Resonanzpeaks) und der FWHM-Breite eines Resonanzpeaks beschreibt:
+\begin{equation}
+F\equiv \frac{\Delta \omega_{\mathrm{FSR}}}{\Delta \omega_{\mathrm{FWHM}}}
+\end{equation}
+Andererseits kann man zeigen, dass, wenn die beiden Spiegel die Reflektivitäten $R_1$ und $R_2$ haben, die folgende Beziehung zwischen der Gesamtreflektivität $R\equiv \sqrt{R_1R_2}<1$ und $F$ gilt:
+\begin{equation}
+F= \frac{\pi\sqrt{R}}{1-R}
+\end{equation}
+\section{Versuchsdurchführung}
+\subsection{Bestimmung der Laserleistung und der Hintergrundhelligkeit}
+\subsection{Einkoppeln des Laserstrahls}
+\begin{figure}[H]
+\setcounter{imEnv}{1}
+    \centering
+    \subfloat[Single-Mode]{
+        \includegraphics[width=0.28\textwidth]{Bilder/single_mode_fiber.jpg}
+    }
+  \subfloat[Multi-mode]{
+        \includegraphics[width=0.28\textwidth]{Bilder/multi_mode_fiber.jpg}
+    }\\
+   \caption{Transmittierte Moden nach Glasfasern hinter $f=50\ \mathrm{mm}$ Linse}
+    \label{FotostreckeGlasfasern}
+\end{figure}
+\subsection{Untersuchung eines Gaußschen Laserstrahls}
+
 \subsubsection{Vermessung der Strahltaille}
 Die gemessene Lichtleistung ist 
 \begin{align}
