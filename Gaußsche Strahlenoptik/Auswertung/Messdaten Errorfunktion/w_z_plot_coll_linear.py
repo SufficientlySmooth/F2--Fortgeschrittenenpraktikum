@@ -58,7 +58,7 @@ def plot(CSVNAME):
     xlim = (-100,400)
     ylim = (min(Y)*0.9-.1,max(Y)*1.1)
 
-    popt,pcov = curve_fit(Regr,X,Y,p0=p0,maxfev=100000,sigma=Yerr,absolute_sigma=True)
+    popt,pcov = curve_fit(Regr,X,Y,p0=p0,maxfev=100000)#,sigma=Yerr,absolute_sigma=True)
     stdDev=np.sqrt(np.diag(pcov))  
 
 

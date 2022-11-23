@@ -27,7 +27,7 @@ def Regr_sp(tup,z):
 def plot(CSVNAME):
     PATH = CSVNAME + '.csv'
 
-    p0 = (1,200)
+    p0 = (.1,200)
      
     X, Y, Yerr = np.loadtxt(PATH,delimiter=',')    
 
@@ -42,7 +42,7 @@ def plot(CSVNAME):
     popt,pcov = curve_fit(Regr,X,Y,p0=p0,maxfev=100000,sigma=Yerr)
     stdDev=np.sqrt(np.diag(pcov))  
     
-    """
+    
     #----------------------------------------------------------------------
     FuncModel = odr.Model(Regr_sp)
     data = odr.RealData(X,Y,sx=Xerr,sy=Yerr)
@@ -55,7 +55,7 @@ def plot(CSVNAME):
     stdDev=np.sqrt(np.diag(pcov))  
     #----------------------------------------------------------------------
     
-    """
+    
     t1 = np.linspace(xlim[0],xlim[1], 10**4)
 
     fig,ax=plt.subplots(1,1,figsize=(10,10/np.sqrt(2))) 
