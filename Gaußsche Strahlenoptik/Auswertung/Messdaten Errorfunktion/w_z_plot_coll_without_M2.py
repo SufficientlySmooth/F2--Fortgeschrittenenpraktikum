@@ -10,7 +10,6 @@ import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit 
 import matplotlib
 from itertools import product, combinations
-from scipy import odr
 
 matplotlib.style.use('JaPh') 
 plt.ioff()
@@ -33,14 +32,7 @@ def plot(CSVNAME):
       
     
     Xerr = np.ones(len(X))*1
-    """
-    ind = 2
-    X = np.delete(X,ind)
-    Y = np.delete(Y,ind)
-    Xerr = np.delete(Xerr,ind)
-    Yerr = np.delete(Yerr,ind)
-    print(X)
-    """
+
     xlabel = r'$\frac{z}{\mathrm{mm}}$' 
     ylabel = r'$\frac{w(z)}{\mathrm{mm}}$'
     
@@ -49,20 +41,6 @@ def plot(CSVNAME):
 
     popt,pcov = curve_fit(Regr,X,Y,p0=p0,maxfev=100000,sigma=Yerr,absolute_sigma=True)
     stdDev=np.sqrt(np.diag(pcov))  
-    
-    """
-    #----------------------------------------------------------------------
-    FuncModel = odr.Model(Regr_sp)
-    data = odr.RealData(X,Y,sx=Xerr,sy=Yerr)
-    
-    sodr = odr.ODR(data, FuncModel, beta0=list(p0),maxit=100000) # beta0 contains initial parameter values
-    regr = sodr.run() #fitting a linear curve, popt contains optimal values for the parameters a and b, pcov contains covariance of popt
-    
-    popt = regr.beta
-    pcov = regr.cov_beta 
-    stdDev=np.sqrt(np.diag(pcov))  
-    #----------------------------------------------------------------------
-    """
 
     t1 = np.linspace(xlim[0],xlim[1], 10**4)
 

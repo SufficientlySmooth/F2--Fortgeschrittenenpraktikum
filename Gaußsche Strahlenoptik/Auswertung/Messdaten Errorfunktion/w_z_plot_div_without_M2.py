@@ -43,7 +43,7 @@ def plot(CSVNAME):
     stdDev=np.sqrt(np.diag(pcov))  
     
     
-    #----------------------------------------------------------------------
+    
     FuncModel = odr.Model(Regr_sp)
     data = odr.RealData(X,Y,sx=Xerr,sy=Yerr)
     
@@ -53,7 +53,7 @@ def plot(CSVNAME):
     popt = regr.beta
     pcov = regr.cov_beta 
     stdDev=np.sqrt(np.diag(pcov))  
-    #----------------------------------------------------------------------
+
     
     
     t1 = np.linspace(xlim[0],xlim[1], 10**4)

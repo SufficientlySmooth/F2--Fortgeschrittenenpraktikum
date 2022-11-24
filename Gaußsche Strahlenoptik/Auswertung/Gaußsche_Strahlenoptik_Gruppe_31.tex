@@ -220,6 +220,7 @@ Es erscheint paradox, dass $U_{L,\mathrm{hell}}<U_{L,\mathrm{dunkel}}$. Da aber 
 \subsection{Untersuchung eines Gaußschen Laserstrahls}
 
 \subsubsection{Vermessung der Strahltaille}\label{Durchführung Vermessung der Strahltaille}
+\setcounter{imEnv}{4}
 \image{Skizze_Strahltaille}{Aufbau zum Vermessen der Strahltaille (aus \cite{versuchsanleitung})}{.6}{Skizze_Razor.jpg}
 Es wurde das Strahlprofil kurz hinter dem Faserkoppler vermessen, indem ein auf einem verschiebbaren Tisch positioniertes Rasiermesser so platziert wurde, dass es einen Teil des Lichtstrahles blockte. Das transmittierte Licht konnte dann nach \ref{Skizze_Strahltaille} auf die Photodiode fokussiert werden. Es wurde nicht direkt die Spannung der Photodiode gemessen, sondern eine Spannung proportional zum Quotienten von der Spannung der Photodiode aus \ref{Skizze_Strahltaille} und der Spannung einer weiteren Photodiode, auf die über einen Strahlteiler ein zur Ausgangsleistung des Lasers proportionale Strahlungsleistung fiel. Das Bilden des Quotienten wurde über eine elektrische Schaltung realisiert. Idealerweise bereinigt die Quotientenbildung die Messergebnisse so von kleinen Schwankungen im Laseroutput.\\
 Gemessen wurde damit aber insbesondere weiterhin eine Spannung, die zur Photodiodenspannung, nach dem Ohmschen Gesetz damit auch zum Photostrom und entsprechend auch zur Strahlungsleistung proportional ist. Aufgenommen wurden die in \plotref{coll_z_75} eingezeichneten Messwerte. Beim Aufnehmen dieser wurde darauf geachtet, dass in dem Bereich, in dem kleine Verschiebungen in der Klingenposition relativ große Änderungen in der gemessenen Spannung nach sich ziehen, der Abstand zwischen benachbarten Messpunkten ausreichend klein war. Erschwert wurde das Ablesen durch die starken Schwankungen auf der Multimeteranzeige, die weit über die typischerweise zu erwartende Messunsicherheit eines Multimeters hinaus gingen. Auf Basis dieser Schwankungen wurde bei jedem Messwert die Unsicherheit in der Spannung geschätzt.
@@ -232,14 +233,16 @@ Gemessen wurde damit aber insbesondere weiterhin eine Spannung, die zur Photodio
 %w_0=\frac{w_i}{\sqrt{1+\frac{z_i^2}{z_R^2}}},\ i\in\{1,2 \}
 %\end{equation}
 \subsubsection{Abschätzung der Parameter des kollimierten Laserstrahls}
+In gleicher Weise wie in \ref{Durchführung Vermessung der Strahltaille} wurde nun für $z=150\ \mathrm{mm},\ 250\ \mathrm{mm},\ 350\ \mathrm{mm}$ ($z=0$ beim Faserkoppler) jeweils der entsprechende Strahlradius $w(z)$ bestimmt. Die Messwerte sind in \plotref{coll_z_150} bzw. \plotref{coll_z_250} sowie \plotref{coll_z_350} einschließlich ihrer Fehlerbalken eingetragen. Für die Unsicherheiten in $z$ wurde ein Fehler von $\Delta z=1\ \mathrm{mm}$ bedacht, der aber angesichts der erheblich größeren Fehler in der Spannungsmessung vernachlässigbar ist und im Folgenden vernachlässigt werden kann.\\
+Qualitativ konnte beobachtet werden, dass sich der Strahl im Messbereich weder stark aufweitete noch verengte, was der Erwartung, dass den Faserkoppler ein kollimierter Strahl verlässt, entspricht. Sichtbar gemacht werden konnte dies durch das Bewegen eines Blatt Papiers entlang des Messbereichs.
 \subsubsection{Vermessung des Strahlprofils hinter einer Konvexlinse}
-Nun wurde eine Konvexlinse der Brennweite $f=100\ \mathrm{mm}$ in den Strahl gestellt. Diese führte zu einer deutlich schnelleren Aufweitung des Strahls im Vergleich zu dem Strahl, der den Faserkoppler verlässt, was durch das Bewegen eines Blatt Papiers entlang des Strahls sichtbar gemacht werden konnte. \\
-Für $z=50\ \mathrm{mm},75\ \mathrm{mm},100\ \mathrm{mm},125\ \mathrm{mm},175\ \mathrm{mm}, 250\ \mathrm{mm}$ wurde der Strahldurchmesser $w(z)$ bestimmt, wobei $z$ vom Ende des Faserkopplers aus gemessen wird. Das Vorgehen zum Bestimmen der Strahlradien für ein festes $z$ ist identisch zum Vorgehen in Abschnitt \ref{Durchführung Vermessung der Strahltaille}.
+Nun wurde eine Konvexlinse der Brennweite $f=100\ \mathrm{mm}$ in den Strahl gestellt. Diese führte zu einer deutlich schnelleren Aufweitung des Strahls im Vergleich zu dem Strahl, der den Faserkoppler verlässt, was erneut durch das Bewegen eines Blatt Papiers entlang des Strahls sichtbar gemacht werden konnte. \\
+Für $z=50\ \mathrm{mm},75\ \mathrm{mm},100\ \mathrm{mm},125\ \mathrm{mm},175\ \mathrm{mm}, 250\ \mathrm{mm}$ wurde der Strahldurchmesser $w(z)$ bestimmt, wobei $z$ von der $f=100\ \mathrm{mm}$ Linse aus gemessen wird. Das Vorgehen zum Bestimmen der Strahlradien für ein festes $z$ ist identisch zum Vorgehen in Abschnitt \ref{Durchführung Vermessung der Strahltaille}.
 \subsection{Optischer Resonator}
 
 \subsubsection{Justieren und Bestimmen der Transmissionsfunktion}
+\setcounter{figure}{5}
 \begin{figure}[H]
-
     \centering
     \subfloat[gestörte Transmissionsfunktion]{
         \includegraphics[width=0.4\textwidth]{Bilder/Osc_disturbed.jpg}
@@ -287,15 +290,15 @@ P(x)&=\int_{-\infty}^\infty \mathrm dy^\prime \int_x^\infty \mathrm dx^\prime I_
 Entsprechend können die Messdaten durch Anpassung der Parameter $(\mathfrak P_0,w,x_0)\in \R\setminus\{0\}\times\R^+\times\R$ gefittet werden. Da aber $U(z)\sim P(z)$, liefert die Anpassung an die Spannung mit $\mathfrak P_0\rightarrow U_0$ einen identischen Wert für den Strahlradius $w$.
 Es ergibt sich \plotref{coll_z_75}. Qualitativ erkennt man, dass insbesondere der Bereich nahe um den Strahlmittelpunkt, also nahe $x_0$, sehr gut durch die Fitkurve beschrieben wird. Ein Messwert sticht heraus, da dessen Fehlerbalken die Regressionskurve nicht schneidet. Denkbar ist ein Fehler beim Abmesen oder Notieren des Wertes oder ein unbedachtes Anschalten des Raumlichtes während der betreffenden Messung. Da es sich nur um einen einzigen Messwert handelt, ist nicht davon auszugehen, dass er die Fitparameter signifikant beeinflusst hat. \\
 Man erhält für den Strahldurchmesser mit $w(z=75\ \mathrm{mm})=(1.33\pm0.17)\ \mathrm{mm}$ einen Wert, der im Vergleich mit der Austrittsöffnung beim Faserkoppler realistisch erscheint.
-\subsubsection{Abschätzung der Parameter des kollimierten Laserstrahls}
-Analog zu \ref{Auswertung Vermessung der Strahltaille} erhält man für die verschiedenen $z$ die korrespondierenden Strahldurchmesser $w(z)$, wobei $z$ weiterhin vom Faserende gemessen aus wurde. Es sei auf \plotref{coll_z_75}, \plotref{coll_z_150}, \plotref{coll_z_250} und \plotref{coll_z_350} verwiesen. Allen ist die qualitativ gute Beschreibung der Messwerte durch die jeweilige Regressionskurve gemein, was sich in einer geringen relativen Unsicherheit im Fitparameter $w$ (Strahldurchmesser) zeigt.\\
+\subsubsection{Abschätzung der Parameter des kollimierten Laserstrahls}\label{Auswertung Abschätzung der Parameter des kollimierten Laserstrahls}
+Analog zu \ref{Auswertung Vermessung der Strahltaille} erhält man für die verschiedenen $z$ die korrespondierenden Strahldurchmesser $w(z)$, wobei $z$ weiterhin vom Faserende gemessen aus wurde. Es sei auf die Plots \ref{coll_z_75}, \ref{coll_z_150}, \ref{coll_z_250} und \ref{coll_z_350} verwiesen. Allen ist die qualitativ gute Beschreibung der Messwerte durch die jeweilige Regressionskurve gemein, was sich in einer geringen relativen Unsicherheit im Fitparameter $w$ (Strahldurchmesser) zeigt.\\
 Es gilt dann für allgemeine reale Gaußstrahlen
 \begin{equation}\label{w(z)}
 w(z)=w_0\sqrt{1+\frac{(z-z_0)^2}{z_R(w_0,\lambda,M)^2}}=\sqrt{w_0^2+\frac{(z-z_0)^2\lambda^2M^4}{\pi^2n^2w_0^2}}
 \end{equation}
 gemäß Beziehung \ref{rayleigh_m2} und Gleichung \ref{transv_profil}, womit man \plotref{coll_z} erhält: 
 \plot{coll_z}{Strahlprofil des kollmierten Strahls}{1}{Messdaten Errorfunktion/w_z_data_coll.pdf}
-Es fällt auf, dass die Regressionkurve die vier Messpunkte im Rahmen deren Messungenauigkeiten gut beschreibt. Jedoch sind die Standardabweichungen der Fitparameter $z_0$ und $M$ sehr groß, was visuell am breiten 1$\sigma-$Fehlerstreifen deutlich wird. Ferner ist der ermittelte Wert für $M$ weit über der für HeNe-Laser typischen Strahlmaßzahl von nahe 1 (vgl. \cite{paschotta2008beam}), und der Strahl würde entgegen der Erwartung, dass ein nahezu kollimierter Strahl vorliegt, nach \plotref{coll_z} relativ stark fokussiert sein. Dies legt nahe, dass in \plotref{coll_z} Overfitting beobachtet werden kann, da die drei freien Parameter eine exakte Beschreibung von drei beliebigen und eine genaue Beschreibung von vier Messwerten zulassen, und dass die Kurve in \plotref{coll_z} den Sachzusammehang nicht physikalisch sinnvoll beschreibt.\\
+Es fällt auf, dass die Regressionkurve die vier Messpunkte im Rahmen deren Messungenauigkeiten gut beschreibt. Jedoch sind die Standardabweichungen der Fitparameter $z_0$ und $M$ sehr groß, was visuell am breiten 1$\sigma-$Fehlerstreifen deutlich wird. Ferner ist der ermittelte Wert für $M$ weit über der für HeNe-Laser typischen Beugungsmaßzahl von nahe 1 (vgl. \cite{paschotta2008beam}), und der Strahl würde entgegen der Erwartung, dass ein nahezu kollimierter Strahl vorliegt, nach \plotref{coll_z} relativ stark fokussiert sein. Dies legt nahe, dass in \plotref{coll_z} Overfitting beobachtet werden kann, da die drei freien Parameter eine exakte Beschreibung von drei beliebigen und eine genaue Beschreibung von vier Messwerten zulassen, und dass die Kurve in \plotref{coll_z} den Sachzusammehang nicht physikalisch sinnvoll beschreibt.\\
 Setzt man nun $M=1$ fest, so kann nach \ref{w(z)} eine Anpassung in $w_0,z_0$ vorgenommen werden. Warum ein Festsetzen von $M=1$ gerechtfertigt ist, wird in Abschnitt \ref{Auswertung Vermessung des Strahlprofils hinter einer Konvexlinse} deutlich werden.
 \plot{coll_z_without_M2}{Strahlprofil des kollmierten Strahls bei $M=1$}{1}{Messdaten Errorfunktion/w_z_data_coll_without_M2.pdf}
 Es wird klar, dass bei festem $M$ die Messwerte am besten durch den in guter Näherung linearen Teil von $w(z)$ für $\frac{(z-z_0)^2}{z_R^2}\leq1$ beschrieben werden. Die optimale Kurve zeigt einen beinahe konstanten Kurvenverlauf, der für einen kollimierten Strahl zu erwarten ist. Da (nahezu) konstante Funktionen (nahezu) invariant unter Verschiebungen entlang der Abszisse sind, hat der Fitparameter $z_0$ in \plotref{coll_z_without_M2} eine sehr große Unsicherheit. Die kleinere, aber immer noch große, relative Unsicherheit von $w_0$ lässt sich auf die geringe Zahl an Messwerten und deren starke Streuung um die optimale Kurve zurückführen. Bei zukünftigen Durchführungen eines solchen Experiments ist also ein Aufnehmen von $n>4$ Messwerten empfehlenswert. Mehrere Messwerte würden auch dabei helfen, zu klären, ob eher \plotref{coll_z} oder \plotref{coll_z_without_M2} den physikalischen Zusammenhang besser beschreibt. Denn, wie bereits diskutiert, ist \plotref{coll_z} bei Berücksichtigung des Versuchsaufbaus nicht sinnvoll, andererseits ist die Streuung der Messwerte um die optimale Kurve in \plotref{coll_z_without_M2} sehr groß. Dies könnte mehrere Ursachen haben:
@@ -307,14 +310,28 @@ Es wird klar, dass bei festem $M$ die Messwerte am besten durch den in guter Nä
 Letztlich kann nur ein Aufnehmen von weiteren Messwerten die entstandenen Unklarheiten klären.\\
 Da aber $w_0$ aus \plotref{coll_z} und \plotref{coll_z_without_M2} im Rahmen ihrer Unsicherheiten übereinstimmen, kann abschließend $w_0=(1.0\pm0.7)\ \mathrm{mm}$ und damit ein Wert, der nicht viel mehr als die Größenordnung der Waist des kollimierten Strahls aussagt, festgehalten werden. 
 \subsubsection{Vermessung des Strahlprofils hinter einer Konvexlinse}\label{Auswertung Vermessung des Strahlprofils hinter einer Konvexlinse}
-Mittels Gleichung \ref{w(z)} kann eine Anpassung an die gemessenen Werte vorgenommen werden. Die Regressionsfunktion lautet:
-\begin{equation}\label{w(z)}
-w(z)=w_0\sqrt{1+\frac{(z-z_0)^2}{z_R(w_0)^2}},\ (z_0,w_0)\in \R\times\R^+
-\end{equation}
+Wie auch im vorhergehenden Abschnitt, kann nach \ref{w(z)} eine Anpassung der Messdaten gewonnen werden. 
 \plot{div_z}{transversales Strahlprofil hinter $f=100\ \mathrm{mm}$ Linse}{1}{Messdaten Errorfunktion/w_z_data_div.pdf}
+Das Betrachten von \plotref{div_z} zeigt einerseits, dass die Regressionskurve die Messdaten qualitativ gut zu beschreiben vermag, andererseits machen die große Unsicherheit in den Fitparametern $w_0$ und $M$ sowie der damit einhergehend sehr breite $1\sigma-$Fehlerstreifen klar, dass die Aussagekraft der optimalen Fitparameter als gering einzustufen ist. Immerhin kann festgehalten werden, dass $M=1.4\pm0.9$ im Rahmen der Messunsicherheiten mit der Beugungsmaßzahl eines idealen Gaußstrahls übereinstimmt. Die Aussagekraft von dem hier gewonnen Wert für $M$ ist höher als dem in \plotref{coll_z} bestimmten Wert, da die Datengrundlage in \plotref{div_z} größer ist. Weil nach der Bemerkung in \ref{Reale Gaußstrahlen} $M$ durch das Einführen einer (nahezu) idealen Linse (nahezu) unverändert bleibt, wird die Vermutung aus Abschnitt \ref{Auswertung Abschätzung der Parameter des kollimierten Laserstrahls}, dass beim betreffenden Plot \ref{coll_z} Overfitting beobachtet werden kann, durch die nun gewonnenen Ergebnisse gestützt.\par
+Die großen Unsicherheiten des Fits legen erneut die für HeNe-Laser gut gerechtfertigte Näherung $M=1$ nahe. Vermutlich würde hier wieder eine leicht vergrößerte Datenbasis den Fit von den Parametern $M,w_0,z_0$ erheblich verbessern, sodass die Näherung $M=1$ nicht notwendig wäre und ein aussagekräftiger Wert für die Beugungsmaßzahl aus den Messdaten gewonnen werden könnte. 
+\plot{div_z_without_M}{transversales Strahlprofil hinter $f=100\ \mathrm{mm}$ Linse bei $M=1$}{1}{Messdaten Errorfunktion/w_z_data_div_without_M2.pdf}
+In \plotref{div_z_without_M} fällt zunächst der sehr schmale $1\sigma-$Fehlerstreifen auf. Auch ist die optimale Kurve \glqq spitzer\grqq\ als die vorige, was sich in einem kleineren Wert $w_0=(0.0177\pm0.0003)\ \mathrm{mm}$ niederschlägt. Dies entspricht der Erwartung, dass eine Linse einen einfallenden Strahl nahezu auf einen Punkt fokussieren sollte. Der Ort dieses Punktes sollte eine Brennweite von der Linse entfernt liegen. Der Fitparameter $z_0=(88.6\pm0.7)\ \mathrm{mm}$ ist mit der Brennweite $f=100\ \mathrm{mm}$ verträglich. Würde man die mit Sicherheit von $0$ von verschiedene Unsicherheit der Linsenbrennweite berücksichtigen, ist davon auszugehen, dass sich die $1\sigma-$Fehlerintervalle überlappen würde, dass also die beiden Werte im Rahmen der Messunsicherheiten übereinstimmen würden. Ansonsten könnte eine leichte Schiefstellung der Linse oder ein nicht vollkommen mittiges Treffen der Linse die Abweichung erklären. \\
+Da der Fit in \plotref{div_z_without_M} die Messdaten besser zu beschreiben vermag als  der Fit in \plotref{div_z}, sei abschließend $w_0=(0.0177\pm0.0003)\ \mathrm{mm}$ als der Waistparameter des fokussierten Laserstrahls festgehalten. Qualitativ kann die von einem Gaußstrahl fokussierte Aufweitung gemäß der Vorschrift \ref{w(z)} bestätigt werden. Insbesondere wird aber auch deutlich, dass der Bereich, in dem die Näherung, dass der Strahl linear divergiert, nicht gültig ist, sehr schmal und um den Brennpunkt zentriert ist (bei den vorliegenden Daten etwa im Bereich $[80,100]\mathrm{mm}$). Die geometrische Optik, die den Wellencharakter des Lichtes vernachlässigt, findet so für nicht zu nahe am Brennpunkt liegende Orte ihre Rechtfertigung. 
 \subsection{Optischer Resonator}
 \subsubsection{Bestimmung der Finesse}
-Das Spektrum wurde in Form eines Fotos des Oszilloskopdisplays aufgenommen. Dieses Foto weist natürlich eine Parallaxe auf, d.h. das Display erscheint auf dem Foto verzerrt. Durch Anwenden einer linearen Transformation im Bildbearbeitungsprogramm GIMP kann das Bild entzerrt werden. Auf dem entzerrten Bild können pixelgenau die Abstände der Maxima und die FWHM-Breiten bestimmt werden. Da drei Maxima zu sehen sind, ergibt dies drei Werte für $\Delta\omega_{\mathrm{FWHM}}$ und zwei Werte für $\Delta\omega_{\mathrm{FSR}}$, aus denen je das arithmetische Mittel gebildet wird, dessen Unsicherheit über die empirische Standardabweichung abgeschätzt werden kann.\\
+\begin{figure}[H]
+    \centering
+    \subfloat[entzerrtes Bild]{
+        \includegraphics[width=0.4\textwidth]{Bilder/Bestimmung_Finesse.png}
+    }
+  \subfloat[Ergebnis des Vermessens]{
+        \includegraphics[width=0.5\textwidth]{Bilder/Bestimmung_Finesse_Skizze.png}
+    }\\
+   \caption{Bestimmen von $\Delta\omega_{\mathrm{FWHM}}$ und $\Delta\omega_{\mathrm{FSR}}$}
+    \label{Bestimmen_Finesse_Fotostrecke}
+\end{figure}
+%\image{Oszi_entzerrt}{entzerrtes Bild zum Bestimmen von $\Delta\omega_{\mathrm{FWHM}}$ und $\Delta\omega_{\mathrm{FSR}}$}{.6}{Bilder/Bestimmung_Finesse.png}
+Das Spektrum wurde in Form eines Fotos des Oszilloskopdisplays aufgenommen. Dieses Foto weist natürlich eine Parallaxe auf, d.h. das Display erscheint auf dem Foto verzerrt. Durch Anwenden einer linearen Transformation im Bildbearbeitungsprogramm GIMP kann das Bild entzerrt werden. Auf dem entzerrten Bild \ref{Bestimmen_Finesse_Fotostrecke} können pixelgenau die Abstände der Maxima und die FWHM-Breiten bestimmt werden. Da drei Maxima zu sehen sind, ergibt dies drei Werte für $\Delta\omega_{\mathrm{FWHM}}$ und zwei Werte für $\Delta\omega_{\mathrm{FSR}}$, aus denen je das arithmetische Mittel gebildet wird, dessen Unsicherheit über die empirische Standardabweichung (Wurzel der Varianz unter Berücksichtigung der Bessel-Korrektur) abgeschätzt werden kann.\\
 Man erhält auf diese Weise die Werte $\Delta\overline\omega_{\mathrm{FWHM}}=(101\pm13)\mathrm{px}$ und $\Delta\overline\omega_{\mathrm{FSR}}=(850\pm50)\mathrm{px}$. Dabei ist $1\mathrm{px}\propto 1\mathrm s$, da das untersuchte Bild entzerrt ist. \\
 Es ergibt sich somit für die Finesse:
 \begin{equation}
@@ -323,24 +340,16 @@ F_1\equiv \frac{\Delta\overline\omega_{\mathrm{FSR}}}{\Delta\overline\omega_{\ma
 Alternativ kann die Finesse unter Benutzung von Gleichung \ref{finesse_theor} und den gemessenen Transmissivitäten der beiden halbdurchlässigen Spiegel des Resonators berechnet werden. Dabei wird Absorption in den Spiegeln vernachlässigt, d.h. $R_i+T_i=1,\ i\in\{1,2\}$. Weiterhin ist $T_i=\frac{U_i}{U_{\mathrm{ohne}\ \mathrm{Spiegel}}}$. Dann folgt nach \ref{finesse_theor} $F_2=27.5$ und mittels Gaußscher Fehlerfortpflanzung \begin{equation}
 \Delta F_2 = \sqrt{\left(\frac{\partial F}{\partial U_1}\Delta U_1\right)^2+\left(\frac{\partial F}{\partial U_2}\Delta U_2\right)^2+\left(\frac{\partial F}{\partial U_{\mathrm{ohne}\ \mathrm{Spiegel}}}\Delta U_{\mathrm{ohne}\ \mathrm{Spiegel}}\right)^2}=1.6
 \end{equation}
-Somit ist $F_2>F_1$, was nicht überraschend ist, da $F_2$ die maximal erreichbare Finesse bei perfektem Justieren, d.h. bei idealem Spiegelabstand, bei exakt zueinander senkrechten Spiegeln und perfekter Position der Linse für Modenanpassung.
+Somit ist $F_2>F_1$, was nicht überraschend ist, da $F_2$ die maximal erreichbare Finesse bei perfektem Justieren, d.h. bei idealem Spiegelabstand, bei exakt zueinander senkrechten Spiegeln und perfekter Position der Linse für Modenanpassung beschreibt.
 \section{Zusammenfassung}
+Das Vermessen des kollimierten und des fokussierten Laserstrahls hat gezeigt, dass das Intensitätsprofil in der Ebene senkrecht zur Ausbreitungsrichtung tatsächlich durch eine Gaußkurve beschrieben werden kann. Für einen fokussierten Laserstrahl konnte ferner die Verengung vor und die Auweitung der Strahlbreite nach dem Brennpunkt der Linse vermessen werden und damit gezeigt werden, dass der Verlauf gut durch eine Kurve beschrieben werden kann, wie sie die Gaußoptik vorhersagt. Ferner wurde der Gültigkeitsbereich der geometrischen Optik bei der Behandlung fokussierter Strahlen abgegrenzt. Oft genügt es bei der Konzeption eines optischen Aufbaus, die Propagation eines linearen Strahls in der paraxialen Näherung zu betrachten. Nur bei Bauelementen, bei denen der Wellencharakter des Lichtfeldes offensichtlich wird, bspw. nahe dem Fokuspunkt, beim Einkoppeln eines Strahls in eine Faser oder innerhalb eines Resonators aus gekrümmten Spiegeln, liefern nur die Methoden der Gaußoptik physikalisch akkurate Vorhersagen.
 \newpage
 
 \bibliography{literatur} 
 \bibliographystyle{ieeetr}
 \appendix
 
-\section{Python-Skripte zur Auswertung}
-\subsection{Bestimmung des axialen Strahlprofils}
-%\large\textbf{Code 1 zu Plot TV5:}
-\lstinputlisting{Messdaten Errorfunktion/Erf_plot.py}
-\subsection{Bestimmung des transversalen Strahlprofils ohne Linse}
-\lstinputlisting{Messdaten Errorfunktion/w_z_plot_coll.py}
-\subsection{Bestimmung des transversalen Strahlprofils mit Linse}
-\lstinputlisting{Messdaten Errorfunktion/w_z_plot_div.py}
-%\large\textbf{Code 2 zu Plot TV5:}
-%\lstinputlisting{TV5_2.py}\newpage
+
 \section{Plots zur Vermessung des Strahldurchmessers}
 \subsection{Ohne Linse (kollimiert)}
 \plot{coll_z_75}{axiales Strahlprofil bei $z=75\mathrm{mm}$}{.8}{Messdaten Errorfunktion/Collimated_z_75.pdf}
@@ -354,6 +363,17 @@ Somit ist $F_2>F_1$, was nicht überraschend ist, da $F_2$ die maximal erreichba
 \plot{div_z_250}{axiales Strahlprofil bei $z=250\mathrm{mm}$}{.8}{Messdaten Errorfunktion/Divergent_z_250.pdf}
 \plot{div_z_100}{axiales Strahlprofil bei $z=100\mathrm{mm}$}{.8}{Messdaten Errorfunktion/Divergent_z_100.pdf}
 \plot{div_z_125}{axiales Strahlprofil bei $z=125\mathrm{mm}$}{.8}{Messdaten Errorfunktion/Divergent_z_125.pdf}
-
+\section{Python-Skripte zur Auswertung}
+\subsection{Bestimmung des axialen Strahlprofils}
+%\large\textbf{Code 1 zu Plot TV5:}
+\lstinputlisting{Messdaten Errorfunktion/Erf_plot.py}
+\subsection{Bestimmung des Strahlprofils ohne Linse}
+\lstinputlisting{Messdaten Errorfunktion/w_z_plot_coll.py}
+\lstinputlisting{Messdaten Errorfunktion/w_z_plot_coll_without_M2.py}
+\subsection{Bestimmung des Strahlprofils mit Linse}
+\lstinputlisting{Messdaten Errorfunktion/w_z_plot_div.py}
+\lstinputlisting{Messdaten Errorfunktion/w_z_plot_div_without_M2.py}
+%\large\textbf{Code 2 zu Plot TV5:}
+%\lstinputlisting{TV5_2.py}\newpage
 
 \end{document}
