@@ -1,0 +1,75 @@
+\documentclass[11pt,a4paper,oneside]{scrartcl}
+\usepackage{requiredPackages}
+\usepackage{subfig}
+\usepackage{cancel}
+\usepackage[labelfont=bf]{caption}
+\usepackage{booktabs}
+\interfootnotelinepenalty=10000
+
+\def\UrlBreaks{\do/\do-\do_}
+\begin{document}
+\begin{titlepage}
+	\centering
+	{\scshape\LARGE Ludwig-Maximilians-Universität \linebreak München \par}
+	\vspace{1cm}
+	{\scshape\Large Fortgeschrittenenpraktikum II \par Wintersemester 22/23 \par}
+	\vspace{1.5cm}
+	{\huge\bfseries \par  Rheologie\par}
+	\vspace{2cm}
+	{\Large\itshape Guido Osterwinter und Jan-Philipp Christ \par}
+	\vfill
+	{\large München, den \today\par}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+\section{Zielsetzung}
+
+\section{Theoretischer Hintergrund}
+\subsection{Gaußstrahlen}
+\subsubsection{Ideale Gaußstrahlen}
+
+\subsubsection{Reale Gaußstrahlen}\label{Reale Gaußstrahlen}
+
+\subsubsection{Beispiel für Anwendung des 'ABCD'-Gesetzes}
+
+\subsection{Optische Resonatoren}
+
+\section{Versuchsdurchführung}
+\subsection{Bestimmung der Laserleistung und der Hintergrundhelligkeit}
+
+\subsection{Untersuchung eines Gaußschen Laserstrahls}
+
+\subsubsection{Vermessung der Strahltaille}\label{Durchführung Vermessung der Strahltaille}
+
+\subsection{Optischer Resonator}
+
+\subsubsection{Justieren und Bestimmen der Transmissionsfunktion}
+
+\section{Ergebnisse und Diskussion}
+\subsection{Bestimmung der Laserleistung und der Hintergrundhelligkeit}
+
+\subsection{Einkoppeln des Laserstrahls}
+\subsection{Untersuchung eines Gaußschen Laserstrahls}
+\subsubsection{Vermessung der Strahltaille}\label{Auswertung Vermessung der Strahltaille}
+
+\subsection{Optischer Resonator}
+\subsubsection{Bestimmung der Finesse}
+
+\section{Zusammenfassung}
+\newpage
+
+\bibliography{literatur} 
+\bibliographystyle{ieeetr}
+\appendix
+
+
+\section{Plots zur Vermessung des Strahldurchmessers}
+\subsection{Ohne Linse (kollimiert)}
+%\plot{coll_z_75}{axiales Strahlprofil bei $z=75\mathrm{mm}$}{.8}{Messdaten Errorfunktion/Collimated_z_75.pdf}
+
+\section{Python-Skripte zur Auswertung}
+\subsection{Bestimmung des axialen Strahlprofils}
+%\large\textbf{Code 1 zu Plot TV5:}
+%\lstinputlisting{Messdaten Errorfunktion/Erf_plot.py}
+\end{document}
