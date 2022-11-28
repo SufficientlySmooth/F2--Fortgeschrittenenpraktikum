@@ -44,14 +44,7 @@ def plot(CSVNAME):
       
     
     Xerr = np.ones(len(X))*1
-    """
-    ind = 2
-    X = np.delete(X,ind)
-    Y = np.delete(Y,ind)
-    Xerr = np.delete(Xerr,ind)
-    Yerr = np.delete(Yerr,ind)
-    print(X)
-    """
+
     xlabel = r'$\frac{z}{\mathrm{mm}}$' 
     ylabel = r'$\frac{w(z)}{\mathrm{mm}}$'
     
