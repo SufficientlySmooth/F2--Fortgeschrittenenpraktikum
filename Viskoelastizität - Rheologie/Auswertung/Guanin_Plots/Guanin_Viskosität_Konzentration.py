@@ -70,9 +70,9 @@ def plot(CSVNAME):
     ax.plot(t1,LinRegr(popt,t1), marker = 'None', linestyle = '-', label=ylabel[:-1]+'=\\begin{cases} c\leq c^*: & [\eta ] \cdot '+xlabel[1:-1]+'+\eta_{c^*}-[\eta ]\cdot c^*  \\\ c> c^*: & [\eta ]^\prime \cdot '+xlabel[1:-1]+'+\eta_{c^*}-[\eta ]^\prime\cdot c^*  \end{cases}$') #optimized line
     ax.errorbar(x=X,y=Y,xerr=Xerr,yerr=Yerr,marker='x',linestyle='None',label='Messwerte')
     
-    ax.axvline(popt[0],marker='None',linestyle='dotted',color='navajowhite')
+    ax.axvline(popt[0],marker='None',linestyle='dotted',color='navajowhite',label=r'$c^*$')
     ax.axvspan(popt[0]-stdDev[0],popt[0]+stdDev[0],linestyle='None',alpha=.2,color='navajowhite')
-    ax.annotate(r'$c^*$',(popt[0],(popt[1]+min(Y))/2),xytext=((popt[0]*1.5+max(X)*.5)/(2),(popt[1]+min(Y))/2),arrowprops=dict(arrowstyle= matplotlib.patches.ArrowStyle("Fancy", head_length=.2, head_width=.2, tail_width=.1),color='black'))
+    #ax.annotate(r'$c^*$',(popt[0],(popt[1]+min(Y))/2),xytext=((popt[0]*1.5+max(X)*.5)/(2),(popt[1]+min(Y))/2),arrowprops=dict(arrowstyle= matplotlib.patches.ArrowStyle("Fancy", head_length=.2, head_width=.2, tail_width=.1),color='black'))
     
     for comb1, comb2 in combinations(product([-1,1],repeat=len(stdDev)),2):
         p1 = popt+stdDev*comb1

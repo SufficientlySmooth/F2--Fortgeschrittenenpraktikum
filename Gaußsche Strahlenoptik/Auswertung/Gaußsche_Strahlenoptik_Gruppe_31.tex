@@ -123,22 +123,37 @@ gelten. Aus den Gleichungen \ref{ABCD-Gesetz} und \ref{Gl2} nach $d$ auf, erhäl
 \Rightarrow \,\,\,\, d \,\,=\,\, 35.14\ \mathrm{cm}
 \end{align}
 Eine analoge Rechnung bei $f_2\leftrightarrow f_1$ liefert mit $d=35.13\ \mathrm{cm}$ nahezu den identischen Wert.
-\subsection{Optische Resonatoren}
+\subsection{Optische Resonatoren}\label{opt_res}
 Auch die Darstellung in diesem Abschnitt stützt sich, sofern nicht anders angegeben, auf Abschnitt 1 aus \cite{versuchsanleitung}. \\
-Ein optischer Resonator ist ein Paar aus halbdurchlässigen Spiegeln, in Abhängigkeit von deren Krümmungsradien $R$ und Abstand $L$ zueinander Randbedingungen für die transmittierten Moden festgelegt werden. Es gilt für die Strahltaille:
+Die einfachste Form eines optischen Resonators besteht aus zwei parallelen Spiegeln, welche in einem Abstand $L$ voneinander aufgebaut sind und jeweils eine gewisse Transmissivität $T_1;T_2$ für Licht besitzen.
+\image{b1}{Zur Resonanzbedingung im Fabry-Perot-Resonator (aus \cite{versuchsanleitung})}{.6}{b1.png}
+Dieser Aufbau wird auch Fabry-Perot-Resonator genannt. Stellt man sich nun vor, von links trifft senkrecht eine ebene Welle mit Wellenvektor $\vec k$ und Amplitude $E_{in}$ auf den Resonator, so wird am ersten Spiegel ein gewisser Anteil der ebenen Welle $E_{in} \sqrt{R_1}$ reflektiert und der Anteill $E_{in} \sqrt{T_1}$ transmittiert. Am zweiten Spiegel wird dann wieder ein gewisser Anteil $E_{in} \sqrt{T_1 R_2}$ reflektiert, und der Anteil $E_{in} \sqrt{T_1 T_2}$ verlässt den Resonator. Allerdings ist dies nicht die einzige Teilwelle, die den Resonator verlässt. Denn hinzu kommen noch all diejenigen Anteile $E_{in} \sqrt{T_1 T_2} \sqrt{R_1 R_2}^n $ der am ersten Spiegel transmittierten Welle, welche erst nach $n$-maligen hin- und herwandern auch am zweiten Spiegel transmittiert werden. \\
+Entscheidend für die Frage, ob nun Licht der Wellenlänge $2 \pi / k$ durch den Resonator hindurchtreten kann, ist, ob zwischen den verschiedenen ebenen Wellen, welche den Resonator wieder verlassen, konstruktive oder destruktive Interferenz vorherrscht. Hierfür ist die sogenannte Umlaufphase $\phi\equiv 2kL$ entscheidend. Ist die Länge des Resonators $L$  so gewählt, dass
+$\phi \in 2 \pi \mathbb{Z}$, so überlagern sich alle ebenen Wellen Anteile, welche den Resonator in Abbildung \ref{b1}  rechts verlassen, konstruktiv und Licht der Wellenlänge $2 \pi / k$ kann durch den Resonator hindurch treten. Es hängt somit von der Länge $L$ des Resonators, als auch von der Wellenlänge $2 \pi / k$ des verwendeten Lichtes ab, ob das Licht einen bestimmten Fabry-Perot-Resonator passieren kann. In Abhängigkeit der Kreisfrequenz lautet das Kriterium hierfür 
+\begin{equation}
+\omega_{res} = \frac{\pi c j}{ n L} \,\, \land \,\, j \in \mathbb{Z},\end{equation} wobei $n$ der Brechungsindex des Mediums zwischen den beiden Resonatorspiegeln ist. Aus dieser Gleichung erhält man auch den sogenannten freien Spektralbereich $\Delta \omega_{FSR} = \pi c / n L$ eines Fabry-Perot-Resonators, welcher die Periodizität des zugehörigen Transmissionsspektrums \ref{b2} wiedergibt.
+\image{b2}{Transmissionsfunktion eines Fabry-Perot-Resonators (aus \cite{versuchsanleitung})}{.6}{b2.png}
+ Eine weitere charakteristische Größe eines Transmissionsspektrums ist die Breite der Peaks $ \Delta \omega_{FWHM}$. Da im Allgemeinen die Transmissions- $T_1;T_2$ bzw. Reflexionskoeffizienten $R_1;R_2$ der beiden Resonatorspiegel nicht $0$ oder $1$ sein werden, und somit die Amplituden der ebenen Wellen, welche den Resonator wieder verlassen, mit der Anzahl der Reflexionen monoton abnehmen werden, wird es auch in einer gewissen Umgebung der Resonanzfrequenzen $\omega_{res}$ noch zu einer gewissen konstruktiven Interferenz kommen. Man kann zeigen, dass daher 
+\begin{equation}\label{finesse_guido}
+\Delta \omega_{FWHM} \,\,=\,\, \Delta \omega_{FSR} \frac{1-R}{\pi \sqrt{R}}
+\end{equation}
+gilt, 
+wobei $R\equiv\sqrt{R_1 R_2}$ die Gesamtreflektivität der beiden Spiegel des Resonators ist.\\
+Charakteristisch für jeden Fabry-Perot-Resonator ist die Finesse $F$, welche definiert ist als
+\begin{equation}
+F \,\,\equiv\,\, \frac{\Delta \omega_{FSR}}{\Delta \omega_{FWHM}}
+\end{equation}
+und ein Maß für die Güte des Resonators beschreibt. Gemäß Gleichung \ref{finesse_guido} gilt für die Finesse eines Fabry-Perot-Resonators
+\begin{equation}\label{finesse_theor}
+F \,\,=\,\, \frac{\pi\sqrt{R}}{1-R}.
+\end{equation}
+Da aber Gaußsche Strahlen mit gekrümmten Wellenfronten die physikalische Realität eines Laserstrahls besser beschreiben als ebene Wellen, bestehen optischen Resonatoren in der Praxis meist aus zwei, im Abstand $L$ sich gegenüberliegenden, auf der Innenseite sphärisch gekrümmten, halbdurchlässigen Spiegeln mit Krümmungsradien $R$. Der Abstand $L$ und der Krümmungsradius $R$ legen dabei Randbedingungen für die transmittierten Moden fest.
+Für die Strahltaille im Inneren des Resonators gilt:
 \begin{equation}
 w_0^2=\frac{\lambda}{\pi}\sqrt{\frac{L}{2}\left(R-\frac{L}{2}\right)}
 \end{equation}
 Im Versuch wird ein symmetrischer Resonator verwendet, bei dem die Waist in der Mitte der Spigel liegt und die beiden Spiegel dieselben Krümmungsradien haben. Da zudem $L\approx R$ sein soll, spricht man von einer konfokalen oder zumindest nah-konfokalen Anordnung.\\
-Im Wesentlichen ist auch von einem Resonator mit gekrümmten Spiegeln eine derjenigen eines planaren Fabry-Perot-Resonators ähnliche Transmissionsfunktion zu erwarten mit dem Unterschied, dass die Phasendifferenz nach einem Durchlauf i.A. nicht mehr nur von der Geometrie des Resonators, sondern beispielsweise auch von der eingekoppelten Mode abhängt. \\
-Eine charakteristische Größe eines Fabry-Perot-Resonators ist die Finesse $F$ die das Verhältnis aus dem freien Frequenzbereich (Abstand zwischen zwei Resonanzpeaks) und der FWHM-Breite eines Resonanzpeaks beschreibt:
-\begin{equation}
-F\equiv \frac{\Delta \omega_{\mathrm{FSR}}}{\Delta \omega_{\mathrm{FWHM}}}
-\end{equation}
-Andererseits kann man zeigen, dass, wenn die beiden Spiegel die Reflektivitäten $R_1$ und $R_2$ haben, die folgende Beziehung zwischen der Gesamtreflektivität $R\equiv \sqrt{R_1R_2}<1$ und $F$ gilt:
-\begin{equation}\label{finesse_theor}
-F= \frac{\pi\sqrt{R}}{1-R}
-\end{equation}
+Im Wesentlichen ist auch von einem Resonator mit gekrümmten Spiegeln eine derjenigen eines planaren Fabry-Perot-Resonators ähnliche Transmissionsfunktion zu erwarten mit dem Unterschied, dass die Phasendifferenz nach einem Durchlauf i.A. nicht mehr nur von der Geometrie des Resonators, sondern beispielsweise auch von der eingekoppelten Mode abhängt.
 \subsubsection{Aufbau des verwendeten Resonators}
 \image{Skizze_A2}{Aufbau zum optischen Resonator (aus \cite{versuchsanleitung}, bearbeitet)}{.8}{Skizze_Aufgabe_S16.png}
 \setcounter{figure}{3}
@@ -191,7 +206,7 @@ Einsetzen liefert zunächst
 \begin{equation}
 w_0^\prime = 70.08\ \mu\mathrm m\Rightarrow z_R^\prime = \frac{\pi w_0^{\prime 2}}{\lambda} = 2.49\ \mathrm{cm}
 \end{equation}
- $z^\prime$ ist der negative halbe Abstand der beiden halbdurchlässigen Spiegel, da mittig zwischen diesen der waist des Strahls liegt. \\
+ $z^\prime$ ist der negative halbe Abstand der beiden halbdurchlässigen Spiegel, da mittig zwischen diesen der Waist des Strahls liegt. \\
 Damit ergibt sich für die Strahlparameter außerhalb des Resonators (d.h. vor dem Einkoppeln des Strahls in den Resonator) durch Einsetzen
 \begin{equation}
 z_R = 1.57\ \mathrm{cm},\ z = -2.59\ \mathrm{cm}
@@ -213,13 +228,13 @@ Es wurden die folgenden Utensilien verwendet:
 \item Verschiebetisch mit Mikrometerschraube und Rasierklinge
 \end{itemize}
 \subsection{Bestimmung der Laserleistung und der Hintergrundhelligkeit}
-\image{Skizze_aufwaermen}{Aufbau zur Bestimmung der Laserleistung (aus \cite{versuchsanleitung})}{.6}{Aufwaermen_Skizze.jpg}
+\image{Skizze_aufwaermen}{Aufbau zur Bestimmung der Laserleistung (nach \cite{versuchsanleitung}, bearbeitet)}{.6}{Aufwaermen_Skizze.jpg}
 Zunächst sollte die Lichtleistung des verwendeten HeNe-Lasers bestimmt werden. Dafür wurde ein Aufbau nach Abbildung \ref{Skizze_aufwaermen} benutzt: Der Laserstrahl traf nach einem Strahlteiler und einem justierbaren Spiegel auf eine Konvexlinse, die den Strahl auf die aktive Fläche der Photodiode fokussierte. Es wurde die Spannung über der Photodiode, die einen Widerstand von $R=100\ \mathrm{k}\Omega$ verfügt, gemessen und der Wert $U_{L,\mathrm{hell}}=(9.94\pm 0.02)\ \mathrm V$ für die Spannung im hellen Raum mit Laser, der Wert $U_{R,\mathrm{hell}}=(0.0505\pm 0.001)\ \mathrm V$ ohne Laser im hellen Raum, der Wert  $U_{L,\mathrm{dunkel}}=(9.95\pm 0.02)\ \mathrm V$ mit Laser im verdunkelten Raum und der Wert  $U_{R,\mathrm{dunkel}}=(1.6\pm 0.2)\ \mathrm{mV}$ ohne Laser im verdunkelten Raum aufgenommen.\\
 Es erscheint paradox, dass $U_{L,\mathrm{hell}}<U_{L,\mathrm{dunkel}}$. Da aber die Abweichung der beiden Werte kleiner ist als die Unsicherheiten der Messwerte, ist diese Abweichung von der Erwartung $U_{L,\mathrm{hell}}>U_{L,\mathrm{dunkel}}$ als durch statistische Schwankungen bedingt anzusehen.
  
 \subsection{Einkoppeln des Laserstrahls}
 \begin{figure}[H]
-\setcounter{imEnv}{1}
+\setcounter{figure}{5}
     \centering
     \subfloat[Single-Mode]{
         \includegraphics[width=0.28\textwidth]{Bilder/single_mode_fiber.jpg}
@@ -230,12 +245,33 @@ Es erscheint paradox, dass $U_{L,\mathrm{hell}}<U_{L,\mathrm{dunkel}}$. Da aber 
    \caption{Transmittierte Moden nach Glasfasern hinter $f=50\ \mathrm{mm}$ Linse}
     \label{FotostreckeGlasfasern}
 \end{figure}
+Als nächstes sollte der Laserstrahl mithilfe eines Faserkopplers in eine Single-Mode-, und eine Multi-Mode-Glasfaser eingekoppelt werden, um dann jeweils die Lichtleistungen zu messen, welche an den Enden der
+Fasern wieder austreten. Eine Glasfaser besteht allgemein aus einem dünnen zylindrischen Glaskern (Durchmesser typ. $8-10\ \mathrm{\mu m}$), welcher von einem Mantel mit kleinerem Brechungsindex umgeben ist. Die dadurch
+auftretende Totalreflexion erlaubt eine verlustarme Führung des Lichtfeldes im Kern. Bei gegebenem Kerndurchmesser hängt es von der Wellenlänge des Lichts ab, ob TEM-Moden höherer Ordnung in den Kern
+\glqq passen\Grqq oder nicht. Man spricht von einer Single-Mode Faser, wenn sich für die verwendete Wellenlänge (hier $632.8\ \mathrm{nm}$) nur die $ \mathrm{TEM}_{0,0}$ Mode ausbreiten kann. Die sogenannte Cutoff-Wellenlänge definiert dabei die Grenze,
+unter welcher eine bestimmte Glasfaser auch höhere Transversalmoden führen kann. Die Single-Mode-Faser in diesem Experiment besaß bspw. eine Cutoff-Wellenlänge von $620\ \mathrm{nm}$ und die Multimodefaser eine
+Cutoff-Wellenlänge von 1270nm. 
+\setcounter{imEnv}{6}
+\image{b3}{Aufbau eines Faserkopplers (aus \cite{versuchsanleitung})}{.6}{b3.png}
+Da der Kern einer Glasfaser sehr klein ist, wurde zum optimalen Einkoppeln des Laserstrahls ein Faserkoppler wie in Abbildung \ref{b3} benötigt. Dieser besteht auf einer Seite aus
+einer Koppellinse und auf der anderen Seite aus einem Anschluss, an dem eine Glasfaser befestigt werden kann. Der Faserkoppler ist dabei so gebaut, dass die Glasfaser und die Koppellinse stets auf der
+optischen Achse liegen, und dass der Eingang der Glasfaser direkt im Fokus der Koppellinse liegt. Zum Einkoppeln des Laserstrahls wurde nun ein Aufbau wie in Abbildung \ref{b4} benutzt. 
+\image{b4}{Aufbau beim Einkoppeln (aus \cite{versuchsanleitung})}{.6}{b4.png}
+Der
+Umlenkspiegel sowie der Faserkoppler wurden dabei auf Spiegelhaltern montiert, welche jeweils zwei Freiheitsgrade zur Justierung besaßen (einmal bzgl. des Winkels zur horizontalen, und das andere mal bzgl.
+des Winkels zur 'Nord-Süd-Achse' in der Ebene). Insgesamt standen also vier Freiheitsgrade zum optimalen Einkoppeln des Laserstahls zur Verfügung, welche aber für ein bestmögliches Einkoppeln des Laserstrahls
+auch alle benötigt wurden. Denn verwendet man bspw. nur die Freiheitgrade des Umlenkspiegel zur Justage und platziert den Faserkoppler \glqq nach Augenmaß\grqq, so könnte man zwar den Laserstahl auf die Mitte
+der Koppellinse ausrichten, aber man hätte keine Möglichkeit mehr, die auftretenden Winkel zwischen dem Laserstrahl und der tatsächlichen optischen Achse zu korrigieren (vgl. Abbildung \ref{b5}).
+ Um den
+Laserstrahl also gleichzeitig auf die Mitte der Koppellinse, und auf der optischen Achse auszurichten, wurde die Methode des Beamwalking benutzt.
+
+Nach dem Einkoppeln wurden für die Singel- und Multimodefaser zunächst jeweils die transversale Intensitätsverteilung des aus den Fasern wieder austretenden Strahlen beobachtet, indem der die Faser verlassende schmale Lichtstrahl mit einer Konvexlinse aufgeweitet und auf einen Schirm projiziert wurde (siehe Abbildung \ref{FotostreckeGlasfasern}). 
+\image{b5}{Justage beim Einkoppeln}{.5}{b5_beschriftet.png}
 \subsection{Untersuchung eines Gaußschen Laserstrahls}
 
 \subsubsection{Vermessung der Strahltaille}\label{Durchführung Vermessung der Strahltaille}
-\setcounter{imEnv}{4}
 \image{Skizze_Strahltaille}{Aufbau zum Vermessen der Strahltaille (aus \cite{versuchsanleitung})}{.6}{Skizze_Razor.jpg}
-Es wurde das Strahlprofil kurz hinter dem Faserkoppler vermessen, indem ein auf einem verschiebbaren Tisch positioniertes Rasiermesser so platziert wurde, dass es einen Teil des Lichtstrahles blockte. Das transmittierte Licht konnte dann nach \ref{Skizze_Strahltaille} auf die Photodiode fokussiert werden. Es wurde nicht direkt die Spannung der Photodiode gemessen, sondern eine Spannung proportional zum Quotienten von der Spannung der Photodiode aus \ref{Skizze_Strahltaille} und der Spannung einer weiteren Photodiode, auf die über einen Strahlteiler ein zur Ausgangsleistung des Lasers proportionale Strahlungsleistung fiel. Das Bilden des Quotienten wurde über eine elektrische Schaltung realisiert. Idealerweise bereinigt die Quotientenbildung die Messergebnisse so von kleinen Schwankungen im Laseroutput.\\
+Es wurde das Strahlprofil kurz hinter dem Faserkoppler vermessen, indem ein auf einem verschiebbaren Tisch positioniertes Rasiermesser so platziert wurde, dass es einen Teil des Lichtstrahles blockte. Das transmittierte Licht konnte dann nach Abbildung \ref{Skizze_Strahltaille} auf die Photodiode fokussiert werden. Es wurde nicht direkt die Spannung der Photodiode gemessen, sondern eine Spannung proportional zum Quotienten von der Spannung der Photodiode aus \ref{Skizze_Strahltaille} und der Spannung einer weiteren Photodiode, auf die über einen Strahlteiler eine zur Ausgangsleistung des Lasers proportionale Strahlungsleistung fiel. Das Bilden des Quotienten wurde über eine elektrische Schaltung realisiert. Idealerweise bereinigt die Quotientenbildung die Messergebnisse so von kleinen Schwankungen im Laseroutput.\\
 Gemessen wurde damit aber insbesondere weiterhin eine Spannung, die zur Photodiodenspannung, nach dem Ohmschen Gesetz damit auch zum Photostrom und entsprechend auch zur Strahlungsleistung proportional ist. Aufgenommen wurden die in \plotref{coll_z_75} eingezeichneten Messwerte. Beim Aufnehmen dieser wurde darauf geachtet, dass in dem Bereich, in dem kleine Verschiebungen in der Klingenposition relativ große Änderungen in der gemessenen Spannung nach sich ziehen, der Abstand zwischen benachbarten Messpunkten ausreichend klein war. Erschwert wurde das Ablesen durch die starken Schwankungen auf der Multimeteranzeige, die weit über die typischerweise zu erwartende Messunsicherheit eines Multimeters hinaus gingen. Auf Basis dieser Schwankungen wurde bei jedem Messwert die Unsicherheit in der Spannung geschätzt.
 %und daraus folgt
 %\begin{equation}
@@ -246,7 +282,7 @@ Gemessen wurde damit aber insbesondere weiterhin eine Spannung, die zur Photodio
 %w_0=\frac{w_i}{\sqrt{1+\frac{z_i^2}{z_R^2}}},\ i\in\{1,2 \}
 %\end{equation}
 \subsubsection{Abschätzung der Parameter des kollimierten Laserstrahls}
-In gleicher Weise wie in \ref{Durchführung Vermessung der Strahltaille} wurde nun für $z=150\ \mathrm{mm},\ 250\ \mathrm{mm},\ 350\ \mathrm{mm}$ ($z=0$ beim Faserkoppler) jeweils der entsprechende Strahlradius $w(z)$ bestimmt. Die Messwerte sind in \plotref{coll_z_150} bzw. \plotref{coll_z_250} sowie \plotref{coll_z_350} einschließlich ihrer Fehlerbalken eingetragen. Für die Unsicherheiten in $z$ wurde ein Fehler von $\Delta z=1\ \mathrm{mm}$ bedacht, der aber angesichts der erheblich größeren Fehler in der Spannungsmessung vernachlässigbar ist und im Folgenden vernachlässigt werden kann.\\
+In gleicher Weise wie in \ref{Durchführung Vermessung der Strahltaille} wurde nun für $z=150\ \mathrm{mm},\ 250\ \mathrm{mm},\ 350\ \mathrm{mm}$ ($z=0$ beim Faserkoppler) jeweils der entsprechende Strahlradius $w(z)$ bestimmt. Die Messwerte sind in \plotref{coll_z_150} bzw. \plotref{coll_z_250} sowie \plotref{coll_z_350} einschließlich ihrer Fehlerbalken eingetragen. Für die Unsicherheiten in $z$ wurde ein Fehler von $\Delta z=1\ \mathrm{mm}$ bedacht, der aber angesichts der erheblich größeren Fehler in der Spannungsmessung vernachlässigbar ist und im Folgenden nicht weiter berücksichtigt werden muss.\\
 Qualitativ konnte beobachtet werden, dass sich der Strahl im Messbereich weder stark aufweitete noch verengte, was der Erwartung, dass den Faserkoppler ein kollimierter Strahl verlässt, entspricht. Sichtbar gemacht werden konnte dies durch das Bewegen eines Blatt Papiers entlang des Messbereichs.
 \subsubsection{Vermessung des Strahlprofils hinter einer Konvexlinse}
 Nun wurde eine Konvexlinse der Brennweite $f=100\ \mathrm{mm}$ in den Strahl gestellt. Diese führte zu einer deutlich schnelleren Aufweitung des Strahls im Vergleich zu dem Strahl, der den Faserkoppler verlässt, was erneut durch das Bewegen eines Blatt Papiers entlang des Strahls sichtbar gemacht werden konnte. \\
@@ -254,7 +290,7 @@ Für $z=50\ \mathrm{mm},75\ \mathrm{mm},100\ \mathrm{mm},125\ \mathrm{mm},175\ \
 \subsection{Optischer Resonator}
 
 \subsubsection{Justieren und Bestimmen der Transmissionsfunktion}
-\setcounter{figure}{5}
+\setcounter{figure}{10}
 \begin{figure}[H]
     \centering
     \subfloat[gestörte Transmissionsfunktion]{
@@ -266,6 +302,16 @@ Für $z=50\ \mathrm{mm},75\ \mathrm{mm},100\ \mathrm{mm},125\ \mathrm{mm},175\ \
    \caption{Transmissionsfunktion des konfokalen Resonators}
     \label{FotostreckeTransmissionsfunktion}
 \end{figure}
+Der Versuchsaufbau ist in Abbildung \ref{Skizze_A2} dargestellt. Der Laserstrahl für diesen Versuch kam aus der Single-Mode-Faser. Zuerst wurde zwischen Glasfaserausgang und Photodiode der 
+hintere Resonatorspiegel mit den Piezoelementen gestellt, an welche bereits ein Funktionsgenerator mit einer Dreiecksspannung mit Amplitude $5-15\ \mathrm V$ und einigen $10\ \mathrm{kHz}$ angeschlossen war. Der hintere Resonatorspiegel wurde so justiert, dass dessen 
+Rückreflex wieder genau auf den Faserausgang traf. Danach wurde die Linse zur Modenanpassung in den Strahlengang gestellt, sodass der Laserstrahl sie zentral passierte und ihr Rückreflex ebenfalls
+genau auf den Faserausgang traf. Als nächstes wurde der vordere Resonatorspiegel zentral in den Strahlengang gestellt. Die in diesem Versuch verwendeten Resonatorspiegel besaßen einen Krümmungsradius von 
+$R=100\ \mathrm{mm}$, und die Linse zur Modenanpassung besaß eine Brennweite von $f=100\ \mathrm{mm}$. Der vordere Resonatorspiegel wurde damit so weit vor der Modenanpassungslinse positioniert, dass der Brennpunkt der Linse in der Mitte des
+Resonators lag. Anschließend wurde das Signal des Funktionsgenerators sowie das Signal der Photodiode an ein Oszilloskop angeschlossen und auf einem gemeinsamen Bild sichtbar gemacht. Hielt man nun hinter dem
+Resonator ein Stück Papier in den Strahlengang, so war zunächst ein Ringmuster aus einigen wenigen Punkten erkennbar. Mithilfe der Justierschrauben, welche die Spiegel und Linsenhalter besaßen, wurde dann versucht, die einzelnen 
+Punkte auf dem Papier so gut wie möglich zur Deckung zu bringen. Sobald dies in ausreichendem Maße gelungen war, wurde auf dem Oszilloskopbildschirm ein deutliches periodisches Peakmuster erkennbar (siehe
+Abbildung \ref{FotostreckeTransmissionsfunktion} (b)), welches dem gemäß Abschnitt \ref{opt_res} zu erwartenden Muster entspricht. Bei dem Versuch das Peakmuster zu perfektionieren, wurde mit der Zeit, ein zweites, gestörtes Peakmuster immer
+deutlicher erkennbar (siehe Abbildung \ref{FotostreckeTransmissionsfunktion} (a)). 
 %Berücksichtige nun die Linse zur Modenanpassung und deren Abstand $\mathfrak{d}$ zum Resonator.
 
 \section{Ergebnisse und Diskussion}
@@ -292,8 +338,28 @@ ohne Laser, dunkler Raum & $\lambda_R$ & $42\cdot 10^{-6}$  & $6\cdot10^{-6}$   
 Die Unsicherheiten wurden mit der MinMax-Methode abgeschätzt.\\
 Es kann festgehalten werden, dass ein Vernachlässigen der Hintergrundstrahlung bei den anderen Teilversuchen gerechtfertigt ist, da während der Versuchsdurchführung im abgedunkelten Raum gearbeitet wurde. Die Werte für die Leistung des Lasers erscheinen realistisch, da die Sollleistung des Lasers $1\ \mathrm{mW}$ beträgt und am Strahlteiler, an der Linse und am Spiegel Verluste durch Absorption oder Sekundärreflexionen auftreten.\\
 Ferner kann die Intensität an der Tischoberfläche berechnet werden, indem die aktive Fläche der Photodiode auf $A=(3\pm1)^2\mathrm{mm}^2$ geschätzt wird. Folglich ergibt sich mit $I=\frac{P_{R,\mathrm{hell}}}{A}=(0.15\pm0.09)\frac{\mathrm{W}}{\mathrm m^2}$ ein ungenauer, aber realistisch erscheinender Wert. \\
-Eine Verbesserung der Messgenauigkeit Laserleistung könnte durch Berücksichtigen der verschiedenenen des einfallenden Wellenlängenspektrums, das in guter Näherung dem der Sonne gleichen sollte, erzielt werden. Für die Bestimmung der Intensität trägt die Unsicherheit der aktiven Diodenfläche substanziell bei, die nach Ausbauen der Diode aus ihrem Gehäuse mit einer Schieblehre sehr genau bestimmt werden könnte.
+Eine Verbesserung der Messgenauigkeit könnte durch Berücksichtigen der verschiedenenen Wellenlängen des einfallenden Spektrums, das iin guter Näherung dem der Sonne gleichen sollte, erzielt werden. Für die Bestimmung der Intensität trägt die Unsicherheit der aktiven Diodenfläche substanziell bei, die nach Ausbauen der Diode aus ihrem Gehäuse mit einer Schieblehre sehr genau bestimmt werden könnte.
 \subsection{Einkoppeln des Laserstrahls}
+Wie man in Abbildung \ref{FotostreckeGlasfasern} sehen kann, kam durch die Singelmodefaser, so wie erwartet, nur die $\mathrm{TEM}_{0,0}$ Mode mit ihrer namensgebenden gaußschen Intensitätsverteilung durch. Am Bild zur Multi-Mode-Faser sind Knoten in x- und y-Richtung zu erkennen, was nahelegt, dass durch die Multimodefaser nicht nur die $\mathrm{TEM}_{0,0}$ Mode, sondern auch noch zumindest eine weitere höhere $\mathrm{TEM}_{n,m}$  Mode hindurch kam. 
+Wahrscheinlich handelt es sich bei unserem Bild um eine Überlagerung aus der $\mathrm{TEM}_{00}$ Mode mit der $\mathrm{TEM}_{1,1}$ Mode. Zum Schluss wurden noch die austretenden Lichtleistungen mithilfe einer Photodiode gemessen. \\
+Die an der Photodiode gemessenen Spannung
+war für die Singlemodefaser $U_S=(1.43\pm0.03)\ \mathrm V$ und für die Multimodefaser $U_M=(1.63\pm 0.03)\ \mathrm V$. Die Spannung an der Photodiode vor dem Einkoppeln war $U_0=(9.95\pm 0.02)\ \mathrm V$. Da die gemessenen Diodenspannungen nach Gleichung \ref{P_diode} proportional zur Laserleistung sind, ist der Bruchteil der transmittierten Leistung bei der Single-Mode-Faser
+\begin{equation}
+\eta_S\equiv \frac{U_S}{U_0}=14.4\%\pm0.4\%
+\end{equation}
+und bei der Multi-Mode-Faser
+\begin{equation}
+\eta_M\equiv \frac{U_M}{U_0}=16.4\%\pm0.4\%
+\end{equation}
+Die Fehler wurden mittels Gaußscher Fehlerfortpflanzung berechnet.\\
+Es überrascht nicht, dass der Anteil der transmittierten Leistung bei der Single-Mode-Faser kleiner ist, da die Justage des Laserstrahls auf die Faseröffnung durch den kleineren Faserdurchmesser schwieriger ist.\\
+Deutlich größere Anteile könnten bei Verwendung eines Faserkopplers erzielt werden, bei dem die Position der Linse zur Fasereinfallsebene verstellt werden kann und somit zusätzliche Freiheitsgrade bei der Justage liefert. Auf diese Weise könnte der Laserstrahl ideal auf die Fasereintrittsöffnung fokussiert werden, und die transmittierte Leistung wäre nur durch 
+\begin{itemize}
+\item Verluste in der Glasfaser durch Absorption oder Scattering,
+\item Reflexionsverluste beim Eintreten des Laserstrahls in die Glasfaser
+\item sowie Absorpionsverluste in den Linsen
+\end{itemize}
+beschränkt.
 \subsection{Untersuchung eines Gaußschen Laserstrahls}
 \subsubsection{Vermessung der Strahltaille}\label{Auswertung Vermessung der Strahltaille}
 Die gemessene Lichtleistung ist 
@@ -317,20 +383,26 @@ Setzt man nun $M=1$ fest, so kann nach \ref{w(z)} eine Anpassung in $w_0,z_0$ vo
 Es wird klar, dass bei festem $M$ die Messwerte am besten durch den in guter Näherung linearen Teil von $w(z)$ für $\frac{(z-z_0)^2}{z_R^2}\leq1$ beschrieben werden. Die optimale Kurve zeigt einen beinahe konstanten Kurvenverlauf, der für einen kollimierten Strahl zu erwarten wäre. Da (nahezu) konstante Funktionen (nahezu) invariant unter Verschiebungen entlang der Abszisse sind, hat der Fitparameter $z_0$ in \plotref{coll_z_without_M2} eine sehr große Unsicherheit. Die kleinere, aber immer noch große, relative Unsicherheit von $w_0$ lässt sich auf die geringe Zahl an Messwerten und deren starke Streuung um die optimale Kurve zurückführen. Bei zukünftigen Durchführungen eines solchen Experiments ist also ein Aufnehmen von $n>4$ Messwerten empfehlenswert. Mehrere Messwerte würden auch dabei helfen, zu klären, ob eher \plotref{coll_z} oder \plotref{coll_z_without_M2} den physikalischen Zusammenhang besser beschreibt. Denn, wie bereits diskutiert, ist \plotref{coll_z} bei Berücksichtigung des Versuchsaufbaus nicht sinnvoll, andererseits ist die Streuung der Messwerte um die optimale Kurve in \plotref{coll_z_without_M2} sehr groß. Dies könnte mehrere Ursachen haben:
 \begin{itemize}
 \item (Temperaturbedingte) Leistungsschwankungen im Laser trotz der Bereinigung der Messungen durch das Aufnehmen einer Referenzspannung. Als das Fenster im Versuchszimmer zu Beginn der Versuchsdurchführung geöffnet war, unterlag die Raumtemperatur der Variabilität der Außentemperatur, welche mit zunehmender Zeit abnahm. Nachdem das Fenster im Versuchsverlauf geschlossen wurde, ist von einer allmählichen Erwärmung im Zimmer auszugehen. 
-\item versehentliches Verrücken der Linse vor der Photodiode oder der Photodiode selbst zwischen zwei Messungen (durch Anstoßen)
+\item versehentliches Verrücken der Linse vor der Photodiode oder der Photodiode selbst zwischen zwei Messungen (durch Anstoßen) $\rightarrow$ aktive Fläche der Photodiode wird u.U. nicht mehr vollständig getroffen
 \item Verschieben der Glasfaser. Ein Bewegen der Glasfaser kann eine veränderte transmittierte Leistung zur Folge haben (wenn auch der Effekt bei der Multi-Mode-Faser stärker als bei der Single-Mode-Faser zu beobachten war)
 \end{itemize}
 Letztlich kann nur ein Aufnehmen von weiteren Messwerten die entstandenen Unklarheiten klären.\\
 Da aber $w_0$ aus \plotref{coll_z} und \plotref{coll_z_without_M2} im Rahmen ihrer Unsicherheiten übereinstimmen, kann abschließend $w_0=(1.0\pm0.7)\ \mathrm{mm}$ und damit ein Wert, der nicht viel mehr als die Größenordnung der Waist des kollimierten Strahls aussagt, festgehalten werden. 
 \subsubsection{Vermessung des Strahlprofils hinter einer Konvexlinse}\label{Auswertung Vermessung des Strahlprofils hinter einer Konvexlinse}
-Wie auch im vorhergehenden Abschnitt, kann nach \ref{w(z)} eine Anpassung der Messdaten gewonnen werden. 
+Wie auch im vorhergehenden Abschnitt, kann nach Gleichung \ref{w(z)} eine Anpassung der Messdaten gewonnen werden. 
 \plot{div_z}{transversales Strahlprofil hinter $f=100\ \mathrm{mm}$ Linse}{1}{Messdaten Errorfunktion/w_z_data_div.pdf}
-Das Betrachten von \plotref{div_z} zeigt einerseits, dass die Regressionskurve die Messdaten qualitativ gut zu beschreiben vermag, andererseits machen die große Unsicherheit in den Fitparametern $w_0$ und $M$ sowie der damit einhergehend sehr breite $1\sigma-$Fehlerstreifen klar, dass die Aussagekraft der optimalen Fitparameter als gering einzustufen ist. Immerhin kann festgehalten werden, dass $M=1.4\pm0.9$ im Rahmen der Messunsicherheiten mit der Beugungsmaßzahl eines idealen Gaußstrahls übereinstimmt. Die Aussagekraft von dem hier gewonnen Wert für $M$ ist höher als dem in \plotref{coll_z} bestimmten Wert, da die Datengrundlage in \plotref{div_z} größer ist. Weil nach der Bemerkung in \ref{Reale Gaußstrahlen} $M$ durch das Einführen einer (nahezu) idealen Linse (nahezu) unverändert bleibt, wird die Vermutung aus Abschnitt \ref{Auswertung Abschätzung der Parameter des kollimierten Laserstrahls}, dass beim betreffenden Plot \ref{coll_z} Overfitting beobachtet werden kann, durch die nun gewonnenen Ergebnisse gestützt.\par
+Das Betrachten von \plotref{div_z} zeigt einerseits, dass die Regressionskurve die Messdaten qualitativ gut zu beschreiben vermag, andererseits machen die große Unsicherheit in den Fitparametern $w_0$ und $M$ sowie der damit einhergehend sehr breite $1\sigma-$Fehlerstreifen klar, dass die Aussagekraft der optimalen Fitparameter als gering einzustufen ist. Immerhin kann festgehalten werden, dass $M=1.4\pm0.9$ im Rahmen der Messunsicherheiten mit der Beugungsmaßzahl eines idealen Gaußstrahls übereinstimmt. Die Aussagekraft von dem hier gewonnen Wert für $M$ ist höher als dem in \plotref{coll_z} bestimmten Wert, da die Datengrundlage für \plotref{div_z} größer ist. Weil nach der Bemerkung in Abschnitt \ref{Reale Gaußstrahlen} $M$ durch das Einführen einer (nahezu) idealen Linse (nahezu) unverändert bleibt, wird die Vermutung aus Abschnitt \ref{Auswertung Abschätzung der Parameter des kollimierten Laserstrahls}, dass beim betreffenden Plot \ref{coll_z} Overfitting beobachtet werden kann, durch die nun gewonnenen Ergebnisse gestützt.\par
 Die großen Unsicherheiten des Fits legen erneut die für HeNe-Laser gut gerechtfertigte Näherung $M=1$ nahe. Vermutlich würde hier wieder eine leicht vergrößerte Datenbasis den Fit von den Parametern $M,w_0,z_0$ erheblich verbessern, sodass die Näherung $M=1$ nicht notwendig wäre und ein aussagekräftiger Wert für die Beugungsmaßzahl aus den Messdaten gewonnen werden könnte. Der folgende Plot zeigt die Anpassung der Messdaten für $M=1$:
 \plot{div_z_without_M}{transversales Strahlprofil hinter $f=100\ \mathrm{mm}$ Linse bei $M=1$}{1}{Messdaten Errorfunktion/w_z_data_div_without_M2.pdf}
 In \plotref{div_z_without_M} fällt zunächst der sehr schmale $1\sigma-$Fehlerstreifen auf. Auch ist die optimale Kurve \glqq spitzer\grqq\ als die vorige, was sich in einem kleineren Wert $w_0=(0.0177\pm0.0003)\ \mathrm{mm}$ niederschlägt. Dies entspricht der Erwartung, dass eine Linse einen einfallenden Strahl nahezu auf einen Punkt fokussieren sollte. Der Ort dieses Punktes sollte eine Brennweite von der Linse entfernt liegen. Der Fitparameter $z_0=(88.6\pm0.7)\ \mathrm{mm}$ ist mit der Brennweite $f=100\ \mathrm{mm}$ verträglich. Würde man die sicherlich von $0$ verschiedene Unsicherheit der Linsenbrennweite berücksichtigen, ist davon auszugehen, dass sich die $1\sigma-$Fehlerintervalle überlappen würde, dass also die beiden Werte im Rahmen der Messunsicherheiten übereinstimmen würden. Ansonsten könnte eine leichte Schiefstellung der Linse oder ein nicht vollkommen mittiges Treffen der Linse die Abweichung erklären. \\
 Da der Fit in \plotref{div_z_without_M} die Messdaten besser zu beschreiben vermag als  der Fit in \plotref{div_z}, sei abschließend $w_0=(0.0177\pm0.0003)\ \mathrm{mm}$ als der Waistparameter des fokussierten Laserstrahls festgehalten. Qualitativ kann die von einem Gaußstrahl fokussierte Aufweitung gemäß der Vorschrift \ref{w(z)} bestätigt werden. Insbesondere wird aber auch deutlich, dass der Bereich, in dem die Näherung, dass der Strahl linear divergiert, nicht gültig ist, sehr schmal und um den Brennpunkt zentriert ist (bei den vorliegenden Daten etwa im Bereich $[80,100]\mathrm{mm}$). Die geometrische Optik, die den Wellencharakter des Lichtes vernachlässigt, findet so für nicht zu nahe am Brennpunkt liegende Orte ihre Rechtfertigung. 
 \subsection{Optischer Resonator}
+\subsubsection{Justieren und Bestimmen der Transmissionsfunktion}
+Das Auftreten des Peakmuster in Abbildung \ref{FotostreckeTransmissionsfunktion} (a) kann bei Berücksichtigung der Funktionsweise des verwendeten He-Ne-Lasers erklärt werden. Dieser emittiert genau genommen nicht nur Licht der
+Wellenlänge 632.8nm, welches von dem Übergang $3s_2 \rightarrow 2p_4$ in den Neonatomen her stammt, sondern in geringerer Intensität auch Licht mit anderen diskreten Wellenlängen, welche von anderen Übergängen in den
+Neonatomen herrühren (vgl. \cite{dewiki:221382741}. So wird z.B. auch Licht der Wellenlänge $635.2\ \mathrm{nm}$ emittiert, welches von dem Übergang $3s_2 \rightarrow 2p_3$ in den Neonatomen stammt. Und für diese Wellenlänge kommt es gemäß Abschnitt \ref{opt_res} natürlich für
+andere Längen $L$ des Resonators zu Resonanz als für das dominante $632.8\ \mathrm{nm}$ Licht. Die Wahrscheinlichkeit für eine solchen Übergang ist temperaturabhängig und unterliegt somit genau wie die Raum- und auch Lasertemperatur einer gewissen zeitlichen Variabilität. Temperaturschwankungen im Laser können somit ursächlich für das Auftreten des Bildes \ref{FotostreckeTransmissionsfunktion} (a) angeführt werden.\\
+Das Verwenden eines Lasers, der aktiv seine Arbeitstemperatur regulieren kann, könnte die Messergebnisse folglich verbessern.
 \subsubsection{Bestimmung der Finesse}
 \begin{figure}[H]
     \centering
@@ -346,16 +418,18 @@ Da der Fit in \plotref{div_z_without_M} die Messdaten besser zu beschreiben verm
 %\image{Oszi_entzerrt}{entzerrtes Bild zum Bestimmen von $\Delta\omega_{\mathrm{FWHM}}$ und $\Delta\omega_{\mathrm{FSR}}$}{.6}{Bilder/Bestimmung_Finesse.png}
 Das Spektrum wurde in Form eines Fotos des Oszilloskopdisplays aufgenommen. Dieses Foto weist natürlich eine Parallaxe auf, d.h. das Display erscheint auf dem Foto verzerrt. Durch Anwenden einer linearen Transformation im Bildbearbeitungsprogramm GIMP kann das Bild entzerrt werden. Auf dem entzerrten Bild \ref{Bestimmen_Finesse_Fotostrecke} können pixelgenau die Abstände der Maxima und die FWHM-Breiten bestimmt werden. Da drei Maxima zu sehen sind, ergibt dies drei Werte für $\Delta\omega_{\mathrm{FWHM}}$ und zwei Werte für $\Delta\omega_{\mathrm{FSR}}$, aus denen je das arithmetische Mittel gebildet wird, dessen Unsicherheit über die empirische Standardabweichung (Wurzel der Varianz unter Berücksichtigung der Bessel-Korrektur) abgeschätzt werden kann.\\
 Man erhält auf diese Weise die Werte $\Delta\overline\omega_{\mathrm{FWHM}}=(101\pm13)\mathrm{px}$ und $\Delta\overline\omega_{\mathrm{FSR}}=(850\pm50)\mathrm{px}$. Dabei ist $1\mathrm{px}\propto 1\mathrm s$, da das untersuchte Bild entzerrt ist. \\
-Es ergibt sich somit für die Finesse:
+Es ergibt sich auf Basis dier Werte die Finesse:
 \begin{equation}
 F_1\equiv \frac{\Delta\overline\omega_{\mathrm{FSR}}}{\Delta\overline\omega_{\mathrm{FWHM}}}=8.4\pm1.5
 \end{equation}
-Alternativ kann die Finesse unter Benutzung von Gleichung \ref{finesse_theor} und den gemessenen Transmissivitäten der beiden halbdurchlässigen Spiegel des Resonators berechnet werden. Dabei wird Absorption in den Spiegeln vernachlässigt, d.h. $R_i+T_i=1,\ i\in\{1,2\}$. Weiterhin ist $T_i=\frac{U_i}{U_{\mathrm{ohne}\ \mathrm{Spiegel}}}$. Dann folgt nach \ref{finesse_theor} $F_2=27.5$ und mittels Gaußscher Fehlerfortpflanzung \begin{equation}
+Alternativ kann die Finesse unter Benutzung von Gleichung \ref{finesse_theor} und den gemessenen Transmissivitäten der beiden halbdurchlässigen Spiegel des Resonators berechnet werden. Dabei wird Absorption in den Spiegeln vernachlässigt, d.h. $R_i+T_i=1,\ i\in\{1,2\}$. Weiterhin ist $T_i=\frac{U_i}{U_{\mathrm{ohne}\ \mathrm{Spiegel}}}$. Dann folgt nach Gleichung \ref{finesse_theor} $F_2=27.5$ und mittels Gaußscher Fehlerfortpflanzung \begin{equation}
 \Delta F_2 = \sqrt{\left(\frac{\partial F}{\partial U_1}\Delta U_1\right)^2+\left(\frac{\partial F}{\partial U_2}\Delta U_2\right)^2+\left(\frac{\partial F}{\partial U_{\mathrm{ohne}\ \mathrm{Spiegel}}}\Delta U_{\mathrm{ohne}\ \mathrm{Spiegel}}\right)^2}=1.6
 \end{equation}
 Somit ist $F_2>F_1$, was nicht überraschend ist, da $F_2$ die maximal erreichbare Finesse bei perfektem Justieren, d.h. bei idealem Spiegelabstand, bei exakt zueinander senkrechten Spiegeln und perfekter Position der Linse für Modenanpassung beschreibt.
 \section{Zusammenfassung}
-Das Vermessen des kollimierten und des fokussierten Laserstrahls hat gezeigt, dass das Intensitätsprofil in der Ebene senkrecht zur Ausbreitungsrichtung tatsächlich durch eine Gaußkurve beschrieben werden kann. Für einen fokussierten Laserstrahl konnte ferner die Verengung vor und die Auweitung der Strahlbreite nach dem Brennpunkt der Linse vermessen werden und damit gezeigt werden, dass der Verlauf gut durch eine Kurve beschrieben werden kann, wie sie die Gaußoptik vorhersagt. Ferner wurde der Gültigkeitsbereich der geometrischen Optik bei der Behandlung fokussierter Strahlen abgegrenzt. Oft genügt es bei der Konzeption eines optischen Aufbaus, die Propagation eines linearen Strahls in der paraxialen Näherung zu betrachten. Nur bei Bauelementen, bei denen der Wellencharakter des Lichtfeldes offensichtlich wird, bspw. nahe dem Fokuspunkt, beim Einkoppeln eines Strahls in eine Faser oder innerhalb eines Resonators aus gekrümmten Spiegeln, liefern die Methoden der geometrischen Optik keine physikalisch akkuraten Vorhersagen.
+Das Vermessen des kollimierten und des fokussierten Laserstrahls hat gezeigt, dass das Intensitätsprofil in der Ebene senkrecht zur Ausbreitungsrichtung tatsächlich durch eine Gaußkurve beschrieben werden kann. Für einen fokussierten Laserstrahl konnte ferner die Verengung vor und die Auweitung der Strahlbreite nach dem Brennpunkt der Linse vermessen und damit gezeigt werden, dass der Verlauf gut durch eine Kurve beschrieben werden kann, wie sie die Gaußoptik vorhersagt. Ferner wurde der Gültigkeitsbereich der geometrischen Optik bei der Behandlung fokussierter Strahlen abgegrenzt. Oft genügt es bei der Konzeption eines optischen Aufbaus, die Propagation eines linearen Strahls in der paraxialen Näherung zu betrachten. Nur bei Bauelementen, bei denen der Wellencharakter des Lichtfeldes offensichtlich wird, bspw. nahe dem Fokuspunkt, beim Einkoppeln eines Strahls in eine Faser oder innerhalb eines Resonators aus gekrümmten Spiegeln, liefern die Methoden der geometrischen Optik keine physikalisch akkuraten Vorhersagen.\par
+Bei einem Wiederholen des Versuchteils, der die Bestimmung der Parameter eines kollimierten respektive fokussieren Gaußstrahls zum Ziel hatte, empfehlen wir das Aufnehmen von einer größeren Zahl von Messwerten, da beispielsweise die auf Basis von \plotref{coll_z_without_M2} tätigbaren Aussagen nur äußerst schwach sind. Interessant wäre es weiterhin, auf Basis von Messwerten stärkere Aussagen über die reale Beugungsmaßzahl des verwendeten HeNe-Lasers treffen zu können. Denn nach ISO Standard 11146 (vgl. \cite{paschotta2008beam}), gleicht das Vorgehen in diesem Versuch der Verfahrensweise, mithilfe der man die Beugungsmaßzahlen von Lasern bestimmt.\par
+Bezogen auf den verwendeten symmetrischen Resonator kann bestätigt werden, dass die qualitative Form der Transmissionsfunktion der eines Fabry-Perot-Resonators gleicht. Weiterhin schlagen wir Untersuchungen, ob die Finesse $F_1$ noch weiter optimiert werden kann, sodass sie sich näher am theoretisch maximal zu erreichenden Wert $F_2$ liegt, vor. Die Finesse $F_2$ wurde nämlich in Analogie zu einem planaren Fabry-Perot-Resonators bestimmt. Es ist denkbar, dass sich die theoretisch aus der Reflektivität ergebende Finesse eines Resonators mit zwei sphärisch gekrümmten Spiegeln von der eines Fabry-Perot-Resonators unterscheidet.
 \newpage
 
 \bibliography{literatur} 
