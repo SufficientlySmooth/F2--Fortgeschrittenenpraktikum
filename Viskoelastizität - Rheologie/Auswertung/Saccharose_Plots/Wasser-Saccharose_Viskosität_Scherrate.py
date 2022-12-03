@@ -8,6 +8,7 @@ Created on Mon Nov 28 10:49:25 2022
 import numpy as np #math functions, arrays
 import matplotlib.pyplot as plt #visualizing
 from scipy.optimize import curve_fit
+import pandas as pd
 import matplotlib
 
 matplotlib.style.use('JaPh') #merely contains basic style information
@@ -43,22 +44,22 @@ def plot(CSVNAME):
     
     fig,ax=plt.subplots(1,1,figsize=(10,10/np.sqrt(2))) #create axis embedded in figure
     
+    df = pd.read_csv(PATH,sep=',',header=None)
     
-    x, y, xerr_rel, xerr_abs, yerr_rel, yerr_abs = np.loadtxt(PATH,delimiter=';',skiprows=1,unpack=True)    
-            
-    xerr = x*xerr_rel+xerr_abs
-    yerr = y*yerr_rel+yerr_abs
-    
+    x = np.array(df.iloc[:,7])
+    y = np.array(df.iloc[:,8])
+   
     ylabel = r'$\mathrm{ln}\left( \dfrac{\eta}{\mathrm{Pa}\cdot s}\right)$' 
     xlabel = r'$\mathrm{ln}\left(\frac{\dot\gamma}{s^{-1}}\right)$'
     
     X,Y = LinXY(x,y)
-    Xerr,Yerr = LinXYerr(xerr,yerr,x,y)
-    xlim = (.9*min(X),1.1*max(X))
-    ylim = (min(Y)*.9,max(Y)*1.1)
+    dx = (max(X)-min(X))/10
+    dy = (max(Y)-min(Y))/15
+    xlim = (min(X)-dx,max(X)+dx)
+    ylim = (min(Y)-dy,max(Y)+dy)
     
     
-    popt, pcov = curve_fit(LinRegr1,X,Y,sigma=Yerr,absolute_sigma=True)
+    popt, pcov = curve_fit(LinRegr1,X,Y)
     stdDev=np.sqrt(np.diag(pcov))  #extracting the standard deviation of a and b from pcov (diagonally)
     
     #------setting up the deviating lines (diagonals in 1sigma-range) --------
@@ -76,20 +77,25 @@ def plot(CSVNAME):
     centerX, centerY = LineIntersection(popt[0]+stdDev[0],popt[0]-stdDev[0],popt[1]-stdDev[1],popt[1]+stdDev[1])
 
    #------Adding the fitted lines and the measurements to figure and axis--------
-    ax.plot(t1,LinRegr(popt,t1), marker = 'None', linestyle = '-', label=ylabel[:-1]+'_{opt.}=\\alpha \cdot'+xlabel[1:-1]+'+\\beta$') #optimized line
+    ax.plot(t1,LinRegr(popt,t1), marker = 'None', linestyle = '-', label=ylabel[:-1]+'=\\alpha \cdot'+xlabel[1:-1]+'+\\beta$') #optimized line
     ax.plot(t_for_sigma,ErrDiag11, marker = 'None', linestyle = 'dashed') #deviating line 1 crossing the 1sigma-range
     ax.plot(t_for_sigma,ErrDiag21, marker = 'None', linestyle = 'dashed') #deviating line 2 crossing the 1sigma-range
-    ax.errorbar(x=X,y=Y,xerr=Xerr,yerr=Yerr,marker='x',linestyle='None',label='Messwerte')
+    ax.scatter(X,Y,marker='x',linestyle='None',label='Messwerte')
     ax.fill_between(t_for_sigma,ErrAr_bottom1,ErrAr_top1, alpha = .6, label = r'$1\sigma-\text{Fehlerstreifen}$') #Area containing ~33% of all points of the set (1sigma-range) 
     ax.scatter(centerX,centerY,marker='v', label = 'Schwerpunkt', color='maroon', edgecolor='black') #geometric center of 1sigma-range
+    
+    stdDev = list(stdDev)
+    popt = list(popt)
+    stdDev.append(np.mean(y))
+    popt.append(np.std(y))
     
     sigfig = 4
     stdDev_rounded = ['{:g}'.format(float('{:.{p}g}'.format(stdDev[i], p=sigfig))) for i in range(0,len(popt))]
     decimals = [len(str(stdDev_rounded[i].split('.')[-1])) for i in range(0,len(popt))]
     cell_text = [[str(round(popt[i],decimals[i])),str(round(stdDev[i],decimals[i]))] for i in range(0,len(popt))]
-    
+
     the_table = the_table = plt.table(cellText=cell_text,
-                      rowLabels=[r'$\alpha$',r'$\beta$'],
+                      rowLabels=[r'$\alpha$',r'$\beta$',r'$\overline\eta [\mathrm{Pa}\cdot s]$'],
                       colLabels=['Wert','Unsicherheit'],
                       loc='bottom',
                       cellLoc='center',
@@ -106,8 +112,8 @@ def plot(CSVNAME):
     fig.tight_layout()
 
     #----Save Figure-----------
-    plt.savefig(CSVNAME+".pdf",dpi=1200)
+    plt.savefig(CSVNAME+"_visc_vs_shear_rate.pdf",dpi=1200)
         
 if __name__ == "__main__":
-    for path in ['Test_plot']:
+    for path in ['sac_00_percent','sac_10_percent','sac_20_percent','sac_40_percent']:
         plot(path)

@@ -109,5 +109,5 @@ def plot(CSVNAME):
     plt.savefig(CSVNAME+".pdf",dpi=1200)
         
 if __name__ == "__main__":
-    for path in ['Test_plot_3']:
+    for path in [']:
         plot(path)
