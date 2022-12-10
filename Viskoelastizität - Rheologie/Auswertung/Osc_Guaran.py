@@ -27,6 +27,7 @@ def plot(CSVNAME):
     Y1=df.iloc[:,10]
     Y2=df.iloc[:,11]  
     X =df.iloc[:,6]
+    print(Y1,Y2,X)
     X = np.log(X)
     Y1 = np.log(Y1)
     Y2 = np.log(Y2)
@@ -54,20 +55,21 @@ def plot(CSVNAME):
     minind2 = np.argmin(np.round(np.abs(Fit(t1,*popt2)-Fit(t1,*popt1)),4))
     
     
-    ax.plot(t1,Fit(t1,*popt2),marker='None',linestyle='-',color='red')
-    ax.plot(t1,Fit(t1,*popt1),marker='None',linestyle='-',color='blue')
+    #ax.plot(t1,Fit(t1,*popt2),marker='None',linestyle='-',color='red')
+    #ax.plot(t1,Fit(t1,*popt1),marker='None',linestyle='-',color='blue')
     #ax.plot(t1,X_Y1_Spline(t1),marker='None',color='black',linestyle='-')
     #ax.plot(t1,X_Y2_Spline(t1),marker='None',color='black',linestyle='-')
     ax.plot(X,Y2,marker='x',linestyle='None',color='red',label=r'$\mathrm{ln}\left(\frac{G^{{\prime\prime}}}{\mathrm{Pa}}\right)$')
     ax.plot(X,Y1,marker='x',linestyle='None',color='blue',label=r'$\mathrm{ln}\left(\frac{G^{\prime}}{\mathrm{Pa}}\right)$')
    
     
-    ax.axvline((t1[minind2]+t1[minind1])/2,marker='None',linestyle='dotted',color='navajowhite',label=r'Übergangsfrequenz $f^*=\left(%.2f\pm%.2f\right)\ \mathrm{Hz}$'%(np.exp((t1[minind2]+t1[minind1])/2),(np.exp(t1[minind2])-np.exp(t1[minind1]))/2))
+    #ax.axvline((t1[minind2]+t1[minind1])/2,marker='None',linestyle='dotted',color='navajowhite',label=r'Übergangsfrequenz $f^*=\left(%.2f\pm%.2f\right)\ \mathrm{Hz}$'%(np.exp((t1[minind2]+t1[minind1])/2),(np.exp(t1[minind2])-np.exp(t1[minind1]))/2))
     #ax.axvline(t1[minind2],marker='None',linestyle='dotted',color='navajowhite')
-    ax.axvspan(t1[minind1],t1[minind2],linestyle='None',alpha=.2,color='navajowhite',label=r'$\mathrm{ln}\left(\frac{G^{{\prime\prime}}}{\mathrm{Pa}}\right)\approx \mathrm{ln}\left(\frac{G^{\prime}}{\mathrm{Pa}}\right)$')
+    #ax.axvspan(t1[minind1],t1[minind2],linestyle='None',alpha=.2,color='navajowhite',label=r'$\mathrm{ln}\left(\frac{G^{{\prime\prime}}}{\mathrm{Pa}}\right)\approx \mathrm{ln}\left(\frac{G^{\prime}}{\mathrm{Pa}}\right)$')
     ax.axvspan(-10,-1,linestyle='None',alpha=.2,color='lightgreen',label=r'$\left(\mathrm{ln}\left(\frac{G^{{\prime\prime}}}{\mathrm{Pa}}\right)- \mathrm{ln}\left(\frac{G^{\prime}}{\mathrm{Pa}}\right)\right)\approx \mathrm{const.}<0$')
-    ax.axvspan(-1,t1[minind1],linestyle='None',alpha=.2,color='lightcoral',label=r'$\mathrm{ln}\left(\frac{G^{{\prime\prime}}}{\mathrm{Pa}}\right)< \mathrm{ln}\left(\frac{G^{\prime}}{\mathrm{Pa}}\right)$')
-    ax.axvspan(t1[minind2],10,linestyle='None',alpha=.2,color='lightskyblue',label=r'$\mathrm{ln}\left(\frac{G^{{\prime\prime}}}{\mathrm{Pa}}\right)> \mathrm{ln}\left(\frac{G^{\prime}}{\mathrm{Pa}}\right)$')
+    ax.axvspan(-1,(t1[minind2]+t1[minind1])/2,linestyle='None',alpha=.2,color='lightcoral',label=r'$\mathrm{ln}\left(\frac{G^{{\prime\prime}}}{\mathrm{Pa}}\right)< \mathrm{ln}\left(\frac{G^{\prime}}{\mathrm{Pa}}\right)$')
+    ax.axvspan((t1[minind2]+t1[minind1])/2,4.3,linestyle='None',alpha=.2,color='lightskyblue',label=r'$\mathrm{ln}\left(\frac{G^{{\prime\prime}}}{\mathrm{Pa}}\right)> \mathrm{ln}\left(\frac{G^{\prime}}{\mathrm{Pa}}\right)$')
+    ax.axvspan(4.3,10,linestyle='None',alpha=.2,color='midnightblue',label=r'$\mathrm{ln}\left(\frac{G^{{\prime\prime}}}{\mathrm{Pa}}\right)< \mathrm{ln}\left(\frac{G^{\prime}}{\mathrm{Pa}}\right)$')
     #ax.annotate(r'$c^*$',(popt[0],(popt[1]+min(Y))/2),xytext=((popt[0]*1.5+max(X)*.5)/(2),(popt[1]+min(Y))/2),arrowprops=dict(arrowstyle= matplotlib.patches.ArrowStyle("Fancy", head_length=.2, head_width=.2, tail_width=.1),color='black'))
     
     
