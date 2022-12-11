@@ -93,6 +93,37 @@ Aufgezeichnet wurden das Speichermodul $G^\prime$ und das Verlustmodul $G^{\prim
 \image{Filling_Sample}{Zur korrekten Platzierung des Samples (aus \cite{malvern_2014})}{.6}{Filling_Sample.JPG}
 
 \subsection{Wasser-Guaran}
+\subsubsection{Fehlerabschätzung zum Anmischen der Lösungen}
+Es ist interessant abzuschätzen, ob mit den verwendeten Wasser- und Saccharosemengen tatsächlich die gewünschten Konzentrationen erreicht werden konnten, da einige Vereinfachungen angenommen wurden:
+So wurde beim Abmessen der Wassermenge, die notwendig ist, um gegeben einer festen zu lösenden Stoffmenge eine bestimmte Konzentration zu erreichen, die Dichte von Wasser auf $\rho_W=1\ \mathrm{\frac{g}{ml}}$ gesetzt. Dies gilt bei Raumtemperatur und Normaldruck nicht exakt. 
+Mittels \cite{nist_water} kann die Dichte bei Raumtemperatur $T=25^\circ\mathrm C$ und Normaldruck auf etwa $\rho=(0.99705\pm0.0015)\ \mathrm{\frac{g}{ml}}$. Die Unsicherheit kommt dadurch, dass das Wasser erstens wahrscheinlich eine geringere Temperatur als die Luft im Labor hatte, da das Wasser auch über gewisse Zeiten hinweg im deutlich kälteren Versuchsraum mit dem Rheometer stand, und zweitens der Luftdruck nicht genau bekannt ist. \\
+Ferner wurden die Messunsicherheiten der verwendeten Präzisionswaage und Pipette vernachlässigt. Die Unsicherheit in Messungen der Waage werden auf $\Delta m=0.0002$ und die Unsicherheit bei Messungen mit der Pipette auf $\Delta V=2\mu\mathrm l$ geschätzt. Damit lassen sich die folgenden Werte für die relativen Unsicherheiten in den Stoffkonzentrationen gewinnen:
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{llllll}
+    \hline
+        $c [\%]$-Soll & $V_{\mathrm{H_2O}} [\mu \mathrm l]$ & $m [\mathrm g]$ & $c=\frac{m}{\rho\cdot V+m}[\%]$ & $\Delta c[\%]$ & $\frac{\Delta c}{c}[\%]$ \\ \hline
+        0.25 & 1189 & 0.00298 & 0.2507 & 0.00017 & 0.0670 \\
+        0.5 & 1465 & 0.00736 & 0.5013 & 0.00014 & 0.0271 \\ 
+        1 & 1096 & 0.01107 & 1.0029 & 0.00018 & 0.0180 \\
+        1.4 & 1158 & 0.01644 & 1.4039 & 0.00017 & 0.0122 \\ 
+        2 & 963 & 0.01964 & 2.0045 & 0.00021 & 0.0103 \\
+        2.3 & 1078 & 0.02537 & 2.3060 & 0.00019 & 0.0080 \\ \hline
+    \end{tabular}
+\end{table}
+Man erkennt also, dass die relativen Fehler in der Konzentration sehr klein werden für größere Konzentrationen. Insbesondere werden sie noch geringer für die  nochmals deutlich höheren untersuchten Konzentration von Saccharose in Wasser:
+
+\begin{table}[!ht]
+    \centering
+    \begin{tabular}{llllll}
+    \hline
+        $c [\%]$-Soll & $V_{\mathrm{H_2O}} [\mu \mathrm l]$ & $m [\mathrm g]$ & $c=\frac{m}{\rho\cdot V+m}[\%]$ & $\Delta c[\%]$ & $\frac{\Delta c}{c}[\%]$ \\ \hline
+        10 & 1233 & 0.13736 & 10.0503 & 0.00024 & 0.0024 \\ 
+        20 & 857 & 0.21426 & 20.0481 & 0.00047 & 0.0023 \\ 
+        40 & 518 & 0.34569 & 40.0957 & 0.00100 & 0.0025 \\ \hline
+    \end{tabular}
+\end{table}
+Die Konzentrationen hatten also im Rahmen der (sehr geringen) Messunsicherheit die Soll-Konzentration der jeweiligen Stoffe, sodass eine zu große oder zu kleine untersuchte Konzentration wegen ungenau abgemessener Massen oder Volumina keine relevante Fehlerquelle ist.
 \subsubsection{Scherratenmessungen}\label{guar_mess}
 Trägt man die für die verschiedenen Konzentrationen und Scherraten aufgenommenen Messwerte gegeneinander auf, so können die Werte $(\eta_i,\dot\gamma_i)$ für feste Konzentration $c$ nach dem Fließgesetz von Ostwald und de Waele (vgl. \cite{dewiki:192899581}) bei einem doppelt-logarithmischen Plot durch Geraden beschrieben werden. 
 \plot{guar_eta_gammadot}{Doppelt logarithmische Auftragung von $\eta$ gegen $\dot\gamma$ bei Guaran}{1}{C:/Users/Jan-Philipp/Documents/Eigene Dokumente/Physikstudium/5. Semester/F2- Fortgeschrittenenpraktikum/Viskoelastizität - Rheologie/Wichtige_Plots/Guar_Viscosity_vs_Shearrate_all_Concentrations.pdf}
@@ -196,6 +227,7 @@ Der größte Fehler bei der Bestimmung der einzelnen viskoelastischen Bereiche i
 %Zu Guaran
 Es gelingt uns nicht, eine zufriedenstellende Erklärung für die Messwerte bei den Konzentrationen $c=0.25\%,0.5\%$ zu finden. Ein Wiederholen dieser Messungen wird ausdrücklich empfohlen, um zu prüfen, ob das beobachtete Verhalten reproduzierbar ist. Zu erwarten ist jedoch, dass sich bei einer Wiederholung \glqq schönere\Grqq Werte ergeben würden, die erstens stützen, dass auch bei diesen Konzentrationen zwischen der Viskosität und der Scherrate ein Potenzgesetzzusammenhang gilt, und zweitens, das Guaran-Wasser-Lösungen für beliebige Konzentrationen scherverdünnend sind. \\
 Weiterhin empfehlen wir eine Versuchsdurchführung in einem wärmeren Raum. Wahrscheinlich würde dann kein scherverdünnendes Verhalten bei den Saccharose-Lösungen beobachtet werden.
+
 \newpage
 
 \bibliography{literatur} 
