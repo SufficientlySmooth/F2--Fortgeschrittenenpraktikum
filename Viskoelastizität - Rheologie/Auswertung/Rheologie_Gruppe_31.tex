@@ -4,6 +4,8 @@
 \usepackage{cancel}
 \usepackage[labelfont=bf]{caption}
 \usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{arydshln}
 \lstset{
   literate={ö}{{\"o}}1
            {ä}{{\"a}}1
@@ -38,10 +40,71 @@ Konkret sollen im Rahmen des hier vorgestellten Versuchs die viskoelastischen Ei
 Zuletzt wird eine $0.5$-prozentige Wasser-Guaran-Lösung einer oszillatorischen Scherverformung, wobei die Oszillationsfrequenz bei fester Amplitude variiert wird, ausgesetzt, um damit die Abhängigkeit der viskoelastischen Materialantwort  von der Frequenz zu beleuchten.
 
 \section{Theoretischer Hintergrund}
-Sofern nicht anderweitig angegeben, stützen sich die Darstellungen in diesem Abschnitt auf \cite{versuchsanleitung}.
-\subsection{Elastizität und Viskosität}
+Sofern nicht anders angegeben, stützen sich die Darstellungen in diesem Abschnitt auf \cite{versuchsanleitung}. Dieser wurden ebenfalls die gezeigten Bilder entnommen.
+\subsection{Elastizität und Viskosität}\label{elas_u_vis}
+Ein Material heißt elastisch, wenn es, nachdem eine äußere Kraft angelegt wurde, eigenständig wieder in seine Ursprungsform zurückkehrt. Die gegensätzliche Eigenschaft zur Elastizität ist die Viskostiät. Ein Materialhat viskose Eigenschaften, wenn es, nachdem eine äußere Kraft angelegt wurde, in der Form bleibt, die es durch die äußere Kraft angenommen hat. \\ Aus dem Alltag kennen wir viele Stoffe, welche sich weder ausschließlich elastisch noch ausschließlich viskos verhalten, sondern sowohl elastische als auch viskose Eigenschaften haben. Solche Stoffe bezeichnet man als viskoelastisch. \\
+Bei den elastischen Materialien gibt es eine wichtige Untergruppe: solche mit linear elastischem Verhalten. Ein Material heißt linear elastisch, wenn sich die Verformung beim Anlegen einer äußeren
+Kraft proportional zu der äußeren Kraft ändert, und sich die Verformung nicht ändert solange die äußere Kraft konstant bleibt. Die Verformungen welche man hierbei typischerweise betrachtet sind die relative
+Dehnung $\Delta L / L$ und der Scherwinkel $\gamma \approx \Delta L/ h$. 
+\image{dus}{Skizze zur Dehnung und Scherung}{.6}{dus.png}
+
+Die Proportionalitätskonstanten, welche die Verformungen mit den entsprechenden Kräften verbinden sind, das elastische
+Modul $E$, wobei
+\begin{equation}
+\frac{F}{A} \,\,=\,\, E \frac{\Delta L}{L}
+\end{equation}
+und das Schermodul $G$, wobei
+\begin{equation}
+\frac{F}{A} \,\,=\,\, G \frac{\Delta L}{h}
+\end{equation}
+Es gibt allerdings auch Materialien bei denen sich die Verformungen nicht proportional zu den äußeren angelegten Kräften verhalten, wie z.B. Gummis oder andere Stoffe, die aus langen Polymermolekühlen
+bestehen.
+Aus der Alltagserfahrung heraus wissen wir auch, dass sich einige Stoffe viskoser, d.h. dickflüssiger verhalten als andere Stoffe. Aber wie kann man dieses Verhalten quantifizieren?
+Um die Viskosität eines Stoffes zu quantifizieren, wird beispielhaft folgender Aufbau benutzt: 
+\image{vis}{Experimentelle Viskositätsbestimmung}{.6}{vis.png}
+Hierbei füllt ein Stoff den Raum zwischen zwei parallelen Platten mit der Oberfläche $A$ aus.
+Bewegt sich die obere Platte nun mit der Geschwindigkeit $v$ über den Stoff, wird der Stoff eine Bremskraft $F(v)$ auf die Platte ausüben. Anschaulich ist klar, dass für
+die Bremskraft $F(v)$ gelten wird $F(v) \sim v \cdot A/h$. Die Viskosität $\eta$ ist dann als Proportionalitätskonstante definiert über die Gleichung
+\begin{equation}
+F(v) \,\,=\,\, \eta (v) \cdot v \cdot \frac{A}{h}
+\end{equation}
+Mit den Größen $\dot{\gamma} \approx v/h$ (Scherrate) und $\sigma(v) = F(v)/A$ (Scherstress), kann man die Gleichung vereinfachen zu
+\begin{equation}
+\sigma(\dot{\gamma}) \,\,=\,\, \eta (\dot{\gamma}) \cdot \dot{\gamma} 
+\end{equation}
+Die Viskosität $\eta$ ist eine Größe, welche, wie wir im Verlauf der beiden Experimente noch bestätigen werden, allgemein von der Scherrate $\dot\gamma$ abhängig ist.\\
+Betrachtet man, wie hier in den Experimenten, Lösungen von bestimmten Stoffen mit Wasser, so ist die Viskosität einer Lösung auch konzentrationsabhängig. Für viele Stoffe liegt hier ein linearer
+Zusammenhang $\eta = \eta_0 + [\eta]c$ vor, wobei $\eta_0$ die Viskosität von Wasser ist, und $[\eta]$ die sogenannte intrinsische Viskosität des gelösten Stoffs.
+Für Stoffe aus langen Polymermolekühlen gilt diese Beziehung i.A. nicht. Hier nimmt die Viskosität in Abhängigkeit der Konzentration allgemein folgenden Verlauf an.
+\image{poly}{Polymerlösungen}{.6}{poly1.png}
+ Die Konzentration, bei der 
+der charakteristische Knick auftritt, ist die sogenannte kritische Konzentration oder Überlappkonzentration $c^{*}$. Ab hier beginnen sich die Polymere aufgrund ihrer Größe mehr und mehr zu überlappen und ineinander zu verschlaufen, wodurch die Viskosität stark mit der Konzentration ansteigt.
+
 \subsection{Klassifizierung von Flüssigkeiten anhand ihres Fließverhaltens}
-Fließgesetz nach Ostwald und de Waele ->\cite{dewiki:192899581}
+Abhängig von der molekularen Strucktur einer Flüssigkeit kann die Viskosität in unterschiedlicher Art und Weise von der Scherrate abhängen. Man unterscheidet im wesentlichen drei Fälle.
+\image{flow}{Unterschiedliche Fließverhalten im $\sigma-\dot\gamma$-Diagramm}{.6}{flow.png}
+
+\begin{itemize}
+\item Newtonsches Fließverhalten: 
+
+Newtonsche Flüssigkeiten zeichnen sich durch eine konstante Viskosität in einem großen Scherratenbereich aus. Der Scherstress ist daher bei diesen Flüssigkeiten direkt proportional zur Scherrate. Beispiele
+sind Wasser, Öl, Glycerol oder Honig.
+
+\item Scherverdünnung: 
+
+Von Scherverdünnung spricht man, wenn die Viskosität mit der Scherrate abnimmt. Sie tritt auf, wenn die molekulare Strucktur der Probe aufgrund hydrodynamischer Kräfte, die durch die Scherung erzeugt werden,
+zerstört wird. Daher führt eine Erhöhung der Scherrate nur zu einer unterproportionalen Erhöhung des Scherstresses. Beispiele sind Duschgel, Joghurt, Zahnpasta, Marmelade.
+
+\item Scherverdickung: 
+
+Von Scherverdickung spricht man wenn die Viskosität mit der Scherrate zunimmt. Die Ursache für Scherverdickung ist eine Volumenzunahme, oder eine Zunahme der Anzahl der struckturellen Untereinheiten der Probe,
+aufgrund der Scherung. Daher steigt der Scherstress überproportinal mit der Scherrate an. Beispiel: Stärkelösung.
+\end{itemize}
+Die Abhängigkeit des Scherstresses von der Scherrate kann nach dem Fließgesetz nach Ostwald und de Waele ($\rightarrow$ \cite{dewiki:192899581}) durch ein Potenzgesetz der Form 
+\begin{equation}
+\sigma(\dot\gamma)=\beta\dot\gamma^\alpha
+\end{equation}
+beschrieben werden. Für $\alpha=1$ liegt Newtonsches Fließverhalten vor, für $\alpha<1$ Scherverdünnung und für $\alpha>1$ Scherverdickung.
 \subsection{Viskoelastizität}
 Zeigt ein Material sowohl elastisches und viskoses Verhalten, so kann dessen Antwort für hinreichend kleine Scherungen/ Deformationen/ Dehnungen als linear angenommen werden. Dies führt für rein elastische Materialien zum Modell des Hookschen Körpers und für rein viskose Flüssigkeiten zu dem Modell der newtonschen Flüssgkeiten, die als Netzwerk von kleinen, bei Auslenkung Energie dissipierenden, Kolben beschrieben werden können. Das Maxwell-Modell kombiniert diese beiden Modelle, indem Materialien mit sowohl viskosen als auch elastischen Eigenschaften als Netzwerke von in  Serie geschalteten Federn und Kolben interpretiert werden.\\
 Legt man an solche Körper eine oszillatorische Verformung 
@@ -53,18 +116,27 @@ an, so teilt sich die Stressantwort des Materials nach dem Maxwell-Modell in ein
 \sigma(t)&=\Re\left(G\gamma(t)+\eta\dot\gamma(t)\right)=\Re\left(G\gamma_0+\gamma_0\eta\cdot i\omega  e^{i\omega t}\right)\eqdef \Re\left(\sigma_0 e^{i\omega t+\delta} \right)\\
 \quad& =\frac{\sigma_0}{\gamma_0}\Re\left(\gamma(t)(\cos\delta+i\cdot\sin\delta)\right)\eqdef\Re\left( (G^\prime+iG^\prime)\cdot\gamma(t)\right)\eqdef \Re\left(G^*\cdot\gamma(t)\right)
 \end{align}
-gilt mit dem Verlustmodul $G^{\prime\prime}=\eta\omega$ und dem Speichermodul $G^\prime=G$. Die Phase von $G^*$ definiert den Verlustfaktor $\tan\delta = G^{\prime\prime}/G^{\prime}$.\\
+gilt mit dem Verlustmodul $G^{\prime\prime}=\eta\omega$ und dem Speichermodul $G^\prime=G$. Die Phase von $G^*$ definiert den Verlustfaktor $\tan\delta \equiv G^{\prime\prime}/G^{\prime}$.\\
 Das Verlust- und das Speichermodul sind beide i.A. abhängig von der Art der Verformung. Legt man beispielsweise eine oszillatorische Verschiebung variabler Frequenz mit fester Amplitude an, so ergibt sich für Polymere in Wasserlösung typischerweise das folgende viskoelastische Spektrum:
 \image{spektrum_polymer}{Viskoelastisches Spektrum einer Polymerlösung (aus \cite{malvern_2014})}{.6}{ViscoElasticSpectrum.JPG}
-Für kleine Frequenzen ist $G^{\prime\prime}>G^{\prime}$. In diesem Bereich hat der Stoff den Charakter einer viskoelastischen Flüssigkeit. Nachdem sich Speicher- und Verlustmodul gekreuzt haben, sind über einen gewissen Frequenzbereich (die Rubbery Plateau Region) die viskoelastischen Stofeigenschaften weitestgehend unabhängig von der Frequenz, und der Stoff verhält sich gelartig oder wie ein viskoelastischer Festkörper. In der sich daran anschließenden Übergangsregion dominieren die viskosen Eigenschaften des Körpers. Für höhere Frequenzen wird die Glassy Region erreicht, in der das Speichermodul plateauartig wird, wohingegen das Speichermodul abnimmt. Der Stoff verhält sich also zunehmend wie ein (elastischer) Festkörper.
+Für kleine Frequenzen ist $G^{\prime\prime}>G^{\prime}$, wobei beide in guter Näherung linear mit der Frequenz zunehmen. In diesem Bereich hat der Stoff den Charakter einer viskoelastischen Flüssigkeit. Nachdem sich Speicher- und Verlustmodul gekreuzt haben, sind über einen gewissen Frequenzbereich (die Rubbery Plateau Region) die viskoelastischen Stofeigenschaften weitestgehend unabhängig von der Frequenz, und der Stoff verhält sich gelartig oder wie ein viskoelastischer Festkörper. In der sich daran anschließenden Übergangsregion dominieren die viskosen Eigenschaften des Körpers. Für höhere Frequenzen wird die Glassy Region erreicht, in der das Speichermodul plateauartig wird, wohingegen das Speichermodul abnimmt. Der Stoff verhält sich also zunehmend wie ein (elastischer) Festkörper.
 \subsection{Rotationsrheometer}\label{rheometer}
-Im Versuch wurde das Rotationsrheometer KINEXUS ultra+ von Malvern Panalytical verwendet. Die Probe wird zwischen zwei runden Metallplatten aufgetragen, von denen die obere drehbar gelagert ist und mit variabler Winkelgeschwindigkeit $\Omega$ rotieren kann. Der Plattenabstand ist variabel, wird bei den Messungen hier fest auf $d=1\ \mathrm{mm}$ gesetzt. \\
+Im Versuch wurde das Rotationsrheometer KINEXUS ultra+ von Malvern Panalytical verwendet. Die Probe wird zwischen zwei runden Metallplatten aufgetragen, von denen die obere drehbar gelagert ist und mit variabler Winkelgeschwindigkeit $\Omega$ rotieren kann. Der Plattenabstand ist variabel, wird aber bei den Messungen hier fest auf $d=1\ \mathrm{mm}$ gesetzt. \\
 Bei einer viskosen Probe wird durch das Rotieren eine Stressantwort $\sigma\propto\eta$ resultieren, welche proportional zum Drehmoment $M$ ist, welches auf die obere Platte wirkt. Dieses Drehmoment wird mit einer Auflösung von $0.05\ \mathrm{nNm}$ gemessen (vgl. \cite{malvern_2017}), was bei Kenntnis der Normalkraft, die auf die Platte wirkt, und einiger geometrieabhängiger Kenngrößen das Berechnen der Stressantwort und damit der Viskosität zulässt.\\
 Wegen $\eta\propto M$ ist $\frac{\Delta\eta}{\eta}=\frac{\Delta M}{M}$ und damit der relative Fehler bei der Viskositätsbestimmung für weniger viskose Flüssigkeiten größer.
 \section{Versuchsdurchführung}
-\subsection{Wasser-Saccharose}
-\subsubsection{Anmischen der Lösungen}\label{H2O-Suc_Anmischen}
-\subsubsection{Scherratenmessungen}
+\subsection{Wasser-Saccharose}\label{H2O-Suc_Anmischen}
+Im ersten Experiment wurde die Viskosität in Abhängigkeit der Scherrate für unterschiedlich konzentrierte Saccharose-Wasserlösungen gemessen. Die untersuchten Konzentrationen waren $0\%, 10\%, 20\%$ und  $40\%$. Zum Messen der
+Viskositäten in Abhängigkeit der Scherraten wurde das in Abschnitt \ref{rheometer} vorgestellte Rheometer zusammen mit dem Programm 'Shear Rate Table for Waterlike Samples' benutzt. Der Scherratenbereich,
+in welchem gemessen wurde, ging von $10^0\ \mathrm s^{-1}$ bis $10^2\ \mathrm s^{-1}$ mit 5 Messpunkten pro Dekade. Tskip wurde auf 1 min eingestellt. Zum Vermessen der Lösungen wurde jeweils immer etwas mehr Lösung angemischt als das
+verwendete Rheometer eigentlich gebraucht hätte. Die genau verwendeten Mengen Wasser und Saccharose für die jeweiligen Lösungen können Tabelle \ref{suc_table} entnommen werden. \\
+Beim Anmischen der Lösungen wurde stets darauf geachtet, dass die
+verwendete Saccharose komplett gelöst war. Die Temperatur, bei welcher die verschiedenen Lösungen vermessen werden sollten, wurde im Bedienprogramm des Rheometers auf $25^{\circ}C$ eingestellt. Das Profil der Proben
+zwischen den beiden Platten des Rheometers hatte jeweils immer in etwa folgende Gestalt:
+\image{under}{Flüssigkeitsprofil bei den Saccharose-Wasserlösungen (aus \cite{malvern_2014})}{.3}{under.png}
+Nachdem eine Messreihe fertig war, wurden jeweils die beiden Platten des
+Rheometers mit einem Tuch und Reinigungsalkohol gereinigt.
+
 \subsection{Wasser-Guaran}
 \subsubsection{Anmischen der Lösungen}\label{anmischen_guaran}
 %Volumen = Masse bei Wasser noch ergänzen
@@ -72,26 +144,83 @@ Prinzipiell gleicht das Vorgehen beim Anmischen und Auftragen der Lösungen auf 
 Eine weitere Schwierigkeit beim Anmischen der Lösungen ist, dass gerade bei höheren Konzentrationen ein nicht unerheblicher Anteil der Substanz wegen der hohen Viskosität nach dem Einziehen in der Pipette verbleibt. In besonderem Maße wurde deshalb beim Loaden des Samples darauf geachtet, dass eine ausreichende Abdeckung des Messstempels am Rheometer erzielt wurde, um Underfilling zu vermeiden. So musste beispielsweise für die $2.3\%$ige Lösung nachträglich noch Flüssigkeit hinzugefügt werden, da anfangs nicht das gesamte Volumen unter der Geometry-Platte von Flüssigkeit ausgefüllt wurde. Auf diese Weise wurde ein Zustand erreicht, bei dem die Flüssigkeit sich so aus dem Spalt herauskrümmte, dass der Krümmungsradius unterhalb der Geometry lag.
 \subsubsection{Scherratenmessungen}
 Die sich anschließende Messung wurde nach Vornehmen der entsprechenden Einstellungen unter $\mathrm{Toolkit\_V001}$ Shear Rate Table mit $\dot\gamma\in[1,100]\mathrm s^{-1}$, $T=25^\circ C$, 5 Messpunkten pro Dekade und dem Parameter Tskip nach $1\ \mathrm{min}$ vom Rheometer automatisiert durchgeführt, woraufhin die Messwerte als Tabelle exportiert werden konnten.\\
-Es wurden Konzentrationen $c\in[0,0.25,0.5,1.0,1.4,2.0,2.3]\%$ untersucht, wobei die Messwerte für die reine Wasserlösung mit $c=0.0\%$ aus der vorangegangenen Saccharose-Messreihe übernomen werden konnten.
+Es wurden Konzentrationen $c\in[0,0.25,0.5,1.0,1.4,2.0,2.3]\%$ untersucht, wobei die Messwerte für die reine Wasserlösung mit $c=0.0\%$ aus der vorangegangenen Saccharose-Messreihe übernommen werden konnten.
 \subsubsection{Frequenzversuch}
 In diesem Versuchsteil sollte eine $0.5\%$ige Guaran-Lösung einer oszillatorischen Scherverformung ausgesetzt werden. Es wurde dieselbe Probe, mit der auch die entsprechende Messung in Abschnitt \ref{anmischen_guaran} durchgeführt wurde, verwendet. Der eigentliche Messprozess lief automatisiert nach Aufrufen des entsprechenden Programms $\mathrm{Toolkit\_O002}$ Frequency Table in der Rheometer-Software und dem Einstellen des Messbereichs von $0.01-200\ \mathrm{Hz}$, der Soll-Temperatur $T=25^\circ C$ und der Anzahl (5) von Messpunkten pro Dekade. Tskip wurde auf $1\ \mathrm{min}$ gesetzt, die Stärke der Scherverformung betrug $0.5\%$.\\
 Aufgezeichnet wurden das Speichermodul $G^\prime$ und das Verlustmodul $G^{\prime\prime}$ als Funktion der Oszillationsfrequenz bei konstanter Amplitude der Scherverformung.
+\newpage
 \section{Ergebnisse und Diskussion}
 \subsection{Wasser-Saccharose}
-\subsubsection{Scherratenmessungen}
-
+\subsubsection{Scherratenmessungen}\label{suc_fehler}
+Die Messreihen der Viskosität in Abhängigkeit der Scherrate für die verschiedenen Saccharose-Wasser-Lösungen sowie die zugehörigen Fitgeraden sind in folgendem Diagramm dargestellt:
 \plot{suc_eta_gammadot}{Auftragung von $\eta$ gegen $\dot\gamma$ bei Saccharose}{1}{C:/Users/Jan-Philipp/Documents/Eigene Dokumente/Physikstudium/5. Semester/F2- Fortgeschrittenenpraktikum/Viskoelastizität - Rheologie/Wichtige_Plots/Water_Sucrose_Viscosity_vs_Shearrate_all_Concentrations.pdf}
-
+ Aus den
+Steigungen und Ordinatenverschiebungen der Fitgeraden kann man gemäß
+\begin{equation}
+\eta \,\,=\,\, e^{\beta} \gamma^{\alpha}\iff \mathrm{ln}\left(\eta\right)=\alpha\cdot\mathrm{ln}\left(\dot\gamma\right)+\beta
+\end{equation}  für die einzelnen Lösungen die Potenzgesetzbeziehung zwischen Scherrate und Viskosität bestimmen.
+Im nachfolgenden Diagramm sind für die verschiedenen Lösungen,
+die sich aus den Messwerten ergebenden Scherspannungen $\sigma$ gegen die Scherrate $\dot{\gamma}$ aufgetragen, wodurch gegenüber \plotref{suc_eta_gammadot} wegen der Beziehung $\sigma=\eta\dot\gamma$ keinerlei neue Information gewonnen wird:
 \plot{suc_sigma_gammadot}{Auftragung von $\sigma$ gegen $\dot\gamma$ bei Saccharose}{1}{C:/Users/Jan-Philipp/Documents/Eigene Dokumente/Physikstudium/5. Semester/F2- Fortgeschrittenenpraktikum/Viskoelastizität - Rheologie/Wichtige_Plots/Water_Sucrose_Stress_vs_Shearrate_all_Concentrations.pdf}
-
-
+Da die Steigungen aller vier Fitgeraden $<1$ sind, deuten die Messwerte für alle vier Lösungen qualitativ auf Scherverdünnung
+hin. Da jedoch $[\alpha-\Delta\alpha,\alpha+\Delta\alpha]=[0.835-0.17,0.835+0.17]\cap[1,+\infty)\neq\emptyset$, kann prinzipiell die These, die $40\%$ige Lösung verhalte sich newtonsch oder scherverdickend, nicht  verworfen werden, wenngleich sie unwahrscheinlich erscheint. Auch muss für alle Messreihen die starke Streuung der Messwerte angemerkt werden, was es erschwert, jeweils einen klar linearen Trend auszumachen. Dies äußert sich in den großen relativen Unsicherheiten der Fitparameter $\alpha,\beta$ bei allen Konzentrationen.\\
+ Im nächsten Diagramm sind für die verschiedenen Scherraten, für welche die vier Messreihen aufgenommen wurden, die Viskositäten in Abhängigkeit der Konzentrationen der Lösungen dargestellt: 
 \plot{suc_eta_c}{Auftragung von $\eta$ gegen $c$ bei Saccharose}{1}{C:/Users/Jan-Philipp/Documents/Eigene Dokumente/Physikstudium/5. Semester/F2- Fortgeschrittenenpraktikum/Viskoelastizität - Rheologie/Wichtige_Plots/Viscosity_by_Concentration_Sucrose_all_Shearrates.pdf}
+ Beim Erstellen der Fitgeraden für die verschiedenen Scherraten wurden hier allerdings die Messwerte der $40\%$igen Saccharoselösung ausgeschlossen, da diese dem linearen Trend, der klar von den anderen drei Lösungen vorgegeben wird, widerspricht. Auf den Umstand, warum ein anderes Verhalten bei den Messwerten zur $40\%$igen Saccharoselösung plausibel ist, wird später noch eingegangen.\\
+Die sich aus den Fitgeraden
+ergebenden intrinsischen Viskositäten $[\eta]$ für Saccharose sind in der Tabelle in \plotref{suc_eta_c} aufgeführt. Aufgrund der sehr schwankenden Werte ist es hier aber nicht sinnvoll für diese einen Mittelwert
+anzugeben, sodass nicht abschließend ein Wert für die intrinsische Viskosität von Saccharoselösungen angegeben werden kann.\\
+ Abgesehen von den Messwerten der $40\%$igen Saccharoselösung, die bei dem Fit in \plotref{suc_eta_c} nicht berücksichtigt wurden, zeigen alle anderen Messwerte jeweils nur sehr geringe Abweichungen zu ihrer jeweiligen Fitgeraden. Dies ist konsistent mit dem gemäß Abschnitt \ref{elas_u_vis} für Saccharoselösungen zu erwartenden linearen Zusammenhang zwischen Konzentration und Viskosität. Denn Saccharosemoleküle sind keine langen Kettenmolekühle und haben daher nur wenig
+Tendenz, sich zu verhaken, sodass für Saccharoselösung eine feste Steigerung oder Verringerung der Konzentration unabhängig von der Ausgangskonzentration die gleiche Änderung in der Viskosität verursacht.
+Für Saccharoselösungen ist zu erwarten, dass diese sich in einem Scherratenbereich von $1\ \mathrm s^{-1}$ bis $130\ \mathrm s^{-1}$ newtonsch verhalten (\cite{petra}, S.37). Dies steht im Widerspruch zu den in \plotref{suc_eta_gammadot} dargestellten Messwerten. Lediglich für die $40\%$ige Lösung
+haben wir gemäß \plotref{suc_sigma_gammadot} Viskositätsmesswerte erhalten, welche in etwa konstant sind. Das scherverdünnende Verhalten der 0, 10 und 20 prozentigen Lösungen, welches in \plotref{suc_eta_gammadot} und \plotref{suc_sigma_gammadot} beobachtet werden kann, kann dadurch erklärt werden, dass die Lösungen die im Messprogramm eingestellte Soll-Temperatur von $25^{\circ}C$ beim Start der Messreihen wahrscheinlich noch nicht erreicht hatten, und sich noch während der Messreihdurchführung
+weiter aufgewährmt haben. Dies erscheint besonders plausibel, da, wie Stadler in Ziffer 2.1.2 in  \cite{Stadler2014} anmerkt, die vom Rheometer bestimmte Temperatur nicht \emph{im} Sample gemessen wird, sondern in der Platte darunter oder darüber.
+\\ Die Lösungen bei den kleinen Scherraten waren also wahrscheinlich immer noch etwas kälter waren als
+bei den großen Scherraten, da das Rehometer die Viskositäten zuerst für die kleinen Scherraten gemessen hat.  Und da die Viskosität eines Stoffs allgemein mit steigender Temperatur abnimmt, ergibt sich dadurch die scheinbare Scherverdünnung. Verstärkt wird dieser Effekt durch die geringe Umgebungstemperatur von $\sim 13^\circ C$ im Versuchsraum, welche es unwahrscheinlich erscheinen lässt, dass sich das Sample in der Aufwärmphase an die im Rheometer eingestellte und gemessene Temperatur einstellen konnte.\\
+Der Unterschied der drei Messreihen zu $c=0\%,10\%,20\%$ zur Messreihe
+der $40\%$igen Lösung ist, dass der $40\%$igen Lösung mehr Zeit gegeben wurde sich vor Messbeginn auf die $25^{\circ}C$ aufzuwärmen aufgrund des Umstands, dass diese Messung vor der Mittagspause gestartet wurde und der Aufwärmprozess deshalb voll durchlaufen konnte. \\
+D.h. bei einer erneuten Versuchdurchführung
+ist genauer darauf zu achten, dass den Proben auch wirklich genug Zeit gegeben wird, ihre Soll-Temperaturen zu erreichen. Denkbar wäre es, die angemischten Lösungen zuvor in ein (temperiertes) Wasserbad zu legen, um sie vorzuheizen. Vor dem Loaden des Samples könnte die Temperatur mit einem Thermometer überprüft werden.\\
+Vor diesem Hintergund sind die Viskositätsmesswerte für die hohen Scherraten wahrscheinlich auch die genauesten und weichen von \plotref{suc_eta_c} von den Messwerten zu den übrigen Konzentrationen ab. Vergleicht man die Viskositätsmesswerte der hohen Scherraten für die verschiedenen
+Konzentrationen mit den tabellierten Literaturwerten aus \cite{visaq} auf S.4, ergibt sich, dass die Literaturwerte größer sind als unsere gemessenen Werte:
+
+\begin{table}[H]
+\centering
+
+\begin{tabular}{c|c|c} 
+\multirow{2}{*}{$c[\%]$} & \multicolumn{2}{c}{$\eta[\mathrm{Pa\cdot s}]$}         \\ 
+\cline{2-3}
+                         & Literatur & Messwerte für $\gamma>20\ \mathrm s^{-1}$  \\ 
+\hline
+10                       & 1.13      & 0.91                                       \\
+20                       & 1.7       & 0.75                                       \\
+40                       & 5.17      & 3.7                                        \\
+\bottomrule
+\end{tabular}
+\caption{Viskosität bei hohen Scherraten}
+\label{table_guido}
+\end{table}
+Dies liegt wahrscheinlich am 'Underfilling', also dass wir aufgrund mangelnder Erfahrung
+die Proben, welche wir zwischen die Platten der Rheometers gegeben haben, stets etwas zu klein gewählt haben. Denn im Profil hatten unsere Proben immer etwa die in Abbildung \ref{under} gezeigte Gestalt. Bei
+korrekter Größe der Proben hätte das Profil aber immer wie folgt aussehen sollen:
+ \image{Filling_Sample}{Zur korrekten Platzierung des Samples (aus \cite{malvern_2014})}{.6}{Filling_Sample.JPG} 
+Wie in \cite{Hellström_2015} auf S.3 erwähnt, kann aber 
+bereits eine $100\ \mu \mathrm m$ große Änderung des Radiuses $r$ der Probe zu einem $1.6\%$igen  Fehler in der gemessenen Viskosität führen, wobei das konkrete Ausmaß des Fehlers natürlich noch vom Soll-Radius der Probe abhängt. Die von Hellström angegebenen Werte sind hier nur genannt, um zu verdeutlichen, wie stark die Viskosität vom Sample-Radius abhängt.\\
+Da eine kleinere Probe ein kleineres Rückstelldrehmoment erzeugt,
+welches das Rheometer misst, um daraus die Viskosität zu berechnen, führt eine kleinere Probe auch zu kleineren Viskositätsmesswerten. Bei einer erneuten Versuchdurchführung ist also insbesondere genauer darauf zu achten
+dass das Profil der Proben zwischen den beiden Rheometerplatten der Vorschrift in Abbildung \ref{Filling_Sample} folgt.
+
+
+
+
+
+
 
 
 \subsubsection{Fehlerabschätzung zum Anmischen der Lösungen}\label{sac_loes_fehler}
-Es ist interessant abzuschätzen, ob mit den verwendeten Wasser- und Saccharosemengen tatsächlich die gewünschten Konzentrationen erreicht werden konnten, da beim Anmischen einige Vereinfachungen angenommen wurden:
-So wurde beim Abmessen der Wassermenge, die notwendig ist, um gegeben einer festen zu lösenden Stoffmenge eine bestimmte Konzentration zu erreichen, die Dichte von Wasser auf $\rho_W=1\ \mathrm{\frac{g}{ml}}$ gesetzt. Dies gilt bei Raumtemperatur und Normaldruck nicht exakt. 
-Mittels \cite{nist_water} kann die Dichte bei Raumtemperatur $T=25^\circ\mathrm C$ und Normaldruck auf etwa $\rho=(0.99705\pm0.0015)\ \mathrm{\frac{g}{ml}}$. Die Unsicherheit kommt dadurch, dass das Wasser erstens wahrscheinlich eine geringere Temperatur als die Luft im Labor hatte, da das Wasser auch über gewisse Zeiten hinweg im deutlich kälteren Versuchsraum mit dem Rheometer stand, und zweitens der Luftdruck nicht genau bekannt ist. \\
+Es ist interessant, abzuschätzen, ob mit den verwendeten Wasser- und Saccharosemengen tatsächlich die gewünschten Konzentrationen erreicht werden konnten, da beim Anmischen einige Vereinfachungen angenommen wurden:
+So wurde beim Abmessen der Wassermenge, die notwendig ist, um gegeben einer zu lösenden Stoffmenge eine bestimmte Konzentration zu erreichen, die Dichte von Wasser auf $\rho_W=1\ \mathrm{\frac{g}{ml}}$ gesetzt. Dies gilt bei Raumtemperatur und Normaldruck nicht exakt. \\
+Mittels \cite{nist_water} kann die Dichte bei Raumtemperatur $T=25^\circ\mathrm C$ und Normaldruck mit $\rho=(0.99705\pm0.0015)\ \mathrm{\frac{g}{ml}}$ angegeben werden. Die Unsicherheit kommt dadurch, dass das Wasser erstens wahrscheinlich eine geringere Temperatur als die Luft im Labor hatte, da das Wasser auch über gewisse Zeiten hinweg im deutlich kälteren Versuchsraum mit dem Rheometer stand, und zweitens der Luftdruck nicht genau bekannt ist. \\
 Ferner wurden die Messunsicherheiten der verwendeten Präzisionswaage und Pipette vernachlässigt. Die Unsicherheit in Messungen der Waage werden auf $\Delta m=0.0002\ \mathrm g$ und die Unsicherheit bei Messungen mit der Pipette auf $\Delta V=2\mu\mathrm l$ geschätzt. Damit lassen sich die folgenden Werte für die relativen Unsicherheiten in den Stoffkonzentrationen gewinnen:
 \begin{table}[H]
     \centering
@@ -102,11 +231,11 @@ Ferner wurden die Messunsicherheiten der verwendeten Präzisionswaage und Pipett
         20 & 857 & 0.21426 & 20.0481 & 0.04695 & 0.2342 \\ 
         40 & 518 & 0.34569 & 40.0957 & 0.10049 & 0.2506 \\  \hline
     \end{tabular}
+\caption{Saccharose-Konzentrationen}
+\label{suc_table}
 \end{table}
-Die Konzentrationen hatten also im Rahmen der geringen Messunsicherheit die Soll-Konzentration der jeweiligen Stoffe, sodass eine zu große oder zu kleine untersuchte Konzentration wegen ungenau abgemessener Massen oder Volumina zumindest bei Konzentrationen $\geq 1\%$ keine relevante Fehlerquelle ist.
-\subsubsection{Fehlerbetrachtung}\label{Suc_Fehler}
-
-\image{Filling_Sample}{Zur korrekten Platzierung des Samples (aus \cite{malvern_2014})}{.6}{Filling_Sample.JPG}
+Die Konzentrationen hatten also im Rahmen der geringen Messunsicherheit in der Tat die Soll-Konzentration der jeweiligen Stoffe, sodass eine zu große oder zu kleine untersuchte Konzentration wegen ungenau abgemessener Massen oder Volumina bei den Saccharose-Wasser-Lösungen keine relevante Fehlerquelle ist und die in Tabelle \ref{table_guido} auftretende Diskrepanz nicht erklären kann.
+\newpage
 
 \subsection{Wasser-Guaran}
 
@@ -115,14 +244,14 @@ Trägt man die für die verschiedenen Konzentrationen und Scherraten aufgenommen
 \plot{guar_eta_gammadot}{Doppelt logarithmische Auftragung von $\eta$ gegen $\dot\gamma$ bei Guaran}{1}{C:/Users/Jan-Philipp/Documents/Eigene Dokumente/Physikstudium/5. Semester/F2- Fortgeschrittenenpraktikum/Viskoelastizität - Rheologie/Wichtige_Plots/Guar_Viscosity_vs_Shearrate_all_Concentrations.pdf}
 Rein qualitativ stellt man durch Inspektion von \plotref{guar_eta_gammadot} fest, dass die Messwerte für $c\in[1.0,1.4,2.0,2.3]\%$ gut durch eine Gerade beschrieben werden können, was die Gültikgkeit des Fließgesetzes von Ostwald und de Waele stützt und sich in einer geringen Standardabweichung der Fitparameter $\alpha$ (\glqq Steigung\grqq) und $\beta$ (\glqq Verschiebung entlang der Ordinate\grqq) niederschlägt. In guter Näherung parallel zu den vier genannten Geraden verläuft die Fitgerade, die die Messwerte für die reine Wasserlösung beschreiben soll. Es fällt die große Streuung der Messwerte auf, was auf die Bemerkung in \ref{rheometer}, wonach der relative Fehler in der Viskosität bei weniger viskosen Flüssigkeiten größer sein sollte, zurückzuführen ist. Durch den größeren Fehler bei jedem Messwert wird die statistische Streuung um die Fitgerade und damit auch die Unsicherheit der Fitparameter $\alpha,\beta$ größer. \\
 Unerwartet hingegen ist das Verhalten, das sich für $c=0.25\%$ und $c=0.5\%$ zeigt. Für die $0.5\%$ige Lösung legt der Fit gar ein $\alpha>0$ nahe, was bedeuten würde, dass die untersuchte Lösung scher\emph{verdickendes} Verhalten zeigen würde.  Dies steht im Widerspruch dazu, dass Guaran nach \cite{enwiki:1124053245} stark scher\emph{verdünnende} Eigenschaften hat. 
-Tatsächlich ist aber ein lineares Modell höchst unzureichend zur Beschreibung der betreffenden Daten. Nur für die letzten 4-5 Messwerte (bei hohen Scherraten) lässt sich ein linearer Zusammenhang (aber mit positiver Steigung!) erahnen.  Für kleinere Scherraten sieht es vielmehr so aus, als ob die Daten zwei nach unten geöffneten Hyperbelästen folgen würden, die sich etwa bei $\mathrm{ln}\left(\frac{\dot\gamma}{\mathrm{s}^{-1}}\right)\approx 1.8$ treffen. 
+Tatsächlich ist aber ein lineares Modell höchst unzureichend zur Beschreibung der betreffenden Daten. Denn nur für die letzten 4-5 Messwerte (bei hohen Scherraten) lässt sich ein linearer Zusammenhang (aber mit positiver Steigung!) erahnen.  Für kleinere Scherraten sieht es vielmehr so aus, als ob die Daten zwei nach unten geöffneten Hyperbelästen folgen würden, die sich etwa bei $\mathrm{ln}\left(\frac{\dot\gamma}{\mathrm{s}^{-1}}\right)\approx 1.8$ treffen. 
 Entsprechend schwach in der Aussagekraft sind die jeweiligen Fitparameter $\alpha$, die je mit einer mehr als hundertprozentigen Unsicherheit behaftet sind. Insbesondere kann also anhand von \plotref{guar_eta_gammadot} nicht darauf geschlossen werden, dass Guar für manche Konzentrationen scherverdickendes Verhalten zeigt. Da der Mechanismus, der bestimmt, ob ein Stoff scherverdünnende oder -dickende Eigenschaften hat, prinzipiell für alle Konzentrationen derselbe ist (bei Polymeren wie Guaran: \glqq Verhaken\Grqq der langkettigen Moleküle in der Lösung), muss auch eine $0.5\%$ige Guar-Wasser-Lösung eindeutig scherverdünnende Eigenschaften haben und das erläuterte Verhalten bei $c=0.25\%,0.5\%$ auf systematische Messfehler zurückzuführen sein (siehe dazu Abschnitt \ref{Guar_Fehler}).\par
-Weiterhin muss angemerkt werden, dass Wasser als Standardbeispiel für ein Newtonsches Fluid eigentlich eine scherratenunabhängige Viskosität haben müsste. \\ Erklärungsansätze, warum dennoch scherverdünnendes Verhalten beobachtet wurde, wurden bereits in Abschnitt \ref{Suc_Fehler} gefunden.\\
-Für $c=[1.0,1.4,2.0,2.3]\%$ entspricht das beobachtete Verhalten der Erwartung, dass Guaran in Wasserlösung ein scherverdünnendes Fluid ist. Die Potenzabhängigkeit ist also von der Form \begin{equation}\eta\propto\dot\gamma^\alpha\end{equation} mit $\alpha\in[-0.51\pm0.03,-0.68\pm0.02,-0.79\pm0.02,-0.80\pm0.02]$. Die Güte und Aussagekraft dieser Werte ist hoch; lediglich eine Veschiebung dieser Werte durch systematische Fehlereinflüsse ist denkbar. Diese werden in Abschnitt \ref{Guar_Fehler} eingeschätzt. Für die drei niedrigesten Konzentrationen ist aus den oben erläuterten Gründen ein abschließendes Festhalten des Fitparameters $\alpha$ zur Bestmmung der Potenzgesetz-Beziehung nicht sinnvoll. \\
+Weiterhin muss angemerkt werden, dass Wasser als Standardbeispiel für ein Newtonsches Fluid eigentlich eine scherratenunabhängige Viskosität haben müsste. \\ Erklärungsansätze, warum dennoch scherverdünnendes Verhalten beobachtet wurde, wurden bereits in Abschnitt \ref{suc_fehler} gefunden.\\
+Für $c=[1.0,1.4,2.0,2.3]\%$ entspricht das beobachtete Verhalten der Erwartung, dass Guaran in Wasserlösung ein scherverdünnendes Fluid ist. Die Potenzabhängigkeit ist also von der Form \begin{equation}\eta\propto\dot\gamma^\alpha\end{equation} mit $\alpha\in[-0.51\pm0.03,-0.68\pm0.02,-0.79\pm0.02,-0.80\pm0.02]$. Die Güte und Aussagekraft dieser Werte ist hoch; lediglich eine Veschiebung dieser Werte durch systematische Fehlereinflüsse ist denkbar. Diese werden in Abschnitt \ref{Guar_Fehler} eingeschätzt. Für die drei niedrigesten Konzentrationen hingegen ist aus den oben erläuterten Gründen ein abschließendes Festhalten des Fitparameters $\alpha$ zur Bestmmung der Potenzgesetz-Beziehung nicht sinnvoll. \\
 In \cite{rheology_guar_gum} wurden ebenfalls Messungen zur Scherratenabhängigkeit von der Viskosität vorgenommen. Abbildung 8 aus diesem Paper können Messdaten für Guaran-Wasser-Lösungen der Konzentrationen $0.25\%,0.5\%,1.0\%,1.45\%$ entnommen werden. Diese Daten können wiederum logarithmisch aufgetragen und linear gefittet werden. Man erhält \plotref{guar_lit}:
 
 \plot{guar_lit}{Doppelt logarithmische Auftragung von $\eta$ gegen $\dot\gamma$ mit Messwerten aus \cite{rheology_guar_gum}}{1}{Guar_Viscosity_vs_Shearrate_literature.pdf}
-Zunächst fällt die qualitative Überlegenheit in der Güte dieser Daten gegenüber den im Rahmen dieses Versuchs aufgenommen Messwerten auf. Für die Konzentrationen $c=0.25\%,0.5\%$ ist ein Vergleich der Regressionsparameter aus \plotref{guar_lit} und \plotref{guar_eta_gammadot} nicht sinnvoll. Für die einprozentige Lösung fällt auf, dass die beiden Fitparameter $\alpha$ nicht miteinander verträglich sind. Im Betrage ist das $\alpha$ aus \plotref{guar_lit} größer. Wie schon in Abschnitt \label{anmischen_guaran} erwähnt, ist es wahrscheinlich, dass sich bei dieser Probe das Guaran nicht vollständig im Wasser lösen konnte, da sich kleine Klumpen gebildet haben. Dies würde bedeuten, dass faktisch eine Konzentration $<1\%$ untersucht wurde, was impliziert, dass der Fitparameter $\alpha$, der für höhere Konzentrationen klarerweise im Betrage größer wird, im Betrage zu klein gemessen wurde. Für die Konzentration $1.45\%$ in \plotref{guar_lit} gibt es kein exaktes Gegenstück in \plotref{guar_eta_gammadot}. Es kann lediglich festgehalten werden, dass für die höhere Konzentration eine größeres $|\alpha|$ bestimmt wurde. Da die Konzentration von $1.4\%$, wie später anhand von \plotref{guar_eta_c} noch erläutert wird, in einem Konzentrationsbereich liegt, in dem kleine Änderungen der Konzentration große Änderungen in der Viskosität nach sich ziehen,  erscheint es auch plausibel, dass die beiden $\alpha$ nicht nahezu identisch sind, obwohl die Konzentrationen nahezu gleich sind.
+Zunächst fällt die qualitative Überlegenheit in der Güte dieser Daten insbesondere bei niedrigen Konzentrationen gegenüber den im Rahmen dieses Versuchs aufgenommen Messwerten auf. Für die Konzentrationen $c=0.25\%,0.5\%$ ist ein Vergleich der Regressionsparameter aus \plotref{guar_lit} und \plotref{guar_eta_gammadot} nicht sinnvoll. Für die einprozentige Lösung fällt auf, dass die beiden Fitparameter $\alpha$ nicht miteinander verträglich sind. Im Betrage ist das $\alpha$ aus \plotref{guar_lit} größer. Wie schon in Abschnitt \label{anmischen_guaran} erwähnt, ist es wahrscheinlich, dass sich bei dieser Probe das Guaran nicht vollständig im Wasser lösen konnte, da sich beim Anmischen der Lösung kleine Klumpen gebildet haben. Dies würde bedeuten, dass faktisch eine Konzentration $<1\%$ untersucht wurde, was impliziert, dass der Fitparameter $\alpha$, der für höhere Konzentrationen klarerweise im Betrage größer wird, im Betrage zu klein gemessen wurde. Für die Konzentration $1.45\%$ in \plotref{guar_lit} gibt es kein exaktes Gegenstück in \plotref{guar_eta_gammadot}. Es kann lediglich festgehalten werden, dass für die höhere Konzentration eine größeres $|\alpha|$ bestimmt wurde. Da die Konzentration von $1.4\%$, wie später anhand von \plotref{guar_eta_c} noch erläutert wird, in einem Konzentrationsbereich liegt, in dem kleine Änderungen der Konzentration große Änderungen in der Viskosität nach sich ziehen,  erscheint es auch plausibel, dass die beiden $\alpha$ nicht nahezu identisch sind, obwohl die Konzentrationen nahezu gleich sind.
 
 
 
@@ -135,8 +264,8 @@ Zunächst fällt die qualitative Überlegenheit in der Güte dieser Daten gegen�
 
 Zuletzt kann der Scherstress gegen die Scherrate aufgetragen werden. \plotref{guar_sigma_gammadot} enthält aber im Vergleich zu \plotref{guar_eta_gammadot} keinerlei neue Information, da die vom Rheometer ausgegebenen Messwerte für $\sigma$ und $\eta$ beide aus dem gemessenen Drehmoment berechnet wurden und zwischen ihnen die Abhängigkeit $\sigma=\dot\gamma\cdot\eta$ gilt.
 \plot{guar_sigma_gammadot}{Doppelt logarithmische Auftragung von $\sigma$ gegen $\dot\gamma$ bei Guaran}{1}{C:/Users/Jan-Philipp/Documents/Eigene Dokumente/Physikstudium/5. Semester/F2- Fortgeschrittenenpraktikum/Viskoelastizität - Rheologie/Wichtige_Plots/Guar_Stress_vs_Shearrate_all_Concentrations.pdf}
-Entsprechend dieser Abhängigkeit gilt die für die Parameter $\alpha_\sigma$ und $\alpha_\eta$ aus \plotref{guar_sigma_gammadot} bzw. \plotref{guar_eta_gammadot} numerisch exakt $\alpha_\sigma-\alpha_\eta=1$. Da $0<\alpha_\sigma<1$ kann erneut bestätigt werden, dass scherverdünnendes Verhalten vorliegt. \par
-Schon rein visuell fällt in \plotref{guar_eta_gammadot} auf, dass für die Viskositäten zwischen den Konzentrationen $c=1.0\%$ und $c=1.4\%$ gemessen an der kleinen Konzentrationsdifferenz ein recht großer Sprung in der Viskosität zu beobachten ist. Und tatsächlich modelliert man die Abhängigkeit der Viskosität von der Konzentration bei Polymerlösungen häufig folgt:
+Entsprechend dieser Abhängigkeit gilt für die Parameter $\alpha_\sigma$ und $\alpha_\eta$ aus \plotref{guar_sigma_gammadot} bzw. \plotref{guar_eta_gammadot} numerisch exakt $\alpha_\sigma-\alpha_\eta=1$. Da $0<\alpha_\sigma<1$ kann erneut bestätigt werden, dass scherverdünnendes Verhalten vorliegt. \par
+Schon rein visuell fällt in \plotref{guar_eta_gammadot} auf, dass für die Viskositäten zwischen den Konzentrationen $c=1.0\%$ und $c=1.4\%$ gemessen an der kleinen Konzentrationsdifferenz ein recht großer Sprung in der Viskosität zu beobachten ist. Und tatsächlich modelliert man die Abhängigkeit der Viskosität von der Konzentration bei Polymerlösungen häufig wie folgt:
 \begin{equation}
 \eta(c)=\begin{cases} c\leq c^*: & [\eta]\cdot(c-c^*)+\eta_{c^*}\\
 c>c^*: & [\eta]^\prime\cdot(c-c^*)+\eta_{c^*}
@@ -145,7 +274,7 @@ c>c^*: & [\eta]^\prime\cdot(c-c^*)+\eta_{c^*}
 Für eine feste Scherrate kann somit durch Variation der Parameter $([\eta],[\eta]^\prime,c^*,\eta_{c^*})$ ein Fit der Daten vorgenommen werden. Es ergibt sich der folgende Plot:
 \plot{guar_eta_c}{Auftragung von $\eta$ gegen $c$ bei Guaran}{1}{C:/Users/Jan-Philipp/Documents/Eigene Dokumente/Physikstudium/5. Semester/F2- Fortgeschrittenenpraktikum/Viskoelastizität - Rheologie/Wichtige_Plots/Viscosity_by_Concentration_Guar_all_Shearrates_without_1sigma.pdf}
 In der Appendix \ref{app1} sind für jede Scherrate dieselben Daten nochmals in einzelnen Figures aufgetragen, um die Übersichtlichkeit zu verbessern. Qualitativ kann festgehalten werden, dass das verwendete Modell die Messdaten gut zu beschreiben vermag, also tatsächlich eine Konzentration $c^*$ existiert, ab der der Anstieg der Viskosität mit der Konzentration schneller wird. \\
-Die Güte der Fits mag überraschend sein, da bei der Betrachtung der Viskosität als Funktion der Scherrate zumindest für zwei Konzentrationen äußerst unzufriedenstellende Messwerte aufgenommen wurden. Da aber nun $\dot\gamma$ festgehalten wird, haben wir bei jedem der 11 Fits in \plotref{guar_eta_c} mindestens vier Messwerte mit guter Ausagekraft, sodass diese den Einfluss der beobachteten Abweichung der zwei bis drei anderen Messwerte abschwächen und zu einer relativ hohen Aussagekraft der Fitparameter führt.\\
+Die Güte der Fits mag überraschend sein, da bei der Betrachtung der Viskosität als Funktion der Scherrate zumindest für zwei Konzentrationen äußerst unzufriedenstellende Messwerte aufgenommen wurden. Da aber für jeden Fit $\dot\gamma$ fest ist wird, haben wir bei jedem der 11 Fits in \plotref{guar_eta_c} mindestens vier Messwerte mit guter Ausagekraft, sodass diese den Einfluss der beobachteten Abweichung der zwei bis drei anderen Messwerte abschwächen und zu einer relativ hohen Aussagekraft der Fitparameter führen.\\
 Ein Blick auf die Fitparameter zeigt, dass $c^*$ monoton mit der Scherrate $\dot\gamma$ abzunehmen scheint. Tatsächlich zeigt sich in einer doppelt logarithmischen Darstelllung der kritischen Konzentration gegen die Scherrate ein klarer linearer Trend ($\rightarrow$ \plotref{c_star_vs_shear_rate}). Beim Wert zu $\dot\gamma=100\ \mathrm s^{-1}$ handelt es sich um einen statistischen Ausreißer, der deshalb nicht bei der Regression berücksichtigt wurde. Ein Berücksichtigen dieses Messwertes hätte zu einer Verschlechterung in der Beschreibung des ansonsten eindeutig linearen Zusammenhangs geführt.
 \plot{c_star_vs_shear_rate}{Doppelt logarithmische Auftragung von $c^*$ gegen $\dot\gamma$ bei Guaran}{1}{C:/Users/Jan-Philipp/Documents/Eigene Dokumente/Physikstudium/5. Semester/F2- Fortgeschrittenenpraktikum/Viskoelastizität - Rheologie/Wichtige_Plots/c_star_vs_shear_rate.pdf}
 In der Tat erscheint es plausibel, dass ein Potenzgesetz zwischen der kritischen Konzentration und der Scherrate vorliegt: Die Viskosität nimmt gemäß eines Potenzgesetzes mit der Scherrate ab. 
@@ -154,12 +283,12 @@ Das heißt auch, dass die Kurven in \plotref{guar_eta_c} für festes c gemäß \
 \end{equation}
 ineinander überführt werden können. Stellt man sich nun eine Kurve $(\eta,c)$ für festes $\dot\gamma=\dot\gamma_2$ vor und möchte diese in eine Kurve mit $\dot\gamma=\dot\gamma_1>\dot\gamma_2$ überführen, so gilt $\eta_1=\left(\frac{\dot\gamma_1}{\dot\gamma_2}\right)^{1/\alpha(c)}\cdot\eta_2$. Nun kann man \plotref{guar_eta_gammadot} entnehmen, dass $|\alpha|$ für größere Konzentrationen zunimmt. Das bedeutet auch, dass die $\eta$-Werte für kleinere $c$ (relativ gesehen) weniger gestaucht werden als die Werte mit größere $c$. Damit flacht die Kurve $\eta_(c)\big|_{\dot\gamma_1}$ im Vergleich zur Kurve 
 $\eta_(c)\big|_{\dot\gamma_2}$ ab, und insbesondere wird der Punkt der kritischen Konzentration nach links verschoben (zu kleineren $c$). Für die konkrete Form des Potenzgesetzes, wie $c^*$ von $\dot\gamma$ abhängt, kommt es nun auf die konkrete Form der Abhängigkeit $\alpha(c)$ an. Klar ist aber, dass zwischen $c^*$ und $\dot\gamma$ ein Potenzzusammenhang gelten muss.\par
-Da also, wie gerade dargelegt, die kritische Konzentration nicht nur eine Stoffeigenschaft ist, sondern auch von der Scherrate abhängt, ist es nicht sinnvoll, abschließend \emph{eine} kritische Konzentration oder Überlappungskonzentration für Guaran-Wasser-Lösungen festzuhalten. Stattdessen bemerken wir also, dass der folgende funktionale Zusammenhang empirisch gefunden wurde:
+Da also, wie gerade dargelegt, die kritische Konzentration nicht nur eine Stoffeigenschaft ist, sondern auch von der Scherrate abhängt, ist es nicht sinnvoll, abschließend \emph{eine} kritische Konzentration oder Überlappungskonzentration für Guaran-Wasser-Lösungen festzuhalten. Stattdessen bemerken wir, dass der folgende funktionale Zusammenhang empirisch gefunden wurde:
 \begin{equation}
 c^*[\%]=e^{0.242\pm0.002}\cdot\dot\gamma^{-0.0106\pm0.0005}
 \end{equation}
-Wir haben keinen Wert in der Literatur gefunden, mit dem dieses Ergebnis sinnvoll verglichen werden könnte. Dies könnte daran liegen, dass 
-die Abhängigkeit $c^*$ von $\dot\gamma$ ein Artefakt einer unzulänglichen Versuchsdurchführung sein könnte und die Überlappungskonzentration $c^*$ eigentlich eine Konstante ist, die nur vom gelösten Stoff abhängt.
+Wir haben keinen Wert in der Literatur gefunden, mit dem dieses Ergebnis sinnvoll verglichen werden könnte. Dies könnte darin begründet liegen, dass 
+die Abhängigkeit $c^*$ von $\dot\gamma$ ein Artefakt einer unzulänglichen Versuchsdurchführung sein könnte und die kritische Konzentration $c^*$ möglicherweise eigentlich eine Konstante ist, die nur vom gelösten Stoff abhängt. Gestützt wird dies dadurch, dass der Exponent im bestimmten Potenzgesetz nahe 0 ist. 
 
 %\cite{rheology_guar_gum}
 
@@ -185,17 +314,17 @@ Analog zu den Überlegungen in Abschnitt \ref{sac_loes_fehler} können die Unsic
         2.3 & 1078 & 0.02537 & 2.3060 & 0.01856 & 0.8047 \\  \hline
     \end{tabular}
 \end{table}
-Man erkennt, dass die relativen Fehler in der Konzentration sehr klein werden für größere Konzentrationen. Die Konzentrationen hatten also im Rahmen der geringen Messunsicherheit die Soll-Konzentration der jeweiligen Stoffe, sodass eine zu große oder zu kleine untersuchte Konzentration wegen ungenau abgemessener Massen oder Volumina zumindest bei Konzentrationen $\geq 1\%$ keine relevante Fehlerquelle ist. Für die kleinere Konzentrationen kann die Stoffkonzentration muss die Unsicherheit in der Stoffkonzentration jedoch prinzipiell berücksichtigt werden.
+Man erkennt, dass die relativen Fehler in der Konzentration sehr klein werden für größere Konzentrationen. Die Konzentrationen hatten also im Rahmen der geringen Messunsicherheit die Soll-Konzentration der jeweiligen Stoffe, sodass eine zu große oder zu kleine untersuchte Konzentration wegen ungenau abgemessener Massen oder Volumina zumindest bei Konzentrationen $\geq 1\%$ keine relevante Fehlerquelle ist. Für die kleinere Konzentrationen die Stoffkonzentration muss die Unsicherheit in der Stoffkonzentration jedoch prinzipiell als statistische Fehler berücksichtigt werden.
 
 \subsubsection{Fehlerbetrachtung Scherratenmessungen}\label{Guar_Fehler}
 %für 1.0% systematischer Fehler
 Wie in im vorigen Abschnitt \ref{guar_mess} bereits angemerkt, muss das beobachtete Verhalten bei $c=0.25\%,0.5\%$ auf systematische Messfehler zurückzuführen sein. Es sind folgende Fehlereinflüsse denkbar:
 \begin{itemize}
 \item Under- oder Overfilling: In besonderem Maße wurde bei dem Loaden des Samples bei den Guar-Messungen darauf geachtet, dass eine ausreichende Lösungsmenge aufgebracht wird, da stets ein Teil der mittels einer Pipette abgemessenen Menge in der Pipette zurückblieb. Hellström (2015) merkt an: \emph{\glqq Small changes in the radius of a rheometer sample can cause significant errors in the measured apparent viscosity \grqq} (\cite{Hellström_2015}). Er empfiehlt ein Verfahren, bei dem mittels Bildgebung der reale Sample-Radius bestimmt wird, um auf diesen Fehler hin zu korrigieren. Dies ist auch bei dem hier verwendeten Setup leicht umzusetzen und verspricht erhebliche Verbesserungen in der Messgenauigkeit.
-\item Nicht-Konstanz der Sample-Temperatur während der Messung (vgl. dazu auch Abschnitt \ref{Suc_Fehler}): Kleine Variationen in der Temperatur führen zu vernachlässigbaren Messfehlern. Bei den Saccharose-Messungen wurde jedoch schon die Beobachtung gemacht, dass - entgegen der Erwartung- die Saccharose-Lösungen und sogar die reine Wasserlösung scherverdünnendes Verhalten zeigen. Da die Temperatur nicht direkt am Sample gemessen wird (sonder in der Platte darunter), und da die Anfangstemperatur des Samples etwas $12\ \mathrm K$ unter der Soll-Temperatur während des Versuchs lag, bleibt die Frage offen, ob das Sample bei der ersten Scherrate für die bereits die Soll-Temperatur erreicht hat. Würde sich die Temperatur des Samples im Verlauf der weiteren Messungen weiter erhöhen, würde ein verstärkt scherverdünnendes Verhalten beobachtet werden, da höhere Temperaturen zu einer Abnahme der Viskosität führen.
-\item (kleine) Luftblaseneinschlüsse im Sample, der beim Anmischen der Lösungen entstanden sein könnte: Stadler spekuliert, dass die wegen ihrer Oberflächenspannung sehr elastischen Luftblasen bei Elastizitätsmessungen deformiert werden und zu einer erhöhten Elastiziätsmessung führen (\cite{Stadler2014}). Analoge Überlegugnen könnten nahelegen, dass Lufblaseneinschlüsse zu einer geringeren Viskosität führen, da die Luftblasen lokal des Zusammenhalt der Polymermoleküle schwächen würden. Denkbar ist auch, dass sich bei einer gewissen Scherrate zwei eingeschlossene Luftblasen vereinigen, da sie sich durch die Deformation näher kommen. Ein solches Vereinigen könnte zu einem unstetigen Verhalten bei der Viskositätsmessung führen. Die Bewegung von Luftblasen in Flüssigkeiten ist hydrodynamisch jedoch sehr komplex, sodass der konkrete Einfluss schwer abzuschätzen ist.  Klar ist jedoch, dass Luftblaseneinschlüsse im Sample als wahrscheinlich eingeschätzt werden müssen, da sie beim Schütteln des Samples oder dem Pipettieren entstanden sein könnten.
+\item Nicht-Konstanz der Sample-Temperatur während der Messung (vgl. dazu auch Abschnitt \ref{suc_fehler}): Kleine Variationen in der Temperatur führen zu vernachlässigbaren Messfehlern. Bei den Saccharose-Messungen wurde jedoch schon die Beobachtung gemacht, dass - entgegen der Erwartung- die Saccharose-Lösungen und sogar die reine Wasserlösung scherverdünnendes Verhalten zeigen. Da die Temperatur nicht direkt am Sample gemessen wird (sonder in der Platte darunter), und da die Anfangstemperatur des Samples etwas $12\ \mathrm K$ unter der Soll-Temperatur während des Versuchs lag, bleibt die Frage offen, ob das Sample bei der ersten Scherrate für die bereits die Soll-Temperatur erreicht hatte. Würde sich die Temperatur des Samples im Verlauf der weiteren Messungen weiter erhöhen, würde ein verstärkt scherverdünnendes Verhalten beobachtet werden, da höhere Temperaturen zu einer Abnahme der Viskosität führen.
+\item (kleine) Luftblaseneinschlüsse im Sample, der beim Anmischen der Lösungen entstanden sein könnte: Stadler spekuliert, dass die wegen ihrer Oberflächenspannung sehr elastischen Luftblasen bei Elastizitätsmessungen deformiert werden und zu einer erhöhten Elastiziätsmessung führen (\cite{Stadler2014}). Analoge Überlegugnen könnten nahelegen, dass Lufblaseneinschlüsse zu einer geringeren Viskosität führen, da die Luftblasen lokal des Zusammenhalt der Polymermoleküle schwächen würden. Denkbar ist auch, dass sich bei einer gewissen Scherrate zwei eingeschlossene Luftblasen vereinigen, da sie sich durch die Deformation näher kommen. Ein solches Vereinigen könnte zu einem unstetigen Verhalten bei der Viskositätsmessung führen. Die Bewegung von Luftblasen in Flüssigkeiten ist hydrodynamisch jedoch sehr komplex, sodass der konkrete Einfluss schwer abzuschätzen ist.  Klar ist jedoch, dass Luftblaseneinschlüsse im Sample, wie sie beim Schütteln des Samples oder dem Pipettieren entstanden sein könnten, als wahrscheinlich eingestuft werden müssen.
 \item nicht vollständig gelöstes Guaran-Pulver, das ausklumpt: Solche Klumpen würden eine Inhomogenität in der Lösung bedeuten, die lokal die Viskosität (stark) erhöht. Insgesamt wäre die gelöste Pulvermenge durch solche Klumpen verringert, da das Pulver innerhalb der Klumpen natürlich nicht gelöst werden kann. Das Auftreten solcher Klumpen steht außer Frage, jedoch wurden sie stets so weit ausgemerzt, bis keine mehr mit bloßem Auge sichtbar waren. Bei der $1\%$igen Lösung sind solche Einflüsse wegen Schwierigkeiten beim Anmischen wahrscheinlich. Dort ist jedoch im Gegensatz zu den Lösungen mit $c=0.25\%,0.5\%$ ein klar linearer Zusammenhang erkennbar, weshalb Klumpenbildung vermutlich nicht alleine das Verhalten bei den besagten zwei Konzentrationen erklären kann.
-\item Erschütterungen im Raum während der Versuchsdurchführung: Einflüsse dadurch sind wegen der hohen Genauigkeit bei der Drehmomentbestimmung prinzipiell möglich, beispielsweise wenn die Tür rapide zugezogen werden würde. Außern würde es sich durch einzelne Messausreißer.\\
+\item Erschütterungen im Raum während der Versuchsdurchführung: Einflüsse dadurch sind wegen der hohen Genauigkeit bei der Drehmomentbestimmung prinzipiell möglich, beispielsweise wenn die Tür rapide zugezogen werden würde. Äußern würde es sich durch einzelne Messausreißer.\\
 Für die Messungen mit $c=0.25\%,0.5\%$ kann ein solcher Einfluss nicht als Erklärung herangezogen werden, da die beiden Messungen in dem Sinn korrelliert erscheinen, dass sie das gleiche qualitative Verhalten (aus zwei nach unten gerichteten Hyperbelästen zu bestehen) zeigen.
 \item Falschausrichtung der Geometry (vgl. dazu \cite{Stadler2014}): Wurde die Geometry in der Vergangenheit einmal fallen gelassen oder hat sie sich anderweitig deformiert, ist es denkbar, dass die beiden Platten nicht mehr parallel sind. Dies würde den Plattenabstand (Gap) verändern, was die ausgegebenen Scherraten wegen $\dot\gamma\propto d^{-1}$ systematisch verfälschen würde. Da das verwendete Rheometer jedoch häufig in Benutzung ist, ist es wahrscheinlich, dass solche Veränderungen sehr frühzeitig bemerkt werden würden und deshalb der Einfluss von dadurch induzierten Fehlern als unwahrscheinlich einzuschätzen.
 \end{itemize}
@@ -211,7 +340,7 @@ Denkbar hier sind das unzureichende Reinigen der Platten am Rheometer vor dem Lo
 \subsubsection{Frequenzversuch}
 %Zunächst eine Vorüberlegung:\\
 %In Bereichen, in denen das Speichermodul größer ist als das Verlustmodul, zeigt ein zu untersuchender Stoff den Charakter eines Festkörpers mit viskoelastischen Eigenschaften. Je größer $|G^{\prime\prime}-G^\prime|$ ist, desto mehr verhält sich der Stoff nur wie ein elastischer Festkörper. In Bereichen, in denen das Speichermodul kleiner ist als das Verlustmodul, zeigt ein zu untersuchender Stoff den Charakter einer Flüssigkeit mit viskoelastischen Eigenschaften. Je größer $|G^{\prime\prime}-G^\prime|$ ist, desto mehr verhält sich der Stoff nur wie ein viskose Flüssigkeit. \par
-Trägt man das Speicher- bzw. Verlustmodul doppellogarithmisch gegen die Oszillationsfrequenz auf, erhält man den folgenden Plot:
+Trägt man das Speicher- bzw. Verlustmodul doppellogarithmisch gegen die Oszillationsfrequenz auf, erhält man den folgenden Plot, in dem Frequenzbereiche, die qualitativ unterschiedliches Verhalten zeigen, durch farbliche Untermalung hervorgehoben sind (die Grenzen der Bereiche sind nicht als scharf zu sehen, da sie nur \glqq per Augenmaß\Grqq eingezeichnet wurden):
 
 \plot{G_f}{Doppelt logarithmische Auftragung von $G^\prime,G^{\prime\prime}$ gegen die Frequenz $f$ bei Guaran}{1}{C:/Users/Jan-Philipp/Documents/Eigene Dokumente/Physikstudium/5. Semester/F2- Fortgeschrittenenpraktikum/Viskoelastizität - Rheologie/Auswertung/Osc_Guaran.pdf}
 
@@ -229,9 +358,9 @@ Insgesamt konnten also drei der vier Regionen, die im viskoelastischen Spektrum 
 
 
 \subsubsection{Fehlerbetrachtung Frequenzversuch}
-Da die Beobachtungen, die zum Frequenzversuch gemacht wurden, nur qualitativer Natur sind, ist der Einfluss von systematischen Fehlern als äußerst gering einzustufen. Eine von der Soll-Temperatur verschiedene Temperatur würde die Breite und Höhe der einzelnen viskoelastischen Bereiche verändern, aber nichts an deren qualitativen Natur ändern. Selbst eine sich zeitlich (monoton) ändernde Temperatur des Samples, wie in Abschnitt \ref{Suc_Fehler} diskutiert, würde den qualitativen Verlauf kaum ändern, sondern nur zu einer Stauchung entlang der Abszisse und auch Ordinate führen und damit zwar u.U. das Bestimmen von $f^*$ systematisch verfälschen, aber an der prinzipiellen Abfolge der viskoelastischen Bereiche nichts ändern. Der Einfluss durch Temperaturvariation ist jedoch (im Gegensatz zu den Messungen mit Saccharose) ohnehin als unerheblich einzustufen, da die $0.5\%$ige Lösung wegen der zuvor mit ihr vorgenommenen Messungen schon lange vor dem Beginn der eigentlichen Oszillationsmessung auf das Rheometer gegeben wurde, also auf jeden Fall genug Zeit hatte, die Temperatur Soll-Temperatur von $25^\circ C$ anzunehmen.\\
+Da die Beobachtungen, die zum Frequenzversuch gemacht wurden, nur qualitativer Natur sind, ist der Einfluss von systematischen Fehlern als äußerst gering einzustufen. Eine von der Soll-Temperatur verschiedene Temperatur würde die Breite und Höhe der einzelnen viskoelastischen Bereiche verändern, aber nichts an deren qualitativen Natur ändern. Selbst eine sich zeitlich (monoton) ändernde Temperatur des Samples, wie in Abschnitt \ref{suc_fehler} diskutiert, würde den qualitativen Verlauf kaum ändern, sondern nur zu einer Stauchung entlang der Abszisse und auch Ordinate führen und damit zwar u.U. das Bestimmen von $f^*$ systematisch verfälschen, aber an der prinzipiellen Abfolge der viskoelastischen Bereiche nichts ändern. Der Einfluss durch Temperaturvariation ist jedoch (im Gegensatz zu den Messungen mit Saccharose) ohnehin als unerheblich einzustufen, da die $0.5\%$ige Lösung wegen der zuvor mit ihr vorgenommenen Messungen schon lange vor dem Beginn der eigentlichen Oszillationsmessung auf das Rheometer gegeben wurde, also auf jeden Fall genug Zeit hatte, die Temperatur Soll-Temperatur von $25^\circ C$ anzunehmen.\\
   Auch der Einfluss eines Underfills wäre nur gering, da dadurch die elastischen und viskosen Eigenschaften gleichermaßen als zu gering gemessen worden wären, der Graph dadurch also nur entlang der Ordinate gestaucht werden würde. \\
-Der größte Fehler bei der Bestimmung der einzelnen viskoelastischen Bereiche ist die recht grobe Auflösung in der Frequenz, da dadurch beispielsweise die Schnittpunkte vom Verlust- und vom Speichermodul nur äußerst grob abgeschätzt werden konnten. Es wäre sinnvoll, die Messpunkte pro Dekade bei einer Wiederholung des Versuchs zu Kosten einer längeren Versuchsdurchführung auf einen Wert $>5$ zu setzen. Auch ist es empfehlenswert, den Messbereich selbst zu vergrößern. Bei einigen hundert Hz maximaler Messfrequenz mehr könnte die Glossy Region deutlich detaillierter beleuchtet werden. Änderte man zudem die minimale Messfrequenz,  ist es denkbar, dass die Terminal Region noch zu beobachten wäre.\\
+Der größte Fehler bei der Bestimmung der einzelnen viskoelastischen Bereiche ist die recht grobe Auflösung in der Frequenz, da dadurch beispielsweise die Schnittpunkte vom Verlust- und vom Speichermodul nur äußerst grob abgeschätzt werden konnten. Es wäre sinnvoll, die Messpunkte pro Dekade bei einer Wiederholung des Versuchs zu Kosten einer etwas längeren Versuchsdurchführung auf einen Wert $>5$ zu setzen. Auch ist es empfehlenswert, den Messbereich selbst zu vergrößern. Bei einigen hundert Hz maximaler Messfrequenz mehr könnte die Glossy Region deutlich detaillierter beleuchtet werden. Änderte man zudem die minimale Messfrequenz auf einen kleineren Wert,  ist es denkbar, dass die Terminal Region noch zu beobachten wäre.\\
 %Klumpenbildung
 %\cite{versuchsanleitung}
 %\cite{Stadler2014}
@@ -241,10 +370,9 @@ Der größte Fehler bei der Bestimmung der einzelnen viskoelastischen Bereiche i
 %noting that a $100\ \mathrm{\mu m}$ change in the radius of the sample (corresponding to a 0.2\% variation) will cause a 1.6\% error in the
 %apparent viscosity for a parallel plate setup, and 1.2\% for a
 %cone plate setup." (\cite{Hellström_2015})
-
+\newpage
 \section{Zusammenfassung}
-
-%Zu Guaran
+Das beobachtete Verhalten, wonach die Saccharoselösungen scheinbar scherverdünnendes Verhalten zeigen, kann über eine systematische Verfälschung der Messwerte durch ein Ansteigen der Temperatur während des Messprozesses plausibel erklärt werden. Leider gelang es deshalb nicht, abschließend zuverlässige Werte für die Viskositäten von den Saccharoselösungen oder einen Wert für die intrinsische Viskosität von Saccharose festzuhalten. Ein ausschlaggebender Fehlereinfluss hierfür war, selbst nachdem die Temperaturfehler durch ausschließliches Berücksichtigen der Messwerte für hohe Scherraten, mit großer Sicherheit ein Underfilling. Wegen des ausdrücklichen Hinweises seitens des Betreuers, bei den Guaran-Lösungen lieber etwas zu viel als zu wenig Probe ins Rheometer zu geben, wurde war Underfilling wahrscheinlich bei den Guaran-Messungen ein geringerer Einflussfaktor als bei den Saccharose-Messungen. Mit der im Versuchsverlauf gewonnenen Erfahrung der Versuchsdurchführenden wäre ein Wiederholen der Saccharose-Messungen sinnvoll. Die dann gewonnenen Daten würden mit Sicherheit bestätigen, dass sich Saccharoselösungen in der Tat als Newtonsche Flüssigkeiten verhalten, und ferner zulassen, die (intrinsische) Viskosität von Saccharose-Wasser-Lösungen genau zu bestimmen.\\
 Es gelingt uns nicht, eine zufriedenstellende Erklärung für die Messwerte bei den Konzentrationen $c=0.25\%,0.5\%$ zu finden. Ein Wiederholen dieser Messungen wird ausdrücklich empfohlen, um zu prüfen, ob das beobachtete Verhalten reproduzierbar ist. Zu erwarten ist jedoch, dass sich bei einer Wiederholung \glqq schönere\Grqq Werte ergeben würden, die erstens stützen, dass auch bei diesen Konzentrationen zwischen der Viskosität und der Scherrate ein Potenzgesetzzusammenhang gilt, und zweitens, das Guaran-Wasser-Lösungen für beliebige Konzentrationen scherverdünnend sind. \\
 Weiterhin empfehlen wir eine Versuchsdurchführung in einem wärmeren Raum. Wahrscheinlich würde dann kein scherverdünnendes Verhalten bei den Saccharose-Lösungen beobachtet werden.
 
@@ -259,7 +387,7 @@ Weiterhin empfehlen wir eine Versuchsdurchführung in einem wärmeren Raum. Wahr
 %\subsection{Ohne Linse (kollimiert)}
 %\plot{coll_z_75}{axiales Strahlprofil bei $z=75\mathrm{mm}$}{.8}{Messdaten Errorfunktion/Collimated_z_75.pdf}
 \section{Ergänzende Plots}
-\subsection{Bestimmung der Konzentrationsabhängigkeit der Viskosität bei Saccharose}\label{app2}
+\subsection{Bestimmung der Konzentrationsabhängigkeit zu Saccharose}\label{app2}
 \plot{suc_eta_c_gammadot1}{Auftragung von $\eta$ gegen $c$ bei Saccharose für Scherrate 1}{.75}{C:/Users/Jan-Philipp/Documents/Eigene Dokumente/Physikstudium/5. Semester/F2- Fortgeschrittenenpraktikum/Viskoelastizität - Rheologie/Wichtige_Plots/Viscosity_by_Concentration_Sucrose_gamma_0.9998_s-1.pdf}
 \plot{suc_eta_c_gammadot2}{Auftragung von $\eta$ gegen $c$ bei Saccharose für Scherrate 2}{.75}{C:/Users/Jan-Philipp/Documents/Eigene Dokumente/Physikstudium/5. Semester/F2- Fortgeschrittenenpraktikum/Viskoelastizität - Rheologie/Wichtige_Plots/Viscosity_by_Concentration_Sucrose_gamma_1.585_s-1.pdf}
 \plot{suc_eta_c_gammadot3}{Auftragung von $\eta$ gegen $c$ bei Saccharose für Scherrate 3}{.75}{C:/Users/Jan-Philipp/Documents/Eigene Dokumente/Physikstudium/5. Semester/F2- Fortgeschrittenenpraktikum/Viskoelastizität - Rheologie/Wichtige_Plots/Viscosity_by_Concentration_Sucrose_gamma_2.511_s-1.pdf}
@@ -272,7 +400,7 @@ Weiterhin empfehlen wir eine Versuchsdurchführung in einem wärmeren Raum. Wahr
 \plot{suc_eta_c_gammadot10}{Auftragung von $\eta$ gegen $c$ bei Saccharose für Scherrate 10}{.75}{C:/Users/Jan-Philipp/Documents/Eigene Dokumente/Physikstudium/5. Semester/F2- Fortgeschrittenenpraktikum/Viskoelastizität - Rheologie/Wichtige_Plots/Viscosity_by_Concentration_Sucrose_gamma_63.1_s-1.pdf}
 \plot{suc_eta_c_gammadot11}{Auftragung von $\eta$ gegen $c$ bei Saccharose für Scherrate 11}{.75}{C:/Users/Jan-Philipp/Documents/Eigene Dokumente/Physikstudium/5. Semester/F2- Fortgeschrittenenpraktikum/Viskoelastizität - Rheologie/Wichtige_Plots/Viscosity_by_Concentration_Sucrose_gamma_100.0_s-1.pdf}
 
-\subsection{Bestimmung der Überlappkonzentration für verschiedene Scherraten bei Guaran}\label{app1}
+\subsection{Bestimmung der Überlappkonzentration von Guaran}\label{app1}
 \plot{guar_eta_c_gammadot1}{Auftragung von $\eta$ gegen $c$ bei Guaran für Scherrate 1}{.75}{C:/Users/Jan-Philipp/Documents/Eigene Dokumente/Physikstudium/5. Semester/F2- Fortgeschrittenenpraktikum/Viskoelastizität - Rheologie/Wichtige_Plots/Viscosity_by_Concentration_Guar_0.9643s-1.pdf}
 \plot{guar_eta_c_gammadot2}{Auftragung von $\eta$ gegen $c$ bei Guaran für Scherrate 2}{.75}{C:/Users/Jan-Philipp/Documents/Eigene Dokumente/Physikstudium/5. Semester/F2- Fortgeschrittenenpraktikum/Viskoelastizität - Rheologie/Wichtige_Plots/Viscosity_by_Concentration_Guar_1.582s-1.pdf}
 \plot{guar_eta_c_gammadot3}{Auftragung von $\eta$ gegen $c$ bei Guaran für Scherrate 3}{.75}{C:/Users/Jan-Philipp/Documents/Eigene Dokumente/Physikstudium/5. Semester/F2- Fortgeschrittenenpraktikum/Viskoelastizität - Rheologie/Wichtige_Plots/Viscosity_by_Concentration_Guar_2.507s-1.pdf}
@@ -289,6 +417,9 @@ Weiterhin empfehlen wir eine Versuchsdurchführung in einem wärmeren Raum. Wahr
 \subsection{Bestimmung des Potenzgesetzes für Saccharose}
 \lstinputlisting{Saccharose_Plots/Wasser-Saccharose_Viskositat_Scherrate_alle_Konzentrationen.py}
 \lstinputlisting{Saccharose_Plots/Wasser-Saccharose_Stress_Scherrate_alle_Konzentrationen.py}
+
+\subsection{Bestimmung des Potenzgesetzes für die Messdaten aus der Literatur}
+\lstinputlisting{Guaran_Visk_gammadot_literatur.py}
 
 \subsection{Bestimmung des Potenzgesetzes für Guaran}
 \lstinputlisting{Guaran_Plots/Guaran_Stress_Scherrate_alle_Konzentrationen.py}
